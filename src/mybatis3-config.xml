@@ -54,7 +54,7 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
 				<!-- 180.186.21.187,127.0.0.1 -->
-				<property name="url" value="jdbc:oracle:thin:@//202.85.211.149:1521/orcl" />
+				<property name="url" value="jdbc:oracle:thin:@//127.0.0.1:1521/orcl" />
 				<property name="username" value="gps" />
 				<property name="password" value="gps" />
 				<property name="poolMaximumActiveConnections" value="15"/>

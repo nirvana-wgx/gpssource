@@ -1,5 +1,35 @@
 K 25
 svn:wc:ra_dav:version-url
-V 48
-/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/classes
+V 29
+/svn/gps/!svn/ver/778/gps/src
+END
+gps.properties
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/gps/!svn/ver/617/gps/src/gps.properties
+END
+applicationContext.xml
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/gps/!svn/ver/32/gps/src/applicationContext.xml
+END
+gps.sql
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/gps/!svn/ver/792/gps/src/gps.sql
+END
+log4j.properties
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/gps/!svn/ver/722/gps/src/log4j.properties
+END
+mybatis3-config.xml
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/gps/!svn/ver/793/gps/src/mybatis3-config.xml
 END

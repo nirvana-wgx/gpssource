@@ -298,33 +298,33 @@
     //入库弹出框
     function openTest(){
 	  digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-	  var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_test_add.jsp","",digStr)
+	  var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/vehicle_test_add.jsp","",digStr)
 	  alert(ReturnValue);
 	 }
 	 //销售弹出框
     function openSale(){
       digStr="dialogHeight:400px;dialogWidth:600px;center:yes"
-      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/saleinf_add.jsp","",digStr)
+      var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/saleinf_add.jsp","",digStr)
      }
      //还款弹出框
     function openRefund(){
       digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/refundinf_add.jsp","",digStr)
+      var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/refundinf_add.jsp","",digStr)
      }
      //保养弹出框
     function openMaintain(){
       digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/maintain_add.jsp","",digStr)
+      var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/maintain_add.jsp","",digStr)
      }
      //历史信息
     function goHistory(){
       //digStr="dialogHeight:600px;dialogWidth:700px;center:yes"
       window.open("<%=path%>/jsp/vechiclemanager/singlevehicle/history_info.jsp");
-      //var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/singlevehicle/history_info.jsp","",digStr)
+      //var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/singlevehicle/history_info.jsp","",digStr)
      }
 	 //修改弹出框
     function updVehicle(){
       digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_edit.jsp","",digStr)
+      var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/vehicle_edit.jsp","",digStr)
      }
 </script>

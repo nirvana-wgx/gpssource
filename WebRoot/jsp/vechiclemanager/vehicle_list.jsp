@@ -485,7 +485,7 @@ function query(type){
 			}else if($.trim(carstate)=='clzt03'){//销售
 				url ="<%=path%>/jsp/vechiclemanager/vehicle_sale_edit.jsp";
 			}
-			var params = window.showModalDialog(url,"",digStr)
+			var params = window.open(url,"",digStr)
 			//alert(ReturnValue);
 			if(params){
 				params = decodeURIComponent(params,true);
@@ -514,18 +514,18 @@ function query(type){
     //入库弹出框
     function openTest(){
 	  digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-	  var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_test_add.jsp","",digStr)
+	  var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/vehicle_test_add.jsp","",digStr)
 	  alert(ReturnValue);
 	 }
 	 //销售弹出框
     function openSale(){
       digStr="dialogHeight:400px;dialogWidth:600px;center:yes"
-      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/saleinf_add.jsp","",digStr)
+      var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/saleinf_add.jsp","",digStr)
      }
      //还款弹出框
     function openRefund(rid){
       		digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-      		var str = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_refunder_edit.jsp","",digStr)
+      		var str = window.open("<%=path%>/jsp/vechiclemanager/vehicle_refunder_edit.jsp","",digStr)
       		if(str){
       			str="frid="+rid+"&"+str;
 	      		 $.ajax({
@@ -547,7 +547,7 @@ function query(type){
      //保养弹出框
     function openMaintain(vehicleid){
       		digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-      		var str = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_maintain_edit.jsp","",digStr)
+      		var str = window.open("<%=path%>/jsp/vechiclemanager/vehicle_maintain_edit.jsp","",digStr)
       		 
 			if(str){
       			str="vehicleid="+vehicleid+"&"+str;
@@ -575,7 +575,7 @@ function query(type){
     		var urlstr="updicateSend.page?&vehicleid="+vehicleid+"&deviceid="+deviceid+"&sim="+sim;
     		urlstr = decodeURIComponent(urlstr,true);
 			urlstr = encodeURI(encodeURI(urlstr));
-      		var str = window.showModalDialog(urlstr,"",digStr);
+      		var str = window.open(urlstr,"",digStr);
       		if(str){
 	      		 $.ajax({
 						 url:"dicateSend.page",
@@ -594,18 +594,18 @@ function query(type){
 			}
       //digStr="dialogHeight:600px;dialogWidth:700px;center:yes"
       //window.open("<%=path%>/jsp/vechiclemanager/dictate_send_edit.jsp");
-      //var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/cmd_down.jsp","",digStr)
+      //var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/cmd_down.jsp","",digStr)
      }
      //历史信息
     function goHistory(deviceid){
 //       digStr="dialogHeight:600px;dialogWidth:700px;center:yes"
       window.open("<%=path%>/jsp/vechiclemanager/VehicleSearchJsp.page?deviceid=" + deviceid);
-//       var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/singlevehicle/history_info.jsp","",digStr)
+//       var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/singlevehicle/history_info.jsp","",digStr)
      }
 	 //修改弹出框
     function updVehicle(){
       digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
-      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_edit.jsp","",digStr)
+      var ReturnValue = window.open("<%=path%>/jsp/vechiclemanager/vehicle_edit.jsp","",digStr)
      }
 </script>
 </body>
