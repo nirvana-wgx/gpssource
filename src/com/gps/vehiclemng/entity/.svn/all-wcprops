@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/gps/!svn/ver/780/gps/src/com/gps/vehiclemng/entity
+END
+Maintenance.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/670/gps/src/com/gps/vehiclemng/entity/Maintenance.java
+END
+Messagebm.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gps/!svn/ver/802/gps/src/com/gps/vehiclemng/entity/Messagebm.java
+END
+Refund.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gps/!svn/ver/424/gps/src/com/gps/vehiclemng/entity/Refund.java
+END
+Car.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gps/!svn/ver/817/gps/src/com/gps/vehiclemng/entity/Car.java
+END
+Commandorigin.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/743/gps/src/com/gps/vehiclemng/entity/Commandorigin.java
+END
+VehicleInfNew.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/509/gps/src/com/gps/vehiclemng/entity/VehicleInfNew.java
+END
+CmdDown.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gps/!svn/ver/731/gps/src/com/gps/vehiclemng/entity/CmdDown.java
+END
+Messageorigin.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/687/gps/src/com/gps/vehiclemng/entity/Messageorigin.java
+END
+EFencAlarm.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/gps/!svn/ver/564/gps/src/com/gps/vehiclemng/entity/EFencAlarm.java
+END

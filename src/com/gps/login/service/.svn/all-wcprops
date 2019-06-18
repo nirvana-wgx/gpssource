@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/gps/!svn/ver/600/gps/src/com/gps/login/service
+END
+AccountServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/gps/!svn/ver/600/gps/src/com/gps/login/service/AccountServiceImpl.java
+END
+ILoginlogService.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/gps/!svn/ver/113/gps/src/com/gps/login/service/ILoginlogService.java
+END
+IAccountService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/600/gps/src/com/gps/login/service/IAccountService.java
+END
+LoginlogServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/gps/!svn/ver/121/gps/src/com/gps/login/service/LoginlogServiceImpl.java
+END

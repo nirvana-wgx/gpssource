@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/gps/!svn/ver/790/gps/src/com/gps/alarm/entity
+END
+VehicleinAlarm.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gps/!svn/ver/790/gps/src/com/gps/alarm/entity/VehicleinAlarm.java
+END
+GpsAlarm.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gps/!svn/ver/790/gps/src/com/gps/alarm/entity/GpsAlarm.java
+END
+SellAlarm.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/gps/!svn/ver/804/gps/src/com/gps/alarm/entity/SellAlarm.java
+END
+ServiceAlarm.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gps/!svn/ver/790/gps/src/com/gps/alarm/entity/ServiceAlarm.java
+END

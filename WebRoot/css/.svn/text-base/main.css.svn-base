@@ -1,0 +1,227 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #ffffff;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-bottom: 1px;
+	margin-right: 1px;
+	font-size: 10pt;
+	color:#2f5c97;
+}
+.gpsLeft{
+	text-align:left;
+	margin-left:4px;
+}
+.gpsRight{
+	text-align:right;
+	margin-right:4px;
+}
+.gpsCenter{
+	text-align:center;
+}
+.gpsTop{
+	vertical-align :top;
+	margin-top:4px;
+}
+.gpsMiddle{
+	vertical-align :middle;
+}
+.gpsBottom{
+	vertical-align :bottom;
+	margin-bottom:4px;
+}
+table{
+	border:1px #bfd4e9 solid;
+	border-collapse:collapse;
+	margin-top:2px;
+}
+tbody{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9pt;
+	color:#2f5c97;
+}
+td {
+	border:1px #bfd4e9 solid;
+	padding:1px;
+}
+
+form {
+	z-index: 0
+}
+
+textarea {
+	font-size: 9pt
+}
+
+select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px
+	background-color: #e8f4ff;
+	height: 20px;
+	color: #005090;
+	line-height: 120%;
+	border-bottom: 1px solid #003399;
+}
+
+option {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px
+}
+.gpsText {
+	border:1px #bfd4e9 solid;
+	font-size: 12px;
+	height: 20px;
+	font-family: Arial, Helvetica, sans-serif
+}
+.gpsTextArea{
+	border:1px #bfd4e9 solid;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif
+}
+.gpsButton {
+     font-family: "tahoma", "宋体"; /*www.52css.com*/
+     font-size:9pt; 
+     color: #003399;
+     border: 1px #003399 solid;
+     border-bottom: #93bee2 1px solid;
+     border-left: #93bee2 1px solid;
+     border-right: #93bee2 1px solid;
+     border-top: #93bee2 1px solid;
+     background-color: #e8f4ff;
+     cursor: hand;
+     font-style: normal ;
+     height:22px;
+}
+.gpsDiv {
+	text-align: center;
+	padding: 4px;
+}
+
+.gpsTdButton {
+	height: 30px;
+	text-align: center;
+}
+
+/************************************/
+.gpsTdTitle {
+	background:#ffffff url(../images/bg_listit.gif) repeat-x top;
+/*	background:url(bg_menu_top.png);
+	background-color: #628492;*/
+	padding-left: 6px;
+	padding-right: 6px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-align:center;
+}
+.gpsRequired{
+	
+}
+
+a:link {
+	font-size: 9pt;
+	color: #2B7291;
+	text-decoration: underline
+}
+
+/*a:visited { font-size: 9pt; color: #672C3C; text-decoration: underline }*/
+a:visited {
+	font-size: 9pt;
+	color: #2B7291;
+	text-decoration: underline
+}
+
+a:hover {
+	font-size: 9pt;
+	color: #ff3000;
+	text-decoration: none
+}
+
+a:active {
+	font-size: 9pt;
+	color: #ff0000;
+	text-decoration: underline
+}
+.gpsTableSubTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	color:Navy;
+	padding-left: 5px
+}
+.tdPages {
+	text-align:right;
+}
+.goToPageText{
+	height:20px;
+	width:30px;
+}
+.gpsGoToPageText {
+	font-family: arial;
+	font-size: 10px;
+	height: 18px;
+	width: 30px;
+	text-align: center
+}
+.pageFont {
+}
+/*****************************************************************************/
+.treeLink {
+	color: #000000;
+	text-decoration: underline
+}
+
+.treeHover {
+	color: #0000ff;
+	cursor: hand;
+	text-decoration: none
+}
+
+.treeActive {
+	color: #ff0000;
+	font-weight: bold;
+	text-decoration: none
+}
+
+.remark {
+	color: green;
+	font-size: 12px;
+}
+.gpsPagenationGoNumber{
+	width:26px;
+	height:14px;
+}
+.gpsPagenationGoButton{
+	height:18px;
+}
+.gpsPagenationA{
+	/*border:1px #bfd4e9 solid;*/
+	width:20px;
+	height:18px;
+}
+.gpsHand{
+	cursor:hand;
+}
+/**
+*<iframe class='gpsPageNationIframe' border='0' scrolling='no' src='../../../include/oa_pagenation.htm'/>
+*
+.gpsPageNationIframe{
+	border-style:none;
+	height:28px;
+	width:100%;
+	text-align:right;
+	overflow:hidden;
+	auto-scroll:none;
+}
+*/
+.gpsLeftTreeSpan{
+	border:1px red solid;
+	height:20px;
+	width:100px;
+	margin-left:30px;
+	margin-top:0px;
+}
+.gpsLeftTreeSpanBar{
+	cursor:hand;
+}
+.gpsNoBorder{
+	border:0px red solid;
+}

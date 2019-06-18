@@ -1,0 +1,8 @@
+<br />
+<b>Warning</b>:  getimagesize(/home/ftp/1520/easyicon.cn/easyicon.cn/download/20310.png) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: No such file or directory in <b>/home/ftp/1520/easyicon.cn/easyicon.cn/download/index.php</b> on line <b>86</b><br />
+<br />
+<b>Warning</b>:  Division by zero in <b>/home/ftp/1520/easyicon.cn/easyicon.cn/download/index.php</b> on line <b>87</b><br />
+<br />
+<b>Warning</b>:  getimagesize(/home/ftp/1520/easyicon.cn/easyicon.cn/download/20310.png) [<a href='function.getimagesize'>function.getimagesize</a>]: failed to open stream: No such file or directory in <b>/home/ftp/1520/easyicon.cn/easyicon.cn/api/png_function.php</b> on line <b>19</b><br />
+<br />
+<b>Warning</b>:  Division by zero in <b>/home/ftp/1520/easyicon.cn/easyicon.cn/api/png_function.php</b> on line <b>27</b><br />

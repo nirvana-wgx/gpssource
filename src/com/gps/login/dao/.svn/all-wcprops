@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/gps/!svn/ver/600/gps/src/com/gps/login/dao
+END
+AccountDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/gps/!svn/ver/600/gps/src/com/gps/login/dao/AccountDao.java
+END
+LoginlogDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gps/!svn/ver/807/gps/src/com/gps/login/dao/LoginlogDaoMapper.xml
+END
+AccountDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gps/!svn/ver/600/gps/src/com/gps/login/dao/AccountDaoMapper.xml
+END
+LoginlogDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gps/!svn/ver/113/gps/src/com/gps/login/dao/LoginlogDao.java
+END

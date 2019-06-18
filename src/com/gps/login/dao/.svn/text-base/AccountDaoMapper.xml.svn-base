@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.gps.login.dao.AccountDao">  
+      <insert id="save" parameterType="Account">
+          <selectKey keyProperty="aid" resultType="String" order="BEFORE">
+          	select seq_account.nextval from dual
+          </selectKey>
+	      insert into account(aid,name,pass,parentname,maxchild,maxlevel)
+	      values(${aid},#{name},#{pass},#{parentname},#{maxchild},#{maxlevel})
+      </insert>
+      <update id="updateAccountByAid" parameterType="Account">
+      	update account 
+	      	<trim  prefixOverrides=",">
+	      	<set>
+	      	<if test="pass !=null ">pass=#{pass},</if>
+	      	<if test="maxchild !=null ">maxchild=#{maxchild}</if>
+	      	</set>
+	      	where aid =#{aid}
+	      	</trim>
+      </update>
+      <delete id="deleteAccountByAid" parameterType="Account">
+      		delete from account   where aid =#{aid}
+      </delete>
+      <select id="findByNameAndPass" parameterType="Account" resultType="Account">
+      		select t.*  from account t where 1=1 
+      		<if test="name!=null">
+      			and t.name=#{name}
+      		</if>
+      		<if test="pass!=null">
+      			and t.pass=#{pass}
+      		</if>
+      		 <if test="aid!=null">
+      			and t.aid=#{aid}
+      		</if>
+      </select>
+      
+      <select id="findAll"  resultType="Account" parameterType="Account">
+      		select t.* from(select a.*, rownum rn from (select * from account order by aid) a ) t  
+      </select>
+      
+      <select id="findChildren"  resultType="Account" parameterType="Account">
+      		select t1.* from(select a.*, rownum rn from (select t.*,(select count(1) from relation re where re.account=t.name) carnums from account t
+      		where 1=1  and t.name in
+      		(select ac.name from account ac  start with ac.name='${cname}' connect  by prior ac.name=ac.parentname)
+      		 <if test=" name!=null ">
+      			and t.name like '${name}'
+      		</if>
+      		<if test=" parentname!=null ">
+      			and t.parentname like '${parentname}'
+      		</if>
+      		and t.name not in('${cname}')
+      		order by aid) a )  t1 
+      		<if test=" start!=null ">
+      			where rn between '${start}' and '${end}'
+      		</if> 
+      		
+      </select>
+      <select id="findChildrenByname"  resultType="Account" parameterType="String">
+      		 select ac.* from account ac  start with ac.name=#{name} connect  by prior ac.name=ac.parentname 
+      </select>
+      <select id="findChildrenAc"  resultType="Account" parameterType="Account">
+            select t1.* from(select a.*, rownum rn from (select * from account t
+            where 1=1 and t.PARENTNAME = #{name}) a ) t1
+      </select>
+ </mapper> 

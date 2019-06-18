@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.alarm.dao.VehicleinfnewAlarmDao">
+   <select id="getVehicleinfAlarm" parameterType="java.util.Map" resultType="VehicleinAlarm">
+      select t1.*
+         from (select t.* , rownum rn
+            from (
+		         select * from (
+					  select deviceid, vehicleid, sim, account, receivetime, items, items_info 
+					    from ( select distinct a.deviceid, a.vehicleid, b.sim, b.account, a.receivetime, a.warnys, a.warncd, a.warnry, a.warnyy, a.warnsw, a.warnyw, a.warnyl, a.warnkl, a.warndydy
+					              from vehicleinfnew a, relation b
+					             where a.deviceid = b.deviceid
+					               and (a.deviceid = '${ deviceid }' or '${ deviceid }' is null)
+					               and (a.vehicleid = '${ vehicleid }' or '${ vehicleid }' is null)
+					               and (b.sim = '${ sim }' or '${ sim }' is null)
+					               and (b.account = '${ account }' or '${ account }' is null)
+					               <if test="login_name != 'root'">
+			                         and b.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+			                     </if>
+			                     and b.account in (select ac.name
+                                         from account ac
+                                   start with ac.name = #{login_name}
+                             connect by prior ac.name = ac.parentname)
+					         ) 
+					   model
+					   return updated rows
+					   partition by (deviceid, vehicleid, sim, account, receivetime)
+					   dimension by (0 AS n)
+					   measures ('xxxxxxxxxxxxxxxxx' AS items,'yyyyyyyyyyyyyyyyyyy' AS items_info,warnys, warncd, warnry, warnyy, warnsw, warnyw, warnyl, warnkl, warndydy)
+					   rules upsert all
+					     (
+					         items[1] = 'warnys',
+					         items[2] = 'warncd',
+					         items[3] = 'warnry',
+					         items[4] = 'warnyy',
+					         items[5] = 'warnsw',
+					         items[6] = 'warnyw',
+					         items[7] = 'warnyl',
+					         items[8] = 'warnkl',
+					         items[9] = 'warndydy',
+					         items_info[1] = warnys[0],
+					         items_info[2] = warncd[0],
+					         items_info[3] = warnry[0],
+					         items_info[4] = warnyy[0],
+					         items_info[5] = warnsw[0],
+					         items_info[6] = warnyw[0],
+					         items_info[7] = warnyl[0],
+					         items_info[8] = warnkl[0],
+					         items_info[9] = warndydy[0]
+					     )
+					   order by deviceid, items) 
+					where (items = '${ item }' or '${ item }' is null)
+					  and items_info != '正常'
+					order by receivetime desc) t) t1
+        where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getVehicleinfAlarmCount" parameterType="java.util.Map" resultType="int">
+      select count(1) from (
+		  select deviceid, vehicleid, sim, account, receivetime, items, items_info 
+		    from ( select distinct a.deviceid, a.vehicleid, b.sim, b.account, a.receivetime, a.warnys, a.warncd, a.warnry, a.warnyy, a.warnsw, a.warnyw, a.warnyl, a.warnkl, a.warndydy
+		              from vehicleinfnew a, relation b
+		             where a.deviceid = b.deviceid
+		               and (a.deviceid = '${ deviceid }' or '${ deviceid }' is null)
+                     and (a.vehicleid = '${ vehicleid }' or '${ vehicleid }' is null)
+                     and (b.sim = '${ sim }' or '${ sim }' is null)
+                     and (b.account = '${ account }' or '${ account }' is null)
+                     <if test="login_name != 'root'">
+                         and b.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+                     </if>
+                     and b.account in (select ac.name
+                                from account ac
+                          start with ac.name = #{login_name}
+                    connect by prior ac.name = ac.parentname)
+		         ) 
+		   model
+		   return updated rows
+		   partition by (deviceid, vehicleid, sim, account, receivetime)
+		   dimension by (0 AS n)
+		   measures ('xxxxxxxxxxxxxxxxx' AS items,'yyyyyyyyyyyyyyyyyyy' AS items_info,warnys, warncd, warnry, warnyy, warnsw, warnyw, warnyl, warnkl, warndydy)
+		   rules upsert all
+		     (
+		         items[1] = 'warnys',
+		         items[2] = 'warncd',
+		         items[3] = 'warnry',
+		         items[4] = 'warnyy',
+		         items[5] = 'warnsw',
+		         items[6] = 'warnyw',
+		         items[7] = 'warnyl',
+		         items[8] = 'warnkl',
+		         items[9] = 'warndydy',
+		         items_info[1] = warnys[0],
+		         items_info[2] = warncd[0],
+		         items_info[3] = warnry[0],
+		         items_info[4] = warnyy[0],
+		         items_info[5] = warnsw[0],
+		         items_info[6] = warnyw[0],
+		         items_info[7] = warnyl[0],
+		         items_info[8] = warnkl[0],
+		         items_info[9] = warndydy[0]
+		     )
+		   order by deviceid,items) 
+		where (items = '${ item }' or '${ item }' is null)
+		  and items_info != '正常'
+   </select>
+   
+   <select id="getGpsAlarm" parameterType="java.util.Map" resultType="GpsAlarm">
+      select t1.*
+         from (select t.* , rownum rn
+            from (
+               select * from (
+                 select deviceid, sim, receivetime, items, items_info 
+                   from ( select distinct a.deviceid, b.sim, a.receivetime, 
+                                 ( case when to_number(substr(a.voltage,0,length(a.voltage) - 1)) &lt; 5 then '报警' else '正常' end) voltage,
+                                 ( case when a.gpsshell = '外壳闭合' then '正常' else '报警' end) gpsshell,
+                                 a.gpsantenna 
+                             from vehicleinfnew a, relation b
+                            where a.deviceid = b.deviceid
+                              and (a.deviceid = '${ deviceid }' or '${ deviceid }' is null)
+                              and (b.sim = '${ sim }' or '${ sim }' is null)
+                              <if test="login_name != 'root'">
+                                  and b.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+                              </if>
+                              and b.account in (select ac.name
+                                         from account ac
+                                   start with ac.name = #{login_name}
+                             connect by prior ac.name = ac.parentname)
+                        ) 
+                  model
+                  return updated rows
+                  partition by (deviceid, sim, receivetime)
+                  dimension by (0 AS n)
+                  measures ('xxxxxxxxxxxxxxxxx' AS items,'yyyyyyyyyyyyyyyyyyy' AS items_info,voltage, gpsshell, gpsantenna)
+                  rules upsert all
+                    (
+                        items[1] = 'voltage',
+                        items[2] = 'gpsshell',
+                        items[3] = 'gpsantenna',
+                        items_info[1] = voltage[0],
+                        items_info[2] = gpsshell[0],
+                        items_info[3] = gpsantenna[0]
+                    )
+                  order by deviceid, items) 
+               where (items = '${ item }' or '${ item }' is null)
+                 and items_info != '正常'
+               order by receivetime desc) t) t1
+        where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getGpsAlarmCount" parameterType="java.util.Map" resultType="int">
+      select count(1) from (
+        select deviceid, sim, receivetime, items, items_info 
+          from ( select distinct a.deviceid, b.sim, a.receivetime, 
+                         ( case when to_number(substr(a.voltage,0,length(a.voltage) - 1)) &lt; 5 then '报警' else '正常' end) voltage,
+                         ( case when a.gpsshell = '外壳闭合' then '正常' else '报警' end) gpsshell,
+                         a.gpsantenna
+                    from vehicleinfnew a, relation b
+                   where a.deviceid = b.deviceid
+                     and (a.deviceid = '${ deviceid }' or '${ deviceid }' is null)
+                     and (b.sim = '${ sim }' or '${ sim }' is null)
+                     <if test="login_name != 'root'">
+                         and b.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+                     </if>
+                     and b.account in (select ac.name
+                                from account ac
+                          start with ac.name = #{login_name}
+                    connect by prior ac.name = ac.parentname)
+               ) 
+         model
+         return updated rows
+         partition by (deviceid, sim, receivetime)
+         dimension by (0 AS n)
+         measures ('xxxxxxxxxxxxxxxxx' AS items,'yyyyyyyyyyyyyyyyyyy' AS items_info,voltage, gpsshell, gpsantenna)
+         rules upsert all
+           (
+               items[1] = 'voltage',
+               items[2] = 'gpsshell',
+               items[3] = 'gpsantenna',
+               items_info[1] = voltage[0],
+               items_info[2] = gpsshell[0],
+               items_info[3] = gpsantenna[0]
+           )
+         order by deviceid,items) 
+      where (items = '${ item }' or '${ item }' is null)
+        and items_info != '正常'
+   </select>
+   
+   
+   
+   <select id="getSellAlarm" parameterType="java.util.Map" resultType="SellAlarm">
+      select t1.*
+         from (select t.* , rownum rn
+            from (
+		         select c.* 
+					  from (select b.frid, sum(b.refundmoney) as refundmoney, max(b.refundtime) as refundtime, a.vehicleid, a.account, a.paymonth, a.payterm,a.paywarndate,
+					                                   (case when to_char(to_date(nvl(a.buytime,'1900-01-31'),'yyyy-mm-dd'),'yyyymmdd') &lt;= to_char(to_date(nvl(a.buytime,'1900-01-31'),'yyyy-mm-dd'),'yyyymm') || substr(nvl(a.paywarndate,'1900-01-31'),9,2)
+					                                         then months_between(to_date(decode(a.buytime,null,'1900-01',to_char(sysdate,'yyyy-mm')) || '-01','yyyy-mm-dd'),to_date(substr(nvl(a.buytime,'1900-01-31'),1,7),'yyyy-mm'))
+					                                         else months_between(to_date(decode(a.buytime,null,'1900-01',to_char(sysdate,'yyyy-mm')) || '-01','yyyy-mm-dd'),add_months(to_date(substr(nvl(a.buytime,'1900-01-31'),1,7),'yyyy-mm'),1)) end) month_count,
+					                                         (case when to_char(sysdate,'yyyymmdd') &lt; to_char(sysdate,'yyyymm') || substr(nvl(a.paywarndate,'1900-01-31'),9,2) and substr(nvl(a.paywarndate,'1900-01-31'),9,2) between '01' and to_char(last_day(add_months(sysdate,-1)),'dd')
+							                                         then to_char(add_months(sysdate,-1),'yyyy-mm') || '-' || substr(nvl(a.paywarndate,'1900-01-31'),9,2)
+							                                         when to_char(sysdate,'yyyymmdd') &lt; to_char(sysdate,'yyyymm') || substr(nvl(a.paywarndate,'1900-01-31'),9,2) and substr(nvl(a.paywarndate,'1900-01-31'),9,2) &gt; to_char(last_day(add_months(sysdate,-1)),'dd')
+							                                         then to_char(add_months(sysdate,-1),'yyyy-mm') || '-' || to_char(last_day(add_months(sysdate,-1)),'dd')
+							                                         else to_char(sysdate,'yyyy-mm') || '-' || substr(nvl(a.paywarndate,'1900-01-31'),9,2) end) exptime
+					                                     from relation a, refund b
+					                                    where a.rid = b.frid(+)
+					                                      and a.payway = '2'
+					                                      and a.prepay is not null
+					                                       and (a.vehicleid = '${ vehicleid }' or '${ vehicleid }' is null)
+												                  and (a.account = '${ account }' or '${ account }' is null)
+												                  <if test="login_name != 'root'">
+												                      and a.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+												                  </if>
+												                  and a.account in (select ac.name
+												                             from account ac
+												                       start with ac.name = #{login_name}
+												                 connect by prior ac.name = ac.parentname)
+					                                  group by b.frid,a.buytime,a.paywarndate,a.vehicleid,a.account,a.paymonth,a.payterm,a.paywarndate) c
+					  where c.paymonth * c.payterm * 12 != c.refundmoney
+					    and c.month_count * c.paymonth &gt; c.refundmoney
+					    and (c.exptime = '${ exptime }' or '${ exptime }' is null)) t) t1
+        where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getSellAlarmCount" parameterType="java.util.Map" resultType="int">
+							         select count(1) 
+					  from (select b.frid, sum(b.refundmoney) as refundmoney, max(b.refundtime) as refundtime, a.vehicleid, a.account, a.paymonth, a.payterm,a.paywarndate,
+					                                   (case when to_char(to_date(nvl(a.buytime,'1900-01-31'),'yyyy-mm-dd'),'yyyymmdd') &lt;= to_char(to_date(nvl(a.buytime,'1900-01-31'),'yyyy-mm-dd'),'yyyymm') || substr(nvl(a.paywarndate,'1900-01-31'),9,2)
+					                                         then months_between(to_date(decode(a.buytime,null,'1900-01',to_char(sysdate,'yyyy-mm')) || '-01','yyyy-mm-dd'),to_date(substr(nvl(a.buytime,'1900-01-31'),1,7),'yyyy-mm'))
+					                                         else months_between(to_date(decode(a.buytime,null,'1900-01',to_char(sysdate,'yyyy-mm')) || '-01','yyyy-mm-dd'),add_months(to_date(substr(nvl(a.buytime,'1900-01-31'),1,7),'yyyy-mm'),1)) end) month_count,
+					                                   (case when to_char(sysdate,'yyyymmdd') &lt; to_char(sysdate,'yyyymm') || substr(nvl(a.paywarndate,'1900-01-31'),9,2) and substr(nvl(a.paywarndate,'1900-01-31'),9,2) between '01' and to_char(last_day(add_months(sysdate,-1)),'dd')
+				                                            then to_char(add_months(sysdate,-1),'yyyy-mm') || '-' || substr(nvl(a.paywarndate,'1900-01-31'),9,2)
+				                                            when to_char(sysdate,'yyyymmdd') &lt; to_char(sysdate,'yyyymm') || substr(nvl(a.paywarndate,'1900-01-31'),9,2) and substr(nvl(a.paywarndate,'1900-01-31'),9,2) &gt; to_char(last_day(add_months(sysdate,-1)),'dd')
+				                                            then to_char(add_months(sysdate,-1),'yyyy-mm') || '-' || to_char(last_day(add_months(sysdate,-1)),'dd')
+				                                            else to_char(sysdate,'yyyy-mm') || '-' || substr(nvl(a.paywarndate,'1900-01-31'),9,2) end) exptime
+					                                     from relation a, refund b
+					                                    where a.rid = b.frid(+)
+					                                      and a.payway = '2'
+					                                      and a.prepay is not null
+					                                      and (a.vehicleid = '${ vehicleid }' or '${ vehicleid }' is null)
+												                  and (a.account = '${ account }' or '${ account }' is null)
+												                  <if test="login_name != 'root'">
+												                      and a.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+												                  </if>
+												                  and a.account in (select ac.name
+												                             from account ac
+												                       start with ac.name = #{login_name}
+												                 connect by prior ac.name = ac.parentname)
+					                                  group by b.frid,a.buytime,a.paywarndate,a.vehicleid,a.account,a.paymonth,a.payterm,a.paywarndate) c
+					  where c.paymonth * c.payterm * 12 != c.refundmoney
+					    and c.month_count * c.paymonth &gt; c.refundmoney
+					    and (c.exptime = '${ exptime }' or '${ exptime }' is null)
+   </select>
+   
+   
+   
+   
+   <select id="getServiceAlarm" parameterType="java.util.Map" resultType="ServiceAlarm">
+      select t1.*
+         from (select t.* , rownum rn
+            from (
+               select a.vehicleid, b.account, a.expiretime, a.fitting as items
+					  from maintenance a, relation b
+					 where a.vehicleid = b.vehicleid
+					   and a.state = '正常'
+					   and a.action != '完成保养'
+					   and a.maintenancetime is null
+					   and to_char(a.expiretime,'YYYYMMDD') &lt;= '${ cur_dt }'
+					   and (a.vehicleid = '${ vehicleid }' or '${ vehicleid }' is null)
+					   and (b.account = '${ account }' or '${ account }' is null)
+					   and a.fitting like '%${ item }%'
+					   <if test="login_name != 'root'">
+                      and b.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+                  </if>
+                  and b.account in (select ac.name
+                             from account ac
+                       start with ac.name = #{login_name}
+                 connect by prior ac.name = ac.parentname)
+					order by a.expiretime desc) t) t1
+        where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getServiceAlarmCount" parameterType="java.util.Map" resultType="int">
+      select count(1)
+                 from maintenance a, relation b
+                where a.vehicleid = b.vehicleid
+                  and a.state = '正常'
+                  and a.action != '完成保养'
+                  and a.maintenancetime is null
+                  and to_char(a.expiretime,'YYYYMMDD') &lt;= '${ cur_dt }'
+                  and (a.vehicleid = '${ vehicleid }' or '${ vehicleid }' is null)
+                  and (b.account = '${ account }' or '${ account }' is null)
+                  and a.fitting like '%${ item }%'
+                  <if test="login_name != 'root'">
+                      and b.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+                  </if>
+                  and b.account in (select ac.name
+                             from account ac
+                       start with ac.name = #{login_name}
+                 connect by prior ac.name = ac.parentname)
+   </select>
+</mapper>

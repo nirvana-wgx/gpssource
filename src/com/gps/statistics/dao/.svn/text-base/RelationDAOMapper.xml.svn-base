@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.statistics.dao.RelationDAO">
+   <select id="getVehicleList" parameterType="java.util.Map" resultType="Relation">
+       select a1.*
+	      from (select a.* , rownum rn
+	         from (select t.*
+		              from relation t 
+		             where t.vehicleid like '%${vehicleid}%' 
+		               and t.deviceid like '%${deviceid}%' 
+		               <if test="login_name != 'root'">
+                         and t.carstate in (select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name = #{login_name})
+                     </if>
+		               and t.account in (select ac.name
+					                          from account ac
+					                    start with ac.name = #{login_name}
+					              connect by prior ac.name = ac.parentname)) a) a1
+		  where a1.rn between #{start} and #{end}         
+   </select>
+   <select id="getVehicleCount" parameterType="java.util.Map" resultType="int">
+         select count(*)  
+           from relation t
+          where t.vehicleid like '%${vehicleid}%' 
+            and t.deviceid like '%${deviceid}%'
+            and account in (select ac.name
+                                         from account ac
+                                   start with ac.name = #{login_name}
+                             connect by prior ac.name = ac.parentname)
+   </select>
+</mapper>

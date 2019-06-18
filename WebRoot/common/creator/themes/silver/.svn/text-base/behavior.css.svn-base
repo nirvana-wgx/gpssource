@@ -1,0 +1,982 @@
+﻿@charset "UTF-8";
+/******************************************************************************		                                
+									readme
+Title: behavior
+
+Themes: all
+
+plugins: 
+
+Required by: all
+
+Written by: jian.hou
+
+Date: 2012.3.9
+
+Update: 2012.5.29
+
+Copyright: 
+
+ 
+*******************************************************************************/
+
+body {
+	font-family: 'SimSun',"Microsoft YaHei",Arial, Helvetica, sans-serif;
+	behavior: url(../themes/silver/csshover3.htc);  /* IE6, IE7 and IE8 quirks :hover :active :focus 修复 */
+	/*overflow: hidden; 没有html { overflow: visible;}设置会在不同浏览器下失效*/
+	font-size: 12px;
+}
+
+/*-----------------------------------------------------------------------------
+                                  title
+-----------------------------------------------------------------------------*/
+
+h3 {
+	font-size: 14px;
+}
+
+
+/*-----------------------------------------------------------------------------
+                                  layout
+-----------------------------------------------------------------------------*/
+
+.float_left {
+	float: left; /*向左浮动*/
+}
+
+.float_right {
+	float: right; /*向右浮动*/
+}
+
+.float_none {
+	float: none; /*浮动取消*/
+}
+
+.clear_left {
+	clear: left; /*清除左浮动*/
+}
+
+.clear_right {
+	clear: right; /*清除右浮动*/
+}
+
+.clear {
+	clear: both; /*清除浮动影响*/
+}
+
+
+/*-----------------------------------------------------------------------------
+			                      color
+-----------------------------------------------------------------------------*/
+
+.red {
+	color: red;
+}
+
+.blue {
+	color: blue;
+}
+
+.gray {
+	color: gray;
+}
+
+.orange {
+	color: orange;
+}
+
+.gainsboro { /*淡灰色*/
+	color: gainsboro;
+}
+
+/*-----------------------------------------------------------------------------
+			                      background
+-----------------------------------------------------------------------------*/
+.gray_bgcolor {
+	background-color: #F5F5F5;
+}
+
+/*-----------------------------------------------------------------------------
+                                  align 
+-----------------------------------------------------------------------------*/
+.align_left {
+	text-align: left;
+}
+
+.align_right {
+	text-align: right;
+}
+
+.align_center {
+	text-align: center;
+}
+
+
+/*----------vertical-align----------------*//*只用于表格*/
+
+.align_top {
+	vertical-align: top;
+}
+
+.align_middle {
+	vertical-align: middle;
+}
+
+.align_bottom {
+	vertical-align: bottom;
+}
+
+/*-----------------------------------------------------------------------------
+                                  margin 
+-----------------------------------------------------------------------------*/
+
+.margin_0 {
+	margin: 0;
+}
+
+.margin_1 {
+	margin: 1px;
+}
+
+.margin_2 {
+	margin: 2px;
+}
+
+.margin_3 {
+	margin: 3px;
+}
+
+.margin_5 {
+	margin: 5px;
+}
+
+.margin_10 {
+	margin: 10px;
+}
+
+.margin_15 {
+	margin: 15px;
+}
+
+/*----------margin horizontal----------------*/
+
+.margin_hor_1 {
+	margin: 0 1px;
+}
+
+.margin_hor_2 {
+	margin:  0 2px;
+}
+
+.margin_hor_3 {
+	margin: 0 3px;
+}
+
+.margin_hor_5 {
+	margin: 0 5px;
+}
+
+.margin_hor_10 {
+	margin: 0 10px;
+}
+
+.margin_hor_15 {
+	margin: 0 15px;
+}
+
+/*----------margin vertical----------------*/
+
+.margin_vert_1 {
+	margin: 1px 0 ;
+}
+
+.margin_vert_2 {
+	margin: 2px 0;
+}
+
+.margin_vert_3 {
+	margin: 3px 0;
+}
+
+.margin_vert_5 {
+	margin: 5px 0;
+}
+
+.margin_vert_10 {
+	margin: 10px 0;
+}
+
+.margin_vert_15 {
+	margin: 15px 0;
+}
+
+/*----------margin top----------------*/
+
+.margin_top_1 {
+	margin-top: 1px;
+}
+
+.margin_top_2 {
+	margin-top: 2px;
+}
+
+.margin_top_3 {
+	margin-top: 3px;
+}
+
+.margin_top_5 {
+	margin-top: 5px;
+}
+
+.margin_top_10 {
+	margin-top: 10px;
+}
+
+.margin_top_15 {
+	margin-top: 15px;
+}
+
+/*----------margin right----------------*/
+
+.margin_right_1 {
+	margin-right: 1px;
+}
+
+.margin_right_2 {
+	margin-right: 2px;
+}
+
+.margin_right_3 {
+	margin-right: 3px;
+}
+
+.margin_right_5 {
+	margin-right: 5px;
+}
+
+.margin_right_10 {
+	margin-right: 10px;
+}
+
+.margin_right_15 {
+	margin-right: 15px;
+}
+
+/*----------margin bottom----------------*/
+
+.margin_bottom_1 {
+	margin-bottom: 1px;
+}
+
+.margin_bottom_2 {
+	margin-bottom: 2px;
+}
+
+.margin_bottom_3 {
+	margin-bottom: 3px;
+}
+
+.margin_bottom_5 {
+	margin-bottom: 5px;
+}
+
+.margin_bottom_10 {
+	margin-bottom: 10px;
+}
+
+.margin_bottom_15 {
+	margin-bottom: 15px;
+}
+
+/*----------margin left----------------*/
+
+.margin_left_1 {
+	margin-left: 1px;
+}
+
+.margin_left_2 {
+	margin-left: 2px;
+}
+
+.margin_left_3 {
+	margin-left: 3px;
+}
+
+.margin_left_5 {
+	margin-left: 5px;
+}
+
+.margin_left_10 {
+	margin-left: 10px;
+}
+
+.margin_left_15 {
+	margin-left: 15px;
+}
+
+/*-----------------------------------------------------------------------------
+                                  padding 
+-----------------------------------------------------------------------------*/
+
+.padding_0 {
+	padding: 0;
+}
+
+.padding_1 {
+	padding: 1px;
+}
+
+.padding_2 {
+	padding: 2px;
+}
+
+.padding_3 {
+	padding: 3px;
+}
+
+.padding_5 {
+	padding: 5px;
+}
+
+.padding_10 {
+	padding: 10px;
+}
+
+.padding_15 {
+	padding: 15px;
+}
+
+
+/*----------padding horizontal----------------*/
+
+.padding_hor_1 {
+	padding: 0 1px;
+}
+
+.padding_hor_2 {
+	padding:  0 2px;
+}
+
+.padding_hor_3 {
+	padding: 0 3px;
+}
+
+.padding_hor_5 {
+	padding: 0 5px;
+}
+
+.padding_hor_10 {
+	padding: 0 10px;
+}
+
+.padding_hor_15 {
+	padding: 0 15px;
+}
+
+/*----------padding vertical----------------*/
+
+.padding_vert_1 {
+	padding: 1px 0 ;
+}
+
+.padding_vert_2 {
+	padding: 2px 0;
+}
+
+.padding_vert_3 {
+	padding: 3px 0;
+}
+
+.padding_vert_5 {
+	padding: 5px 0;
+}
+
+.padding_vert_10 {
+	padding: 10px 0;
+}
+
+.padding_vert_15 {
+	padding: 15px 0;
+}
+
+/*----------padding top----------------*/
+
+.padding_top_1 {
+	padding-top: 1px;
+}
+
+.padding_top_2 {
+	padding-top: 2px;
+}
+
+.padding_top_3 {
+	padding-top: 3px;
+}
+
+.padding_top_5 {
+	padding-top: 5px;
+}
+
+.padding_top_10 {
+	padding-top: 10px;
+}
+
+.padding_top_15 {
+	padding-top: 15px;
+}
+
+/*----------padding right----------------*/
+
+.padding_right_1 {
+	padding-right: 1px;
+}
+
+.padding_right_2 {
+	padding-right: 2px;
+}
+
+.padding_right_3 {
+	padding-right: 3px;
+}
+
+.padding_right_5 {
+	padding-right: 5px;
+}
+
+.padding_right_10 {
+	padding-right: 10px;
+}
+
+.padding_right_15 {
+	padding-right: 15px;
+}
+
+/*----------padding bottom----------------*/
+
+.padding_bottom_1 {
+	padding-bottom: 1px;
+}
+
+.padding_bottom_2 {
+	padding-bottom: 2px;
+}
+
+.padding_bottom_3 {
+	padding-bottom: 3px;
+}
+
+.padding_bottom_5 {
+	padding-bottom: 5px;
+}
+
+.padding_bottom_10 {
+	padding-bottom: 10px;
+}
+
+.padding_bottom_15 {
+	padding-bottom: 15px;
+}
+
+/*----------padding left----------------*/
+
+.padding_left_1 {
+	padding-left: 1px;
+}
+
+.padding_left_2 {
+	padding-left: 2px;
+}
+
+.padding_left_3 {
+	padding-left: 3px;
+}
+
+.padding_left_5 {
+	padding-left: 5px;
+}
+
+.padding_left_10 {
+	padding-left: 10px;
+}
+
+.padding_left_15 {
+	padding-left: 15px;
+}
+
+
+/*-----------------------------------------------------------------------------
+			                      width
+-----------------------------------------------------------------------------*/
+/*定义宽度百分比*/
+.width_pct1 {
+	width: 1%; 
+}
+
+.width_pct2 {
+	width: 2%; 
+}
+
+.width_pct3 {
+	width: 3%; 
+}
+
+.width_pct4 {
+	width: 4%; 
+}
+
+.width_pct5 {
+	width: 5%; 
+}
+
+.width_pct6 {
+	width: 6%; 
+}
+
+.width_pct7 {
+	width: 7%; 
+}
+
+.width_pct8 {
+	width: 8%; 
+}
+
+.width_pct9 {
+	width: 9%; 
+}
+
+.width_pct10 {
+	width: 10%; 
+}
+
+.width_pct11 {
+	width: 11%; 
+}
+
+.width_pct12 {
+	width: 12%; 
+}
+
+.width_pct13 {
+	width: 13%; 
+}
+
+.width_pct14 {
+	width: 14%; 
+}
+
+.width_pct15 {
+	width: 15%; 
+}
+
+.width_pct16 {
+	width: 16%; 
+}
+
+.width_pct17 {
+	width: 17%; 
+}
+
+.width_pct18 {
+	width: 18%; 
+}
+
+.width_pct19 {
+	width: 19%; 
+}
+
+.width_pct20 {
+	width: 20%; 
+}
+
+.width_pct21 {
+	width: 21%; 
+}
+
+.width_pct22 {
+	width: 22%; 
+}
+
+.width_pct23 {
+	width: 23%; 
+}
+
+.width_pct24 {
+	width: 24%; 
+}
+
+.width_pct25 {
+	width: 25%; 
+}
+
+.width_pct26 {
+	width: 26%; 
+}
+
+.width_pct27 {
+	width: 27%; 
+}
+
+.width_pct28 {
+	width: 28%; 
+}
+
+.width_pct29 {
+	width: 29%; 
+}
+
+.width_pct30 {
+	width: 30%; 
+}
+
+.width_pct31 {
+	width: 31%; 
+}
+
+.width_pct32 {
+	width: 32%; 
+}
+
+.width_pct33 {
+	width: 33%; 
+}
+
+.width_pct34 {
+	width: 34%; 
+}
+
+.width_pct35 {
+	width: 35%; 
+}
+
+.width_pct36 {
+	width: 36%; 
+}
+
+.width_pct37 {
+	width: 37%; 
+}
+
+.width_pct38 {
+	width: 38%; 
+}
+
+.width_pct39 {
+	width: 39%; 
+}
+
+.width_pct40 {
+	width: 40%; 
+}
+
+.width_pct41 {
+	width: 41%; 
+}
+
+.width_pct42 {
+	width: 42%; 
+}
+
+.width_pct43 {
+	width: 43%; 
+}
+
+.width_pct44 {
+	width: 44%; 
+}
+
+.width_pct45 {
+	width: 45%; 
+}
+
+.width_pct46 {
+	width: 46%; 
+}
+
+.width_pct47 {
+	width: 47%; 
+}
+
+.width_pct48 {
+	width: 48%; 
+}
+
+.width_pct49 {
+	width: 49%; 
+}
+
+.width_pct50 {
+	width: 50%; 
+}
+
+.width_pct51 {
+	width: 51%; 
+}
+
+.width_pct52 {
+	width: 52%; 
+}
+
+.width_pct53 {
+	width: 53%; 
+}
+
+.width_pct54 {
+	width: 54%; 
+}
+
+.width_pct55 {
+	width: 55%; 
+}
+
+.width_pct56 {
+	width: 56%; 
+}
+
+.width_pct57 {
+	width: 57%; 
+}
+
+.width_pct58 {
+	width: 58%; 
+}
+
+.width_pct59 {
+	width: 59%; 
+}
+
+.width_pct60 {
+	width: 60%; 
+}
+
+.width_pct61 {
+	width: 61%; 
+}
+
+.width_pct62 {
+	width: 62%; 
+}
+
+.width_pct63 {
+	width: 63%; 
+}
+
+.width_pct64 {
+	width: 64%; 
+}
+
+.width_pct65 {
+	width: 65%; 
+}
+
+.width_pct66 {
+	width: 66%; 
+}
+
+.width_pct67 {
+	width: 67%; 
+}
+
+.width_pct68 {
+	width: 68%; 
+}
+
+.width_pct69 {
+	width: 69%; 
+}
+.width_pct70 {
+	width: 70%; 
+}
+
+.width_pct71 {
+	width: 71%; 
+}
+
+.width_pct72 {
+	width: 72%; 
+}
+
+.width_pct73 {
+	width: 73%; 
+}
+
+.width_pct74 {
+	width: 74%; 
+}
+
+.width_pct75 {
+	width: 75%; 
+}
+
+.width_pct76 {
+	width: 76%; 
+}
+
+.width_pct77 {
+	width: 77%; 
+}
+
+.width_pct78 {
+	width: 78%; 
+}
+
+.width_pct79 {
+	width: 79%; 
+}
+.width_pct80 {
+	width: 80%; 
+}
+
+.width_pct81 {
+	width: 81%; 
+}
+
+.width_pct82 {
+	width: 82%; 
+}
+
+.width_pct83 {
+	width: 83%; 
+}
+
+.width_pct84 {
+	width: 84%; 
+}
+
+.width_pct85 {
+	width: 85%; 
+}
+
+.width_pct86 {
+	width: 86%; 
+}
+
+.width_pct87 {
+	width: 87%; 
+}
+
+.width_pct88 {
+	width: 88%; 
+}
+
+.width_pct89 {
+	width: 89%; 
+}
+
+.width_pct90 {
+	width: 90%; 
+}
+
+.width_pct91 {
+	width: 91%; 
+}
+
+.width_pct92 {
+	width: 92%; 
+}
+
+.width_pct93 {
+	width: 93%; 
+}
+
+.width_pct94 {
+	width: 94%; 
+}
+
+.width_pct95 {
+	width: 95%; 
+}
+
+.width_pct96 {
+	width: 96%; 
+}
+
+.width_pct97 {
+	width: 97%; 
+}
+
+.width_pct98 {
+	width: 98%; 
+}
+
+.width_pct99 {
+	width: 99%; 
+}
+
+.width_pct100 {
+	width: 100%; 
+}
+
+.width_pct1000 {
+	width: 1000%; 
+}
+
+/*-----------------------------------------------------------------------------
+                                  border control
+-----------------------------------------------------------------------------*/
+
+/*移除边框*/
+.border_none {
+	border: none;
+}
+
+/*移除上边框*/
+.border_top_none {
+	border-top: none;
+}
+
+/*上边框*/
+.border_top {
+	border-width: 1px 0 0 0;
+}
+
+/*右边框*/
+.border_right {
+	border-width: 0 1px 0 0;
+}
+
+/*下边框*/
+.border_bottom {
+	border-width: 0 0 1px 0;
+}
+
+/*左边框*/
+.border_left {
+	border-width: 0 0 0 1px;
+}
+
+/*-----------------------------------------------------------------------------
+                                  loaded state
+-----------------------------------------------------------------------------*/
+
+.turnon {
+	display: block;/*显示状态*/
+}
+
+.turnoff {
+	display: none; /*关闭状态*/
+}
+
+.hidden {
+	visibility: hidden; /*隐藏状态*/
+}
+
+.visible {
+	visibility: visible; /*显示状态*/
+}
+
+.inactive {
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+}
+
+/*-----------------------------------------------------------------------------
+                          border or color and background-color
+-----------------------------------------------------------------------------*/
+
+.bgcolor_gray {
+	background-color: #E4E4E4;
+}
+
+.table_border_gray, .table_border_gray td {
+	border: 1px solid #797979;
+}

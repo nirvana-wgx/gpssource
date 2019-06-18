@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.RefundDao">
+    <insert id="save" parameterType="Refund">
+	     <selectKey keyProperty="rid" resultType="String" order="BEFORE">
+				select seq_refund.nextval from dual
+		  </selectKey> 
+	      insert into refund(rid,frid,refundmoney,refundtime,remainmoney)
+	      values(#{rid},#{frid},#{refundmoney},#{refundtime},#{remainmoney})
+    </insert>
+    <select id="getRefundList" parameterType="java.util.Map" resultType="Refund">
+       select t1.*
+         from (select t.*, rownum rn
+                 from ( select a.*
+                          from refund a,relation b  
+                         where a.frid = b.rid
+                           and b.deviceid = '${deviceid}'
+                           and a.refundtime between '${serstarttime}' and '${serendtime}'
+                      order by refundtime desc) t) t1
+        where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getRefundCount" parameterType="java.util.Map" resultType="int">
+        select count(*)
+          from refund a,relation b  
+         where a.frid = b.rid
+           and b.deviceid = '${deviceid}'
+           and a.refundtime between '${serstarttime}' and '${serendtime}'
+      order by refundtime desc
+   </select>
+    
+</mapper>

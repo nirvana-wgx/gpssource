@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/gps/!svn/ver/594/gps/src/com/gps/vehicledistr/dao
+END
+OutAlarmDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/gps/!svn/ver/470/gps/src/com/gps/vehicledistr/dao/OutAlarmDao.java
+END
+VehicleDistrDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/gps/!svn/ver/295/gps/src/com/gps/vehicledistr/dao/VehicleDistrDao.java
+END
+VehicleInfNewDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/gps/!svn/ver/436/gps/src/com/gps/vehicledistr/dao/VehicleInfNewDao.java
+END
+OutAlarmDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/gps/!svn/ver/594/gps/src/com/gps/vehicledistr/dao/OutAlarmDaoMapper.xml
+END
+VehicleDistrDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/gps/!svn/ver/295/gps/src/com/gps/vehicledistr/dao/VehicleDistrDaoMapper.xml
+END
+VehicleInfNewDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/gps/!svn/ver/594/gps/src/com/gps/vehicledistr/dao/VehicleInfNewDaoMapper.xml
+END

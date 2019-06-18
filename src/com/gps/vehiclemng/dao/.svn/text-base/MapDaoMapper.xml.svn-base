@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.MapDao">
+   <select id="getLastVehicleInf" parameterType="String" resultType="VehicleInfNew1">
+         select t1.* from (select t.*, rownum rn from (select a.* from vehicleinfnew a where a.deviceid = #{deviceid} order by receivetime desc) t) t1 where t1.rn between 1 and 1
+   </select>
+   
+   <select id="getModelInf" parameterType="String" resultType="Car">
+         select a.* from relation a where a.deviceid = #{deviceid}
+   </select>
+   
+   <select id="getHisoryInf" parameterType="java.util.Map" resultType="Messagebm">
+         select b.* from (select a.* from ${tabname} a where a.receivetime between to_date(#{start},'yyyy/mm/dd hh24:mi:ss') and to_date(#{end},'yyyy/mm/dd hh24:mi:ss') order by a.receivetime desc) b where rownum &lt;= #{num} order by b.receivetime asc
+   </select>
+   
+   <insert id="addMapPoints" parameterType="EFencAlarm">
+         <selectKey keyProperty="id" resultType="String" order="BEFORE">
+               select seq_refund.nextval from dual
+         </selectKey> 
+         insert into efencalarm(id,deviceid,fenname,creattime,fencontent,type)
+         values(#{id},#{deviceid},#{fenname},#{creattime},#{fencontent},#{type})
+   </insert>
+   
+   <select id="getFenc" parameterType="String" resultType="EFencAlarm">
+         select a.* from efencalarm a where a.deviceid = #{deviceid}
+   </select>
+   
+   <delete id="removeFenc" parameterType="String">
+        delete from efencalarm  where deviceid =#{deviceid}
+   </delete>
+</mapper>

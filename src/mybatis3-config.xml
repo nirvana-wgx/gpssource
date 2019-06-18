@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration     
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"     
+     "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 
+	<!-- 实体类 -->
+	<typeAliases>
+		<typeAlias type="com.gps.login.entity.Account" alias="Account" />
+		<typeAlias type="com.gps.login.entity.Loginlog" alias="Loginlog" />
+		<typeAlias type="com.gps.login.entity.Menu" alias="Menu" />
+		<typeAlias type="com.gps.statistics.entity.Messagereport" alias="Messagereport" />
+      <typeAlias type="com.gps.statistics.entity.Relation" alias="Relation" />
+      <typeAlias type="com.gps.account.entity.Dictionary" alias="Dictionary" />
+      <typeAlias type="com.gps.account.entity.AccountDictionary" alias="AccountDictionary" />
+      <typeAlias type="com.gps.statistics.entity.Dayofmilestatics" alias="Dayofmilestatics" />
+      <typeAlias type="com.gps.statistics.entity.MonthStatistics" alias="MonthStatistics" />
+      <typeAlias type="com.gps.vehiclemng.entity.Car" alias="Car" />
+      <typeAlias type="com.gps.vehiclemng.entity.Messagebm" alias="Messagebm" />
+      <typeAlias type="com.gps.vehiclemng.entity.Maintenance" alias="Maintenance" />
+       <typeAlias type="com.gps.vehiclemng.entity.Refund" alias="Refund" />
+      <typeAlias type="com.gps.vehicledistr.entity.VehicleInfNew" alias="VehicleInfNew" />
+      <typeAlias type="com.gps.vehiclemng.entity.VehicleInfNew" alias="VehicleInfNew1" />
+      <typeAlias type="com.gps.vehiclemng.entity.Commandorigin" alias="Commandorigin" />
+      <typeAlias type="com.gps.vehiclemng.entity.Messageorigin" alias="Messageorigin" />
+      <typeAlias type="com.gps.vehicledistr.entity.OutAreaAlarm" alias="OutAreaAlarm" />
+      <typeAlias type="com.gps.vehiclemng.entity.EFencAlarm" alias="EFencAlarm" />
+      <typeAlias type="com.gps.vehiclemng.entity.CmdDown" alias="CmdDown" />
+      <typeAlias type="com.gps.alarm.entity.VehicleinAlarm" alias="VehicleinAlarm" />
+      <typeAlias type="com.gps.alarm.entity.GpsAlarm" alias="GpsAlarm" />
+      <typeAlias type="com.gps.alarm.entity.ServiceAlarm" alias="ServiceAlarm" />
+      <typeAlias type="com.gps.alarm.entity.SellAlarm" alias="SellAlarm" />
+	</typeAliases>
+
+	<!--数据源配置  MYSQL 
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="jdbc" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/gps" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+				<property name="poolMaximumActiveConnections" value="15"/>
+				<property name="poolMaximumIdleConnections" value="0"/>
+			</dataSource>
+			
+		</environment>
+	</environments>-->
+	<!--数据源配置  oracle -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="jdbc" />
+			<dataSource type="POOLED">
+				<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+				<!-- 180.186.21.187,127.0.0.1 -->
+				<property name="url" value="jdbc:oracle:thin:@//202.85.211.149:1521/orcl" />
+				<property name="username" value="gps" />
+				<property name="password" value="gps" />
+				<property name="poolMaximumActiveConnections" value="15"/>
+				<property name="poolMaximumIdleConnections" value="0"/>
+			</dataSource>
+			
+		</environment>
+	</environments>
+	<mappers>
+		<!-- 实现类 -->
+		<mapper resource="com/gps/login/dao/AccountDaoMapper.xml" />
+		<mapper resource="com/gps/login/dao/LoginlogDaoMapper.xml" />
+		<mapper resource="com/gps/statistics/dao/MessagereportDAOMapper.xml" />
+      <mapper resource="com/gps/statistics/dao/RelationDAOMapper.xml" />
+      <mapper resource="com/gps/account/dao/DictionaryDaoMapper.xml" />
+      <mapper resource="com/gps/account/dao/AccountDictionaryDaoMapper.xml" />
+      <mapper resource="com/gps/statistics/dao/DayofmilestaticsDAOMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/RelationDaoMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/MessagebmDAOMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/MaintenanceDaoMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/RefundDaoMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/MapDaoMapper.xml" />
+      <mapper resource="com/gps/vehicledistr/dao/VehicleInfNewDaoMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/MessageoriginDaoMapper.xml" />
+      <mapper resource="com/gps/vehiclemng/dao/CommandoriginDaoMapper.xml" />
+      <mapper resource="com/gps/vehicledistr/dao/OutAlarmDaoMapper.xml" />
+      <mapper resource="com/gps/alarm/dao/VehicleinfnewAlarmDaoMapper.xml" />
+	</mappers>
+</configuration>

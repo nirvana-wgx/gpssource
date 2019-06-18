@@ -1,0 +1,1290 @@
+@charset "UTF-8";
+/******************************************************************************                                    
+//readme//
+
+title: forms.css
+
+Themes: silver
+
+plugins: 
+
+Required by: all
+
+Written by: jian.hou
+
+Date: 27th March 2012
+
+Update: 25th December 2012
+
+Copyright: 
+
+*******************************************************************************/
+
+
+/*-----------------------------------------------------------------------------
+                                  toolbar_btn
+-----------------------------------------------------------------------------*/
+/*查询、新增、修改、删除、送审、审核、消审、弃审、导入、导出、打印、复制、增加行、删除行、刷新  关闭 前续 后续  转单（推） 转单（拉）*/
+/*按钮不可用时浮在按钮上的层，阻止按钮响应鼠标事件*/
+.toolbar_btn_inactive_mask {
+	background-color : white;
+	position: absolute;
+	filter: alpha(opacity=10);   
+    opacity: 0.1;  
+}
+
+/*<SPAN>定义元素工具条按钮*/
+.toolbar_btn {
+	/*position: relative;*/
+	z-index: 0;
+	display: inline-block;
+	height: 16px;
+	line-height: 16px;
+	padding: 4px 0 4px 5px;
+	border: 1px solid transparent;
+	_border: none;
+	/*behavior: url(../themes/silver/PIE.htc);*/
+	overflow: hidden;
+}
+
+
+/*鼠标移入的效果*/
+.toolbar_btn:hover {
+	/*position: relative;*/
+	background: transparent url(images/button_plain_hover.png) repeat-x bottom; /*图标按钮背景*/
+	border: 1px solid #8F9AB3;
+	border-radius: 3px;	
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px; 
+}
+
+/*<SPAN>定义工具条按钮的图标区域*/
+.toolbar_btn_ico {
+	display: inline-block;
+	height: 16px;
+	line-height: 16px;
+	padding: 0 5px 0 18px;
+}
+
+/*保存*/
+.toolbar_btn_filesave {
+	background: transparent url(icons/16/filesave.png) no-repeat;
+}
+
+/*新增*/
+.toolbar_btn_add {
+	background: transparent url(icons/16/add.png) no-repeat;
+}
+
+/*删除*/
+.toolbar_btn_remove {
+	background: transparent url(icons/16/remove.png) no-repeat;
+}
+
+/*刷新*/
+.toolbar_btn_reload {
+	background: transparent url(icons/16/reload.png) no-repeat;
+}
+
+/*查询*/
+.toolbar_btn_search {
+	background: transparent url(icons/16/search.png) no-repeat;
+}
+
+/*修改*/
+.toolbar_btn_edit {
+	background: transparent url(icons/16/edit.png) no-repeat;
+}
+
+/*返回*/
+.toolbar_btn_undo {
+	background: transparent url(icons/16/undo.png) no-repeat;
+}
+
+/*重做*/
+.toolbar_btn_redo {
+	background: transparent url(icons/16/redo.png) no-repeat;
+}
+
+/*重置*/
+.toolbar_btn_clear {
+	background: transparent url(icons/16/clear.png) no-repeat;
+}
+
+/*剪切*/
+.toolbar_btn_cut {
+	background: transparent url(icons/16/cut.png) no-repeat;
+}
+
+/*确定*/
+.toolbar_btn_ok {
+	background: transparent url(icons/16/ok.png) no-repeat;
+}
+
+/*取消*/
+.toolbar_btn_cancel {
+	background: transparent url(icons/16/cancel.png) no-repeat;
+}
+
+/*关闭*/
+.toolbar_btn_close {
+	background: transparent url(icons/16/close.png) no-repeat;
+}
+
+/*高级查询*/
+.toolbar_btn_filter {
+	background: transparent url(icons/16/filter.png) no-repeat;
+}
+
+/*设置*/
+.toolbar_btn_config {
+	background: transparent url(icons/16/config.png) no-repeat;
+}
+
+/*红字文件*/
+.toolbar_btn_redfile {
+	background: transparent url(icons/16/redfile.png) no-repeat;
+}
+
+/*打印*/
+.toolbar_btn_print {
+	background: transparent url(icons/16/print.png) no-repeat;
+}
+
+/*预览*/
+.toolbar_btn_preview {
+	background: transparent url(icons/16/preview.png) no-repeat;
+}
+
+/*排序*/
+.toolbar_btn_sort {
+	background: transparent url(icons/16/sort.png) no-repeat;
+}
+
+/*转换*/
+.toolbar_btn_transform {
+	background: transparent url(icons/16/transform.png) no-repeat;
+}
+
+/*复制*/
+.toolbar_btn_copy {
+	background: transparent url(icons/16/copy.png) no-repeat;
+}
+
+/*上移*/
+.toolbar_btn_up {
+	background: transparent url(icons/16/up.png) no-repeat;
+}
+
+/*下移*/
+.toolbar_btn_down {	
+	background: transparent url(icons/16/down.png) no-repeat;
+}
+
+/*插入行*/
+.toolbar_btn_tableinsert {
+	background: transparent url(icons/16/tableinsert.png) no-repeat;
+}
+
+/*新增行*/
+.toolbar_btn_addrow {
+	background: transparent url(icons/16/addrow.png) no-repeat;
+}
+
+/*删除行*/
+.toolbar_btn_removerow {
+	background: transparent url(icons/16/removerow.png) no-repeat;
+}
+
+/*导入*/
+.toolbar_btn_import {
+	background: transparent url(icons/16/import.png) no-repeat;
+}
+
+/*导出*/
+.toolbar_btn_export {
+	background: transparent url(icons/16/export.png) no-repeat;
+}
+
+/*文档上传*/
+.toolbar_btn_uploadfile {
+	background: transparent url(icons/16/uploadfile.png) no-repeat;
+}
+
+/*打开文件夹*/
+.toolbar_btn_openfolder {
+	background: transparent url(icons/16/openfolder.png) no-repeat;
+}
+
+/*导出JSP*/
+.toolbar_btn_exportjsp {
+	background: transparent url(icons/16/exportjsp.png) no-repeat;
+}
+
+/*first*/
+.toolbar_btn_first {
+	background: transparent url(icons/16/first.png) no-repeat 2px;
+}
+
+/*previous*/
+.toolbar_btn_previous {
+	background: transparent url(icons/16/previous.png) no-repeat 5px;
+}
+
+/*next*/
+.toolbar_btn_next {
+	background: transparent url(icons/16/next.png) no-repeat 5px;
+}
+
+/*last*/
+.toolbar_btn_last {
+	background: transparent url(icons/16/last.png) no-repeat 2px;
+}
+
+/*打开*/
+.toolbar_btn_open {
+	background: transparent url(icons/16/open.png) no-repeat;
+}
+
+/*显示明细*/
+.toolbar_btn_detail {
+	background: transparent url(icons/16/detail.png) no-repeat;
+}
+
+/*送审*/
+.toolbar_btn_send {
+	background: transparent url(icons/16/send.png) no-repeat;
+}
+
+/*审核*/
+.toolbar_btn_approve {
+	background: transparent url(icons/16/approve.png) no-repeat;
+}
+
+/*驳回*/
+.toolbar_btn_unapproved {
+	background: transparent url(icons/16/unapproved.png) no-repeat;
+}
+
+/*弃审*/
+.toolbar_btn_abort {
+	background: transparent url(icons/16/abort.png) no-repeat;
+}
+
+/*获取SQL语句*/
+.toolbar_btn_sql {
+	background: transparent url(icons/16/sql.png) no-repeat;
+}
+
+/*解析SQL语句*/
+.toolbar_btn_parsesql {
+	background: transparent url(icons/16/parsesql.png) no-repeat;
+}
+
+/*批量计算*/
+.toolbar_btn_calculator {
+	background: transparent url(icons/16/calculator.png) no-repeat;
+}
+
+/*解除抵押*/
+.toolbar_btn_released {
+	background: transparent url(icons/16/released.png) no-repeat;
+}
+
+/*统计*/
+.toolbar_btn_statistics {
+	background: transparent url(icons/16/statistics.png) no-repeat;
+}
+
+/*更多>>*/
+.toolbar_btn_more {	
+	padding: 0 4px 0 9px;
+	background: transparent url(images/ico_arrow_more.gif) no-repeat left 1px;
+}
+
+/*下拉列表*/
+.toolbar_btn_droplist {
+	width: 5px;
+	height: 100%;
+	float: right;
+	padding-right: 5px;
+	background: transparent url(images/ico_droparrow.gif) no-repeat left 4px;
+	opacity: .6;
+	filter: alpha(opacity=60);
+}
+
+*+html .toolbar_btn_droplist {	
+	display: inline-block;
+	float: none;
+	height: auto;
+	background: transparent url(images/ico_droparrow.gif) no-repeat left 2px;
+}
+
+.toolbar_btn_droplist:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.toolbar_search_input {
+	color: #737680;
+	height: 18px;
+	line-height: 18px;
+	border: 1px solid #8F9AB3;	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.toolbar_search_input_init {
+	color: gray;
+}
+
+.ico_asc {
+	background: transparent url(icons/16/asc.gif) no-repeat;
+}
+
+.ico_desc {
+	background: transparent url(icons/16/desc.gif) no-repeat;
+}
+
+.ico_group {
+	background: transparent url(icons/16/group.gif) no-repeat;
+}
+
+.ico_columns {
+	background: transparent url(icons/16/columns.gif) no-repeat;
+}
+/*-----------------------------------------------------------------------------
+                                  button
+-----------------------------------------------------------------------------*/
+.input_text, 
+.input_readonly, 
+.toolbar_search_input {
+	color: #2E3A53;
+	font-size: 12px;
+	border: 1px solid #C6C8CC;	
+	line-height: 20px;
+	height: 20px;
+	text-indent: 3px;
+	/*
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	*/
+}
+
+.input_readonly, 
+.textarea_readonly,
+input[readonly="readonly"]{	
+	color: #999;
+	border: 1px solid #C6C8CC;	
+	background-color: #F5F5F5;
+}
+
+input[type="text"]{
+	border: 1px solid #C6C8CC;	
+	height: 20px;
+	line-height: 20px;
+	text-indent: 3px;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+	outline: none;
+	border: 1px solid #95BDE5;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 0 3px #449BF2;
+	-moz-border-shadow: 0 0 3px #449BF2;
+	box-shadow: 0 0 3px #449BF2;
+}
+
+input.input_readonly:focus,
+input[readonly="readonly"]:focus {
+	border: 1px solid #C6C8CC;	
+	-webkit-box-shadow: 0 0 0 white;
+	-moz-border-shadow: 0 0 0 white;
+	box-shadow: 0 0 0 white;	
+}
+
+select {
+	border: 1px solid #C6C8CC;	
+	height: 22px;
+	line-height: 22px;
+	*height: auto;
+}
+
+textarea, 
+select {
+	color: #2E3A53;
+	font-size: 12px;
+	border: 1px solid #C6C8CC;	
+	text-indent: 3px;	
+}
+
+textarea {
+	resize: none;
+}
+
+.radio {
+	font-family:Tahoma;
+	margin-right: 10px;
+}
+
+.radio input, 
+.checkox input{
+	border: none;
+	vertical-align:middle;
+}
+
+/*ie7 checkbox的宽度是20px*/
+input[type="checkbox"] {
+	width:13px;
+	height:13px;
+}
+
+/*input背景图标按钮*/
+.input_ico_search {
+	background: transparent url(icons/16/find.png) no-repeat 99% center;
+}
+
+.button, 
+.link_button {
+	display: inline-block;
+	color: #2E3A53;
+	font-size: 12px;
+	text-decoration: none;
+	line-height: 18px;
+	height: 18px;
+}
+
+.button {
+	text-shadow: 0 1px white;
+	background: url(images/form_title_bg.gif) repeat-x top;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border: 1px solid #8F9AB3;
+	padding: 0 15px;
+	height: 22px;
+	line-height: 22px;
+	/*behavior: url(../themes/silver/PIE.htc);*/
+}
+
+.button_bluegray {
+	background: url(images/button_bg.gif) repeat-x top;
+	border: 1px solid #8F9AB3;
+}
+
+.button_lightgray {
+	background: url(images/button_bg_lightgray.gif) repeat-x top;
+	border: 1px solid #8F9AB3;
+}
+
+.button:hover {
+	background: url(images/input_button_hover_bg.gif) repeat-x top;
+}
+
+.link_button {}
+
+.link_btn_text {}
+/* ================================================================ 
+							contextmenu
+   ================================================================ */
+/*contextmenu pane*/
+.contextmenu, 
+.contextmenu_submenu_pane {
+	position: absolute;
+	padding: 2px;
+	border: 1px solid #A0A0A0;
+	background-color: #F0F0F0;
+	/*background: transparent url(images/menu.gif) repeat-y left;pane背景，包含中间分隔线*/
+	z-index: 9;	
+}
+
+/*contextmenu shadow*/
+.contextmenu_shadow, 
+.contextmenu_submenu_shadow,
+.dropmenu_shadow,
+.dropmenu_submenu_shadow {
+	position: absolute;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.50);
+	background-color: #999\9;  
+	filter:progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2)";
+	/*filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);*/
+}
+
+.contextmenu ul {
+	height: 100%;	
+	background: transparent url(images/menu_separator.gif) repeat-y 30px;
+}
+
+.contextmenu li:hover {
+	border: 1px solid #AECFF7;
+	/*
+	background-color: rgba(230, 237, 246, .6);
+	
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#99FFFFFF,endColorStr=#99E6EDF6);
+	*/	
+	background: transparent url(images/menu_itembg.png) repeat-x top;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	height: 22px;
+}
+
+.dropmenu li.contextmenu_freeze {
+	opacity: .6;
+	filter: alpha(opacity=60);
+}
+
+.contextmenu li.contextmenu_freeze:hover,
+.dropmenu li.contextmenu_freeze:hover {
+	border: 1px solid transparent;
+	background: none;
+	_border-color: #EEE;/*设定滤镜值，修复IE6不支持透明边框*/
+	_filter:chroma(color=#EEE);/*IE滤镜，修复IE6不支持透明边框*/	
+	/*filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#00FFFFFF,endColorStr=#00E6EDF6);*/
+}
+/*
+.contextmenu  li:hover:before	{
+	content: '';
+	position: absolute;
+	z-index: -1;
+	border: 1px solid white;
+	top: 2px;
+	bottom: 2px;
+	left: 2px;
+	right: 2px;
+}
+*/
+
+/*contextmenu 菜单项*/
+.contextmenu_item, 
+.contextmenu_submenu {
+	position: relative;
+	border: 1px solid transparent;/*透明边线*/
+	_border-color: #EEE;/*设定滤镜值，修复IE6不支持透明边框*/
+	_filter:chroma(color=#EEE);/*IE滤镜，修复IE6不支持透明边框*/
+	font-size: 12px;
+	line-height: 22px;
+	height: 22px;
+	cursor: default;
+}
+
+.contextmenu li.contextmenu_submenu {
+	background: url(images/ico_arrow2.gif) no-repeat 96% center;
+}
+
+.contextmenu_item a {
+	color: #444;
+	text-decoration: none;
+	cursor: default;
+}
+
+/*contextmenu 菜单项 hover*/
+.contextmenu_item_hover {
+	border: 1px solid #7EABCD;
+	background-color: #FAFAFA;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+}
+
+.contextmenu_separate, 
+li.contextmenu_separate:hover  {
+	height: 0;
+	border-top: 1px solid #E2E3E3;
+	border-bottom: 1px solid white;
+	margin: 3px 0;
+	margin-left: 32px;
+	margin-right: 2px;
+}
+
+/*contextmenu 菜单项图标*/
+.contextmenu_item_ico {
+	position: absolute;
+	left: 4px;
+	top: 4px;
+	width: 16px;
+	height: 16px;
+}
+
+.contextmenu_item_checkbox {	
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	width: 13px;
+	height: 13px;
+}
+
+/*contextmenu 菜单项文本*/
+.contextmenu_item_text {
+	cursor: default;
+	position: absolute;
+	color: #444;
+	left: 31px;
+	padding: 0 5px;
+	white-space: nowrap; /*不换行*/		  
+	word-break:keep-all; /*不换行*/
+}
+
+/* ================================================================ 
+							dropmenu
+   ================================================================ */
+.dropmenu,
+.dropmenu_submenu {
+	position: absolute;
+	z-index: 9;
+	padding: 2px;
+	border: 1px solid #6B82B3;
+	background-color: #F2F3F5;
+	/*
+	border: 1px solid #A0A0A0;
+	background-color: #F0F0F0;
+	*/
+} 
+ 
+.dropmenu_submenu {	
+	white-space: nowrap; 	
+	/*word-wrap : normal;*/  
+	word-break: keep-all;
+	overflow: auto;
+	*overflow-x: hidden;
+	/*
+	scrollbar-face-color: #E1E3E5;
+	scrollbar-arrow-color: #45474D;
+	scrollbar-track-color: #D4D6D9;
+	scrollbar-3dlight-color: #717B8D;
+	scrollbar-highlight-color: #E1E3E5; 
+	scrollbar-shadow-color: #E1E3E5;
+	scrollbar-darkshadow-color: #717B8D; 
+	scrollbar-base-color: #E1E3E5;
+	*/
+} 
+
+/*
+.dropmenu_submenu::-webkit-scrollbar {
+	background: url(images/combobox_btn.gif);
+} 
+*/
+
+.dropmenu ul {
+	height: 100%;
+	*height: auto;
+	background: transparent url(images/menu_separator.gif) repeat-y 26px;
+} 
+
+.dropmenu li {
+	position: relative;
+	line-height: 22px;
+	height: 22px;
+	*height: auto;
+	*font-size: 0;
+	cursor: default;
+	border: 1px solid transparent;/*透明边线*/
+}
+
+
+.dropmenu div.freeze {
+	position: absolute;
+	top: 0;
+	background-color: white;
+	cursor: default;
+	width: 100%;
+	height: 100%;
+	background-color: #F2F3F5;
+	filter: alpha(opacity=60);
+}
+
+.dropmenu li:hover {
+	border: 1px solid #AECFF7;
+	background: transparent url(images/menu_itembg.png) repeat-x top;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	/*不错的效果
+	border: 1px solid white;
+	-webkit-box-shadow: 0 0 2px #449BF2;
+	-moz-border-shadow: 0 0 2px #449BF2;
+	box-shadow: 0 0 2px #449BF2;*/
+	
+}
+
+
+li.dropmenu_separate, 
+li.dropmenu_separate:hover  {
+	line-height: 0;	
+	height: 0;	
+	font-size: 0;
+	background: none;	
+	border: none;
+	border-top: 1px solid #E2E3E3;
+	border-bottom: 1px solid white;
+	margin: 3px 0;
+	margin-left: 27px;
+	margin-right: 2px;
+	*height: auto;
+	*border: none;
+	*background: url(images/dropmenu_separate_bg.gif) repeat-x;
+}
+
+.dropmenu_arrow {
+	background: url(images/ico_arrow2.gif) no-repeat 96% center;
+}
+
+.dropmenu_item {	
+	display: block;
+	color: #444;
+	padding: 0 18px 0 30px;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.dropmenu_ico {
+	position: absolute;
+	display: block;
+	top: 3px;
+	left: 5px;
+	width: 16px;
+	height: 16px;
+	/*
+	margin: 4px 10px 0 5px;	
+	*margin: 3px 10px 0 5px;
+	*/
+}
+
+.dropmenu_checkbox {
+	position: absolute;
+	display: block;
+	width: 13px;
+	height: 13px;
+	top: 5px;
+	left: 5px;
+	/*
+	padding: 5px 13px 6px 6px;
+	*/
+}
+
+.dropmenu_text {	
+	display: block;
+	padding: 0 22px 0 35px;
+}
+/*-----------------------------------------------------------------------------
+                                  forms module
+-----------------------------------------------------------------------------*/
+.form_wrapper {
+	border: 1px solid #BBB;
+	-webkit-border-radius: 3px;	
+	-moz-border-radius: 3px;	
+	border-radius: 3px;	
+	overflow: auto;
+	background-color: white;
+}
+
+.form_title, 
+.form_group_tl {
+	line-height: 24px;
+	/*background: -webkit-linear-gradient(top, #EBEDF2, #DFE1E5); CSS3*/
+	/*background-color: #EBEDF2;*/
+	text-indent: 8px;
+	background: url(images/datagrid_thbg.gif) repeat-x;
+}
+
+.form_title {	
+	border-bottom: 1px solid #BBB;
+	-webkit-border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 3px 3px 0 0;
+}
+
+.form_group_tl  {
+	border: solid #BBB;
+	border-width: 1px 0;
+}
+
+.form_title h3, 
+.form_group_tl h3 {
+	font-size: 12px;
+	color: #333;
+	/*
+	font-weight: bold;
+	text-shadow: 0 1px white;
+	*/
+}
+
+/*保留*/
+.form_maincontent {}
+
+/**/
+.form_tree {
+	border: 1px solid #ADAFB3;
+	overflow: auto;
+}
+
+/*保留*/
+.form_content {
+	border: 1px solid #ADAFB3;
+	border-top: none;
+	padding: 5px;
+}
+
+/*.form_content的子内容*/
+.form_subcontent {
+	padding: 5px 0;
+	/*
+	border: 1px solid #ADAFB3;	
+	margin-top: 10px;
+	*/
+}
+
+.form_groups_container {
+	overflow: auto;
+}
+
+/* ---------------- 表单容器 ----------------*/
+.table_form {
+	padding: 0px;
+	overflow: auto;
+}
+
+.table_form input[type="text"],
+.table_form select,
+.table_form textarea {
+	width: 100%;
+	*width: auto;
+}
+
+.table_form th, 
+.table_form td {
+	/*padding: 5px 4px 5px 2px;取消td内部的padding value*/
+	padding: 5px 0;
+}
+
+/* ---------------- fiedset 模拟 ----------------*/
+/*表单fieldset 框模拟*/
+.form_fieldset {
+	border: 1px solid #BBB;
+	border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+	padding-bottom: 8px; /*增加下面空白保持上面空白对称*/
+}
+
+/*表单legend caption模拟*/
+.form_legend  {
+	display: inline-block;
+	font-size: 12px;
+	background-color: white; /*表单legend 右边背景*/
+	padding: 0 6px;
+	margin: -6px 0 0 10px;
+	*margin-top: -16px;
+}
+
+.form_legend {
+	*display: inline; /*ie6、ie7bug修复*/
+}
+
+.form_legend_text {}
+
+/* ---------------- sub tabs ----------------*/
+/*ul表单标签组*/
+.form_tabs {
+	position: relative;
+	border-bottom: 1px solid #BBB;	
+	height: 23px;
+}
+
+.form_bg_reverse {
+	background: url(images/toolbar_reverse_bg.png) repeat-x bottom;
+}
+
+.form_tab_container {
+	/*border: 1px solid #BBB;	
+	border-top: none;
+	padding: 5px;*/
+}
+
+/*li选中标签*//*li标签*/
+.form_tabs_selected, .form_tabs_normal {
+	display: inline-block;
+	position: relative;
+	float: left;
+	padding-left: 8px;	
+	margin-right: 3px;	
+}
+
+/*li选中标签*/
+.form_tabs_selected {
+	background: url(images/form_tabs_selected.gif) no-repeat left top; /*选中标签左边背景*/
+	height: 24px;
+	_position: relative;
+	_zoom: 1;
+	_margin-bottom: -1px;
+}
+
+/*定义所有标签span element*/
+.form_tabs span {
+	display: inline-block;
+}
+
+/*li标签内容*/
+.form_tabs_text {
+	padding: 0 15px 0 7px;
+	color: #333;
+}
+
+.form_tabs_text:hover {
+	color: #666;
+}
+
+/*li选中标签span*/
+.form_tabs_selected_span {
+	background: url(images/form_tabs_selected_bg.gif) no-repeat right top; /*选中标签右边背景*/
+	line-height: 24px;
+}
+
+/*li标签*/
+.form_tabs_normal {
+	background: url(images/form_tabs_normal.gif) no-repeat left top; /*未选中标签左边背景*/	
+	height: 23px;
+}
+
+.form_tabs_normal:hover {	
+	/*background: url(images/form_tabs_normal_hover.gif) no-repeat left top; 未选中标签hover左边背景*/	
+	cursor: pointer;
+} 
+
+.form_tabs_normal:hover .form_tabs_span:hover {
+	/*background: url(images/form_tabs_normal_hover_bg.gif) no-repeat right top; 未选中标签hover右边背景*/	
+}
+
+/*li标签span*/
+.form_tabs_span {
+	background: url(images/form_tabs_normal_bg.gif) no-repeat right top; /*未选中标签右边背景*/	
+	line-height: 23px;
+}
+
+/*li标签关闭图标*/
+.form_tabs_close {
+	width: 7px;
+	height: 8px;
+	margin-right: 7px;
+	*margin-top: -10px; /*修正位置*/
+	background: url(images/tabs_close.gif) no-repeat; /*关闭图标*/
+	cursor: pointer;
+}
+
+.form_tabs_close:hover {
+	background: url(images/tabs_close.gif) no-repeat 0 -8px; /*关闭图标*/
+}
+
+/*表格边距输入框*/
+.forms_table_edit, 
+input.forms_table_edit {
+	border-width: 0;
+	background-color: transparent;
+}
+
+.forms_table_edit:focus,
+input.forms_table_edit:focus {
+	border: none;	
+	-webkit-box-shadow: 0 0 0 white;
+	-moz-border-shadow: 0 0 0 white;
+	box-shadow: 0 0 0 white;	
+}
+
+/* 解决表单元素超出的问题*/
+.form_div {
+	padding: 0 4px 0 2px;
+}
+
+/*-----------------------------------------------------------------------------
+                       combobox, input, radio and checkbox 
+-----------------------------------------------------------------------------*/
+.input {}
+
+.input_box,
+.textarea_box {
+	cursor: default;
+	position: relative;
+	color: #2E3A53;
+	font-size: 12px;
+	border: 1px solid #C6C8CC;	
+	background-color: #FCFCFC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: inset 0 1px 1px #E5E5E5;
+	-moz-box-shadow: inset 0 1px 1px #E5E5E5;
+	box-shadow: inset 0 1px 1px #E5E5E5;
+}
+
+.input_box_icon {	
+	padding-right: 25px;
+}
+
+.input_box_readonly {
+	background-color: #F2F2F2;
+}
+
+.input_box input[type="text"],
+.combobox_box input[type="text"] {
+	position: relative;
+	color: #555;
+	width: 100%;
+	border: none;
+	line-height: 18px;
+	height: 20px;
+	*height: 16px;
+	background-color: transparent;
+}
+
+.textarea_box textarea {	
+	color: #555;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+	*margin: -1px 0; /*修复IE7的外边距问题*/
+}
+
+.input_box input[type="text"]:focus,
+.combobox_box input[type="text"]:focus,
+.textarea_box textarea:focus {
+	border: none;	
+	-webkit-box-shadow: 0 0 0 white;
+	-moz-border-shadow: 0 0 0 white;
+	box-shadow: 0 0 0 white;	
+}
+
+.input_icon {
+	cursor: pointer;
+	opacity: .6;
+	filter: alpha(opacity=60);
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	right: 5px;
+	top: 3px;
+	background: transparent url(icons/16/find.png) no-repeat 99% center;
+}
+
+.input_icon:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.combobox {
+	margin: 0 3px;
+}
+
+.combobox_box {
+	cursor: default;
+	position: relative;
+	color: #2E3A53;
+	font-size: 12px;
+	border: 1px solid #C6C8CC;	
+	padding-right: 25px;
+	background-color: #FCFCFC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 2px #E5E5E5;
+	-moz-box-shadow:  0 0 2px #E5E5E5;
+	box-shadow: 0 0 2px #E5E5E5;	
+	/*
+	-webkit-box-shadow: 0 1px 2px #DADADA;
+	-moz-box-shadow:  0 1px 2px #DADADA;
+	box-shadow: 0 1px 2px #DADADA;	
+	background-image: -webkit-linear-gradient(top, #FAFAFA, #F2F2F2); 
+	background-image: -moz-linear-gradient(top, #FAFAFA, #F2F2F2); 
+	background-image: -ms-linear-gradient(top, #FAFAFA, #F2F2F2);
+	*/
+	background: url(images/combobox_bg.gif) repeat-x;
+}
+
+.combobox_btn {
+	cursor: pointer;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	right: 0;
+	top: 0;
+	-webkit-border-radius: 0 3px 3px 0;
+	-moz-border-radius: 0 3px 3px 0;
+	border-radius: 0 3px 3px 0;
+	background: transparent url(images/combobox_btn.gif) no-repeat;
+}
+
+/*
+.combobox_btn:active {	
+	background: transparent url(images/combobox_btn.gif) no-repeat left -40px;
+}
+*/
+
+.comboboxlist {
+	border: 1px solid #C6C8CC;
+	border-top: none;
+	background-color: white;
+	padding: 2px;
+	-webkit-box-shadow: 0 1px 5px #DADADA;
+	-moz-box-shadow:  0 1px 5px #DADADA;
+	box-shadow: 0 1px 5px #DADADA;	
+	-webkit-border-radius: 0 0 3px 3px;
+	-moz-border-radius: 0 0 3px 3px;
+	border-radius: 0 0 3px 3px;
+	z-index: 100;
+	margin-top: 1px;
+}
+
+.comboboxlist_li {
+	color: #555;
+	line-height: 20px;
+}
+
+.comboboxlist_li:hover {
+	color: white;
+	/*background: url(images/comboboxlist_li_bg.gif) repeat-x;*/
+	background-color: #2A62BC;
+}
+
+.comboboxlist_li_label {}
+
+.form_focus {
+	outline: none;
+	border: 1px solid #95BDE5;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0 0 3px #449BF2;
+	-moz-border-shadow: 0 0 3px #449BF2;
+	box-shadow: 0 0 3px #449BF2;
+}
+
+.radio_wrapper {	
+	display: inline-block;
+	line-height: 20px;
+	height: 20px;
+}
+
+.radio_box,
+.checkbox_box  {
+	float: left;
+	width: 20px;
+	height: 20px;		
+}
+
+.radio_box input,
+.checkbox_box input {
+	display: none;
+}
+
+.radio_box {
+	background: url(images/form.png) no-repeat;	
+}
+
+.radio_box_checked {		
+	background: url(images/form.png) no-repeat left -20px;
+}
+
+.radio_box_focus {}
+
+.checkbox_box {		
+	background: url(images/form.png) no-repeat -20px top;	
+}
+
+.checkbox_box_checked {
+	background: url(images/form.png) no-repeat -20px;		
+}
+
+.checkbox_box_focus {}
+
+.radio_label,
+.checkbox_label {
+	color: #2E3A53;
+	display: inline-block;
+	line-height: 20px;
+}
+
+/*-----------------------------------------------------------------------------
+                       			 scrollbar
+-----------------------------------------------------------------------------*/
+.vert_scrollbar {
+	position: absolute;
+	z-index: 1;
+	width: 17px;
+	background-color: white;
+}
+
+.vert_scrollbar_dragger {}
+
+.vert_scrollbar_drag {	
+	position: absolute;
+	background: url(images/scrollbar_bg.gif) repeat-y center;
+	box-sizing: border-box;
+	width: 100%;
+	height: 50px;
+	background-color: #FCFCFC;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	border: 1px solid #C6C8CC;	
+	-webkit-box-shadow: 0 0 2px #E5E5E5;
+	-moz-box-shadow:  0 0 2px #E5E5E5;
+	box-shadow: 0 0 2px #E5E5E5;	
+}
+
+.vert_scrollbar_drag_rail {
+	position: absolute;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	background-color: #F2F2F2;
+	-webkit-box-shadow: inset 1px 0 3px #E5E5E5;
+	-moz-box-shadow: inset 1px 0 3px #E5E5E5;
+	box-shadow: inset 1px 0 3px #E5E5E5;	
+}
+
+.hor_scrollbar {}
+
+.hor_scrollbar_dragger {}
+
+.hor_scrollbar_drag {}
+
+.hor_scrollbar_drag_rail {
+
+}
+
+.scrollbar_dragger_up,
+.scrollbar_dragger_down {
+	display: inline-block;
+	border: 1px solid #C6C8CC;	
+	cursor: pointer;
+	box-sizing: border-box;
+	width: 100%;
+	height: 18px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: url(images/combobox_bg.gif) repeat-x;
+}
+
+.scrollbar_dragger_down {
+	position: absolute;
+	bottom: 0;
+}
+
+.scrollbar_dragger_up span,
+.scrollbar_dragger_down span {
+	display: inline-block;	
+	width: 100%;
+	height: 100%;
+	background: transparent url(images/combobox_btn_up.gif) no-repeat -2px center;	
+}
+
+.scrollbar_dragger_down span {
+	background: transparent url(images/combobox_btn.gif) no-repeat -2px center;	
+}

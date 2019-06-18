@@ -1,0 +1,224 @@
+@charset "UTF-8";
+/*----------------------------------------------------------------------*/
+.tab_content{border: 1px solid #B3B3B3;border-radius: 4px 4px 4px 4px;}
+/**
+temp style for queryComp
+*/
+.queryComp{display:inline-block;float:right;border:0 none;padding-top:2px; outline:0 none;width:163px;position:absolute;right:4px;}
+.search_query_box{float:left;font-size:12px;width:128px;}
+.queryBox{position:absolute;left:0px;height:18px;width:128px;}
+.span_search_icon{border:1px solid #8DB2E3;border-radius:3px 0px 0px 3px; float:right;width:18px;height:16px;margin-left:2px;background:url("images/find-icon.png") no-repeat scroll center center transparent;}
+.span_dropdown_icon{border:1px solid #8DB2E3; border-left-color:transparent;border-radius:0px 3px 3px 0px;float:right;width:10px;height:16px;margin-left:0px;background:url("images/arrow_black_down.gif") no-repeat scroll center center transparent;}
+.span_search_icon:hover{border-color:#3573C4; background:url("images/find-icon.png") no-repeat scroll center center transparent;}
+.span_dropdown_icon:hover{border-color:#3573C4;background:url("images/arrow_black_down.gif") no-repeat scroll center center transparent;}
+	
+.dropdownlist_normal{width:160px;background-color:#fff;border-color:#dddddd; border-style:solid; border-width:1px;padding:2px;z-index:100;}
+.menuItem_normal{background-color:#ffffff;height:18px;font-weight:normal;}
+.menuItem_normal:hover {background-color: #EBF3FD;}
+.menuItem_selected{font-weight:bold;}
+.menuItem_icon{width:16px;height:16px;float:left;margin-top:1px}
+.menuItem_icon_selected{background:url("images/tree_dnd_yes.png") no-repeat scroll center center transparent;}
+.menu_label_normal{display: inline-block;font-size: 12px;float:left;margin-left:6px;margin-top:3px;background:transparent;}
+.menu_label_init{color:#dddddd;}
+
+.pagination.inactive{opacity: 0.4;filter: alpha(opacity=40);}
+.treeQueryButton{vertical-align: middle;width: 16px;height: 16px;background: url("images/find-icon.png") repeat scroll 0 0 transparent;margin-left: 2px;text-decoration:none;}
+
+.ui-layout-toggler:hover{
+	border:1px solid #DDDDDD;
+}
+/*arrow-up in horizontal resize bar*/
+.ui-layout-toggler-north-open,
+	.ui-layout-toggler-south-closed,
+	.ui-layout-toggler-center-south-open, 
+	.ui-layout-toggler-center-north-closed{
+	background: url(images/spinner_arrow_up.gif) no-repeat top center;
+}
+/* arrow-up:hover */
+.ui-layout-toggler-north-open:hover,
+	.ui-layout-toggler-south-closed:hover,
+	.ui-layout-toggler-center-south-open:hover, 
+	.ui-layout-toggler-center-north-closed:hover{
+	background: url(images/spinner_arrow_up.gif) no-repeat top center;
+}
+/*arrow-down in horizontal resize bar*/
+.ui-layout-toggler-north-closed,
+	.ui-layout-toggler-south-open,
+	.ui-layout-toggler-center-south-closed, 
+	.ui-layout-toggler-center-north-open{
+	background: url(images/spinner_arrow_down.gif) no-repeat top center;
+}
+/*arrow-down:hover in horizontal resize bar*/
+.ui-layout-toggler-north-closed:hover,
+	.ui-layout-toggler-south-open:hover,
+	.ui-layout-toggler-center-south-closed:hover, 
+	.ui-layout-toggler-center-north-open:hover{
+	background: url(images/spinner_arrow_down.gif) no-repeat top center;
+}
+/*arrow-left in vertical resize bar*/
+.ui-layout-toggler-east-closed,
+	.ui-layout-toggler-west-open,
+	.ui-layout-toggler-center-west-closed, 
+	.ui-layout-toggler-center-east-open{
+	background: url(images/arrow_black_left.gif) no-repeat center left;
+}
+/*arrow-left:hover in vertical resize bar*/
+.ui-layout-toggler-east-closed:hover,
+	.ui-layout-toggler-west-open:hover,
+	.ui-layout-toggler-center-west-closed:hover, 
+	.ui-layout-toggler-center-east-open:hover{
+	background: url(images/arrow_black_left.gif) no-repeat center left;
+}
+/*arrow-right in vertical resize bar*/
+.ui-layout-toggler-west-closed,
+	.ui-layout-toggler-east-open,
+	.ui-layout-toggler-center-east-closed, 
+	.ui-layout-toggler-center-west-open{
+	background: url(images/menu_rightarrow.png) no-repeat center left;
+}
+/*arrow-right:hover in vertical resize bar*/
+.ui-layout-toggler-west-closed:hover,
+	.ui-layout-toggler-east-open:hover,
+	.ui-layout-toggler-center-east-closed:hover, 
+	.ui-layout-toggler-center-west-open:hover{
+	background: url(images/menu_rightarrow.png) no-repeat center left;
+}
+.ui-layout-resizer:hover {
+	background-color: #99BBE8;
+	background:-moz-linear-gradient(top, #E1F0F2,#99BBE8);
+	background:-webkit-linear-gradient(top, #E1F0F2,#99BBE8);
+	background:-o-linear-gradient(top, #E1F0F2,#99BBE8);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#E1F0F2, endColorstr=#99BBE8);/*IE<9>*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#E1F0F2, endColorstr=#99BBE8)";/*IE<8>*/
+}
+.ui-layout-resizer{
+	width:100%; /*add for IE6*/
+	background-color: #99BBFe; 
+	background:-moz-linear-gradient(top, #E1e0e1,#99BBFe);
+	background:-webkit-linear-gradient(top, #E1e0e1,#99BBFe);
+	background:-o-linear-gradient(top, #E1e0e1,#99BBFe);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#E1e0e1, endColorstr=#99BBFe);/*IE<9>*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#E1e0e1, endColorstr=#99BBFe)";/*IE<8>*/
+}
+
+.ui-layout-vertical-resizer:hover {
+	background-color: #99BBE8;
+	background:-moz-linear-gradient(left, #E1F0F2,#99BBE8);
+	background:-webkit-linear-gradient(left, #E1F0F2,#99BBE8);
+	background:-o-linear-gradient(left, #E1F0F2,#99BBE8);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#E1F0F2, endColorstr=#99BBE8);/*IE<9>*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#E1F0F2, endColorstr=#99BBE8)";/*IE<8>*/
+}
+.ui-layout-vertical-resizer{
+	background-color: #99BBFe; 
+	background:-moz-linear-gradient(left, #E1e0e1,#99BBFe);
+	background:-webkit-linear-gradient(left, #E1e0e1,#99BBFe);
+	background:-o-linear-gradient(left, #E1e0e1,#99BBFe);
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#E1e0e1, endColorstr=#99BBFe);/*IE<9>*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=1, startColorstr=#E1e0e1, endColorstr=#99BBFe)";/*IE<8>*/
+}
+
+.easylist_inset_layer{
+	overflow: hidden;
+}
+
+
+/**-----------------------------editable select---------------------------------*/
+.editable_select {
+/*	width : 120px; 	*/
+	height : 18px;
+	border: none;
+	padding : 0px;
+	flow : hidden;
+	display: block;
+}
+
+.editable_select_combobox{
+	width:100%;
+	height:100%;
+	border : 1px solid #8d8d8d;
+	display: list-item;
+}
+
+.editable_select_input {
+	border:0px none;
+	padding:0px;
+	margin:0px;
+/*	width : 104px;	*/
+	height : 18px;
+	float: left;
+}
+.editable_select_input_readonly {
+	background-color : #EfEfEf;
+	color : #8d8d8d;
+}
+
+.editable_select_icon {
+	display: inline;
+	width:16px;
+	height:18px;
+	border:0px none;
+	float: right;
+	right: 0px;
+	background:transparent url(images/panel_tool_expand.gif) no-repeat center;
+}
+
+
+.dropdownlist{
+	background-color:#fff;
+	border: 1px solid #dddddd; 
+	padding:0px;
+	z-index:100;
+	overflow-y:auto;
+	overflow-x:hidden;
+	display: list-item;
+}
+
+.dropdownlist_li{
+	background-color:#ffffff;
+	height:18px;
+	font-weight:normal;
+}
+.dropdownlist_li:hover {
+	background-color: #EBF3FD;
+}
+.dropdownlist_li_selected{
+	font-weight:bold;
+}
+.dropdownlist_li_icon{
+	width:16px;
+	height:16px;
+	float:left;
+	margin-top:1px
+}
+.dropdownlist_li_icon_selected{
+	background:url("images/tree_dnd_yes.png") no-repeat scroll center center transparent;
+}
+.dropdownlist_li_sep {
+	width:1px;
+	height:16px;
+	background-color:#DDDDDD;
+}
+.dropdownlist_li_label{
+	display: inline-block;
+	font-size: 12px;
+	height:18px;
+	float:left;
+	margin-left:6px;
+	background:transparent;
+}
+/*sql配置页面-复制/删除按钮样式*/
+.btn_copy{
+	width:16px;
+	height:16px;
+	background: url(images/_doc.gif) no-repeat center;
+	float: left;
+}
+.btn_delete{
+	width:16px;
+	height:16px;
+	background: url(images/tree_dnd_no.png) no-repeat center;
+	float: left;
+	margin-left: 6px;
+}
+/*----------------------------------------------------------------------*/

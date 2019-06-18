@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/gps/!svn/ver/791/gps/src/com/gps/alarm/service
+END
+VehicleinfnewAlarmServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/805/gps/src/com/gps/alarm/service/VehicleinfnewAlarmServiceImpl.java
+END
+IVehicleinfnewAlarmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/gps/!svn/ver/805/gps/src/com/gps/alarm/service/IVehicleinfnewAlarmService.java
+END

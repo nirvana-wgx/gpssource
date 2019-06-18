@@ -1,0 +1,281 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/gps/!svn/ver/573/gps/WebRoot/WEB-INF/lib
+END
+commons-beanutils-1.8.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/commons-beanutils-1.8.3.jar
+END
+org.springframework.context-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.context-3.1.1.RELEASE.jar
+END
+org.springframework.transaction-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.transaction-3.1.1.RELEASE.jar
+END
+slf4j-log4j12-1.7.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/slf4j-log4j12-1.7.5.jar
+END
+org.springframework.core-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.core-3.1.1.RELEASE.jar
+END
+org.springframework.beans-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.beans-3.1.1.RELEASE.jar
+END
+org.springframework.jms-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.jms-3.1.1.RELEASE.jar
+END
+jcommon-1.0.10.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gps/!svn/ver/148/gps/WebRoot/WEB-INF/lib/jcommon-1.0.10.jar
+END
+jfreechart-1.0.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/gps/!svn/ver/147/gps/WebRoot/WEB-INF/lib/jfreechart-1.0.6.jar
+END
+poi-2.5.1-final-20040804.jar
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/573/gps/WebRoot/WEB-INF/lib/poi-2.5.1-final-20040804.jar
+END
+cglib-2.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/cglib-2.2.2.jar
+END
+org.springframework.expression-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.expression-3.1.1.RELEASE.jar
+END
+org.springframework.jdbc-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.jdbc-3.1.1.RELEASE.jar
+END
+org.springframework.aspects-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.aspects-3.1.1.RELEASE.jar
+END
+ojdbc14.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gps/!svn/ver/349/gps/WebRoot/WEB-INF/lib/ojdbc14.jar
+END
+commons-lang.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/commons-lang.jar
+END
+standard.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gps/!svn/ver/46/gps/WebRoot/WEB-INF/lib/standard.jar
+END
+com.mapprsoft.zion.geo.core-1.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/gps/!svn/ver/401/gps/WebRoot/WEB-INF/lib/com.mapprsoft.zion.geo.core-1.0.1.jar
+END
+org.springframework.test-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.test-3.1.1.RELEASE.jar
+END
+org.springframework.web.struts-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.web.struts-3.1.1.RELEASE.jar
+END
+log4j-1.2.17.jar
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/log4j-1.2.17.jar
+END
+GeoData.dll
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gps/!svn/ver/451/gps/WebRoot/WEB-INF/lib/GeoData.dll
+END
+mybatis-3.2.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/mybatis-3.2.2.jar
+END
+jstl-1.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gps/!svn/ver/45/gps/WebRoot/WEB-INF/lib/jstl-1.2.jar
+END
+commons-io-1.3.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/commons-io-1.3.2.jar
+END
+org.springframework.orm-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.orm-3.1.1.RELEASE.jar
+END
+org.springframework.instrument.tomcat-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.instrument.tomcat-3.1.1.RELEASE.jar
+END
+asm-3.3.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/asm-3.3.1.jar
+END
+org.springframework.context.support-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.context.support-3.1.1.RELEASE.jar
+END
+commons-pool-1.3.jar
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/commons-pool-1.3.jar
+END
+javassist-3.17.1-GA.jar
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/javassist-3.17.1-GA.jar
+END
+org.springframework.web.servlet-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.web.servlet-3.1.1.RELEASE.jar
+END
+ezmorph-1.0.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/ezmorph-1.0.6.jar
+END
+org.springframework.oxm-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.oxm-3.1.1.RELEASE.jar
+END
+mysql-connector-java-5.1.6-bin.jar
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/35/gps/WebRoot/WEB-INF/lib/mysql-connector-java-5.1.6-bin.jar
+END
+commons-collections-3.2.jar
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/commons-collections-3.2.jar
+END
+commons-httpclient.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/commons-httpclient.jar
+END
+org.springframework.web.portlet-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.web.portlet-3.1.1.RELEASE.jar
+END
+org.springframework.instrument-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.instrument-3.1.1.RELEASE.jar
+END
+json-lib-2.4-jdk15.jar
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/commons-logging-1.1.1.jar
+END
+org.springframework.web-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.web-3.1.1.RELEASE.jar
+END
+slf4j-api-1.7.5.jar
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/slf4j-api-1.7.5.jar
+END
+xom-1.2.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/gps/!svn/ver/36/gps/WebRoot/WEB-INF/lib/xom-1.2.1.jar
+END
+org.springframework.aop-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.aop-3.1.1.RELEASE.jar
+END
+org.springframework.asm-3.1.1.RELEASE.jar
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/32/gps/WebRoot/WEB-INF/lib/org.springframework.asm-3.1.1.RELEASE.jar
+END

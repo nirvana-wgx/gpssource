@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.statistics.dao.MessagereportDAO">
+   <select id="getDailyWorkTime" parameterType="java.util.Map" resultType="Messagereport">
+         select t.*  
+           from messagereport t 
+          where t.deviceid=#{deviceid} 
+            and t.rbrq between #{startdate} and #{enddate}  
+       order by t.rbrq
+   </select>
+   <select id="getMonthWorkTime" parameterType="java.util.Map" resultType="com.gps.statistics.entity.MonthStatistics">
+      select sum(a.cyskqsj) as monthdata,a.rbrq as month 
+        from (SELECT deviceid,substr(rbrq,1,7) rbrq, substr(cyskqsj,1,instr(cyskqsj,'小',1,1) - 1) cyskqsj 
+               from messagereport 
+              where deviceid = #{deviceid} 
+                and rbrq between #{startdate} and #{enddate}) a 
+    group by a.rbrq,a.deviceid
+   </select>
+   
+</mapper>

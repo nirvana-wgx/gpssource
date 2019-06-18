@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.gps.account.dao.DictionaryDao">  
+      <select id="query" resultType="Dictionary" >
+      		select * from dictionary t where 1=1
+      </select>
+      <select id="getTypes" resultType="Dictionary" >
+      		select distinct d_type,d_typeName from dictionary t where 1=1
+      </select>
+       <select id="queryByparms" resultType="Dictionary" parameterType="Account">
+      		select * from dictionary t where 1=1
+      		and exists (
+      		select t1.d_code from account_dictionary t1 where t1.account_name =#{name} and t.d_code=t1.d_code
+      		)
+      </select>
+       <select id="queryByDictionary" resultType="Dictionary" parameterType="Dictionary">
+      		select t1.* from(select a.*, rownum rn from (
+      		select t.* from dictionary t where 1=1
+      		<if test="name!=null and name!=''">
+      		and exists (
+      		select t1.d_code from account_dictionary t1 where t1.account_name =#{name} and t.d_code=t1.d_code
+      		)
+      		</if>
+      		<if test="d_type!=null and d_type!='' ">
+      			and t.d_type=#{d_type}
+      		</if>
+      		<if test="d_value!=null and d_value!='' ">
+      			and t.d_value like #{d_value}
+      		</if>
+      		<if test="d_code!=null and d_code!=''">
+      			and t.d_code=#{d_code}
+      		</if>
+      		order by d_code) a )  t1 
+      		<if test=" start!=null and start!=''">
+      			where rn between #{start} and #{end}
+      		</if> 
+      </select>
+      <insert id="save" parameterType="Dictionary">
+	      insert into dictionary(d_code,d_value,d_type,d_typeName)
+	      values(#{d_code},#{d_value},#{d_type},#{d_typeName})
+      </insert>
+      <update id="update" parameterType="Dictionary">
+      	update dictionary set d_value =#{d_value},d_code =#{d_code} where d_code =#{d_code}
+      </update>
+      <delete id="delete" parameterType="Dictionary">
+      		delete from dictionary where d_code=#{d_code}
+      </delete>
+ </mapper> 

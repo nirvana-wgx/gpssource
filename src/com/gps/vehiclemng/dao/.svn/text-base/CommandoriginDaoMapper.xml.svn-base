@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.CommandoriginDao">
+    <insert id="save" parameterType="Commandorigin">
+	     <selectKey keyProperty="coid" resultType="String" order="BEFORE">
+				select seq_commandorigin.nextval from dual
+		  </selectKey> 
+	      insert into commandorigin(coid,device,sim,command,descrip,sendtime,state,username)
+	      values(#{coid},#{device},#{sim},#{command},#{descrip},#{sendtime},#{state},#{username})
+    </insert>
+    <insert id="insert" parameterType="CmdDown">
+         <selectKey keyProperty="cd_id" resultType="String" order="BEFORE">
+                select seq_commandorigin.nextval from dual
+          </selectKey> 
+          insert into cmddown(CD_ID,SIM,CONTENT,CREATETIME,SENDTIME,STATE,NUMBERS)
+          values(#{cd_id},#{sim},#{content},#{createtime},#{sendtime},#{state},#{numbers})
+    </insert>
+    <select id="getCommandoriginList" parameterType="java.util.Map" resultType="Commandorigin">
+       select t1.*
+         from (select t.*, rownum rn
+	              from ( select a.*
+		                    from commandorigin a
+		                   where a.device = '${deviceid}'
+		                     and to_char(a.sendtime, 'yyyy-MM-DD HH24:MI:SS') between '${serstarttime}' and '${serendtime}' 
+		                order by sendtime desc) t) t1
+		  where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getCommandoriginCount" parameterType="java.util.Map" resultType="int">
+        select count(*)
+          from commandorigin a 
+         where a.device = '${deviceid}'
+           and to_char(a.sendtime, 'yyyy-MM-DD HH24:MI:SS') between '${serstarttime}' and '${serendtime}'
+   </select>
+   <update id="merge" parameterType="String">
+        update commandorigin set state = '发送成功' where coid = '${csid}'
+    </update>
+</mapper>

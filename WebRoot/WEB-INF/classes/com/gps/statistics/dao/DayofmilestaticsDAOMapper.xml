@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.statistics.dao.DayofmilestaticsDAO">
+   <select id="getDailyWorkMile" parameterType="java.util.Map" resultType="Dayofmilestatics">
+         select t.*  
+           from dayofmilestatics t 
+          where t.deviceid=#{deviceid} 
+            and t.staticsdate between #{startdate} and #{enddate}  
+       order by t.staticsdate
+   </select>
+   <select id="getMonthWorkMile" parameterType="java.util.Map" resultType="com.gps.statistics.entity.MonthStatistics">
+      select sum(a.mile) as monthdata,a.mdate as month 
+        from (SELECT deviceid, substr(staticsdate,1,7) mdate, mile 
+               from dayofmilestatics 
+              where deviceid = #{deviceid} 
+                and staticsdate between #{startdate} and #{enddate}) a 
+    group by a.mdate, a.deviceid
+   </select>
+</mapper>

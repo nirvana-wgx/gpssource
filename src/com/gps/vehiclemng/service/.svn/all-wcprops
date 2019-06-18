@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/gps/!svn/ver/781/gps/src/com/gps/vehiclemng/service
+END
+IQueryPowersService.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/gps/!svn/ver/744/gps/src/com/gps/vehiclemng/service/IQueryPowersService.java
+END
+MessageoriginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/MessageoriginServiceImpl.java
+END
+MessagebmServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/MessagebmServiceImpl.java
+END
+IRelationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/gps/!svn/ver/725/gps/src/com/gps/vehiclemng/service/IRelationService.java
+END
+QueryPowersServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/gps/!svn/ver/744/gps/src/com/gps/vehiclemng/service/QueryPowersServiceImpl.java
+END
+IMaintenanceService.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/IMaintenanceService.java
+END
+IRefundService.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/IRefundService.java
+END
+ICommandoriginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/gps/!svn/ver/732/gps/src/com/gps/vehiclemng/service/ICommandoriginService.java
+END
+MapServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/gps/!svn/ver/781/gps/src/com/gps/vehiclemng/service/MapServiceImpl.java
+END
+RelationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/gps/!svn/ver/725/gps/src/com/gps/vehiclemng/service/RelationServiceImpl.java
+END
+MaintenanceServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/MaintenanceServiceImpl.java
+END
+IMessageoriginService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/IMessageoriginService.java
+END
+RefundServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/662/gps/src/com/gps/vehiclemng/service/RefundServiceImpl.java
+END
+CommandoriginServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/732/gps/src/com/gps/vehiclemng/service/CommandoriginServiceImpl.java
+END
+IMessagebmService.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/656/gps/src/com/gps/vehiclemng/service/IMessagebmService.java
+END
+MapService.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/825/gps/src/com/gps/vehiclemng/service/MapService.java
+END

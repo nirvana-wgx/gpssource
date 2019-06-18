@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/gps/!svn/ver/593/gps/WebRoot/jsp/accountmanager
+END
+update_password.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/593/gps/WebRoot/jsp/accountmanager/update_password.jsp
+END
+account_manager_edit.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/591/gps/WebRoot/jsp/accountmanager/account_manager_edit.jsp
+END
+account_manager_list.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/579/gps/WebRoot/jsp/accountmanager/account_manager_list.jsp
+END

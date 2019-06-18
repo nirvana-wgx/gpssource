@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.gps.account.dao.AccountDictionaryDao">  
+ 	
+     <insert id="save" parameterType="AccountDictionary">
+	     	insert into account_dictionary(d_code,d_type,account_name)
+	     	values(#{d_code},#{d_type},#{account_name})
+     </insert>
+     <delete id="delete" parameterType="String">
+     	delete from account_dictionary  where account_name =#{account_name}
+     </delete>
+      <delete id="deleteChild" parameterType="AccountDictionary">
+     	delete from account_dictionary  where account_name in(
+	     	select name from  account t  
+	     	start with  t.name =#{account_name} 
+	     	connect by prior t.name=t.parentname
+     	) 
+     	and d_code=#{d_code}
+     </delete>
+     <select id="query" parameterType="String" resultType="AccountDictionary">
+     	select * from account_dictionary t 
+     	where 1=1 
+     	<if test="account_name!=null">and t.account_name =#{account_name}</if>
+     	
+     </select>
+     <select id="isExistPowers" parameterType="java.util.Map" resultType="int">
+        select count(1) from account_dictionary where account_name = #{ account_name } and d_code = #{ d_code }
+     </select>
+ </mapper> 

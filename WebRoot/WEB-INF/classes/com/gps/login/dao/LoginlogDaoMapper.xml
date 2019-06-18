@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.gps.login.dao.LoginlogDao">  
+      
+      <select id="selectHeadMenu" resultType="Menu" >
+       	select * from menu where 1=1 and parentCode=0 order by code asc
+      </select>
+      
+       <select id="selectLeftMenu" resultType="Menu" parameterType="String">
+       	select * from menu where 1=1 and parentCode=#{parentCode} order by code asc
+      </select>
+      <insert id="save" parameterType="Loginlog">
+	      <selectKey keyProperty="llid" resultType="String" order="BEFORE">
+				select seq_log.nextval from dual
+		  </selectKey> 
+	      insert into loginlog(llid, account,ip,time)
+	      values(#{llid},#{account},#{ip},#{time})
+      </insert>
+ </mapper> 

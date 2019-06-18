@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.MessageoriginDao">
+   <select id="getMessageoriginList" parameterType="java.util.Map" resultType="Messageorigin">
+       select t1.*
+         from (select t.*, rownum rn
+	              from ( select a.*, b.sim
+		                    from messageorigin a,relation b  
+		                   where a.deviceid = b.deviceid
+		                     and b.deviceid = '${deviceid}'
+		                     and to_char(a.receivetime, 'yyyy-MM-DD HH24:MI:SS') between '${serstarttime}' and '${serendtime}'
+		                order by receivetime desc) t) t1
+		  where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getMessageoriginCount" parameterType="java.util.Map" resultType="int">
+        select count(*)
+          from messageorigin a,relation b  
+         where a.deviceid = b.deviceid
+           and b.deviceid = '${deviceid}'
+           and to_char(a.receivetime, 'yyyy-MM-DD HH24:MI:SS') between '${serstarttime}' and '${serendtime}'
+   </select>
+</mapper>

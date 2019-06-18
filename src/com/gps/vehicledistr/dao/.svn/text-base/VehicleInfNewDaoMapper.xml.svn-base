@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC   
+    "-//mybatis.org//DTD Mapper 3.0//EN"  
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.gps.vehicledistr.dao.VehicleInfNewDao">  
+      
+        <select id="getListByDeviceid" resultType="VehicleInfNew">
+            
+                select *
+                from VEHICLEINFNEW e
+                where e.DEVICEID='9999999999' 
+                <if test="list.size() &gt; 0">
+                or e.DEVICEID in
+                <foreach collection="list" item="deviceid" index="index"
+                    open="(" close=")" separator=",">
+                    #{deviceid}
+                </foreach>
+                </if>
+        </select>
+      
+      
+      
+ </mapper> 

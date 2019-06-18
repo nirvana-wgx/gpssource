@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/gps/!svn/ver/762/gps/src/com/gps/statistics/dao
+END
+RelationDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gps/!svn/ver/387/gps/src/com/gps/statistics/dao/RelationDAO.java
+END
+MessagereportDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/305/gps/src/com/gps/statistics/dao/MessagereportDAO.java
+END
+RelationDAOMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/762/gps/src/com/gps/statistics/dao/RelationDAOMapper.xml
+END
+DayofmilestaticsDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/305/gps/src/com/gps/statistics/dao/DayofmilestaticsDAO.java
+END
+MessagereportDAOMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/667/gps/src/com/gps/statistics/dao/MessagereportDAOMapper.xml
+END
+DayofmilestaticsDAOMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/gps/!svn/ver/525/gps/src/com/gps/statistics/dao/DayofmilestaticsDAOMapper.xml
+END

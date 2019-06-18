@@ -1,0 +1,122 @@
+#upload {
+	font-size: 12px;
+	padding: 0 5px;
+}
+
+#upload a { 
+	color: #385ea2; 
+	text-decoration: none; 
+}
+
+.upload a:hover { text-decoration: underline; }
+
+#upload button {
+	outline: none;
+	text-shadow: 0 1px white;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 1px solid #8F9AB3;
+	padding: 0 15px;
+	height: 28px;
+	line-height: 24px;
+	background: url(images/input_button_bg.gif) repeat-x top;
+	margin-left: 5px;
+}
+
+#upload button:hover {
+	background: url(images/input_button_hover_bg.gif) repeat-x top;
+}
+
+.upload-button {
+	margin: 5px 0;
+}
+
+.upload-confirm {
+	margin: 15px 0;
+	margin-bottom: 3px;
+	text-align: center;
+}
+
+#tab_body_con {
+	overflow: auto;
+}
+
+/* -- SWFUpload Object Styles ------------------------------- */
+.swfupload {
+	vertical-align: top;
+}
+
+#upload table {
+	width: 100%;
+	border: 1px solid #999;
+	color: #333;
+}
+
+#upload .upload-info table {
+	border-top: none;
+}
+
+#upload table th {
+	background-repeat: :repeat-x;
+	height: 30px;
+	background-color: #EDF2FA;
+	text-indent: 3px;
+	border-top: none;
+}
+
+
+#upload table th,
+#upload table td {
+	border: 1px solid #999;
+	padding: 0 0 0 2px;
+}
+
+/**上传取消样式**/
+.upload_cancel {
+	color: red;
+	cursor: hand;
+}
+
+/**操作样式**/
+.upload_option {
+	
+}
+/***上传状态***/
+.upload_state_success {
+	color: green;
+}
+
+.upload_state_error {
+	color: red;
+}
+
+.upload_state_process {
+	color: blue;
+}
+
+.uplad_state_wait {
+	color: black;
+}
+
+/***文件名**/
+.uplad_filename {
+	
+}
+
+.upload_process_bar {
+	background-color: #CAFF70;
+	height: 4px;
+	width: 0%;
+}
+
+#tab_body_con{
+	height: 160px;	
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	overflow-x: hidden;
+}

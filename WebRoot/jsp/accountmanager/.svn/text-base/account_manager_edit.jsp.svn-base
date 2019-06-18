@@ -1,0 +1,377 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	String path = request.getContextPath();
+%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>账号信息创建</title>
+		<!--<link rel="stylesheet" href="<%=path%>/css/table.css" type="text/css" media="all" />
+
+	-->
+		<link rel="stylesheet" href="<%=path%>/css/toolbars.css"
+			type="text/css" media="all" />
+		<script type="text/javascript" src="<%=path%>/scripts/jquery-1.7.1.min.js"></script>
+		<style type="text/css">
+body {
+	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica,
+		sans-serif;
+	color: #4f6b72;
+	/*background: #E6EAE9;*/
+}
+
+caption {
+	font: bold 18px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	text-align: left;
+	border-right: 0px solid #CCCCFF;
+	border-bottom: 1px solid #CCCCFF;
+	background: #fff;
+	font-size: 12px;
+	padding: 6px 6px 6px 12px;
+}
+
+#caption_top {
+	margin-top: 20px;
+	border-top: 1px solid #CCCCFF;
+}
+
+table {
+	width: 100%;
+}
+
+.commandsend_tab td {
+	border-right: 1px solid #CCCCFF;
+	border-bottom: 1px solid #CCCCFF;
+	background: #fff;
+	font-size: 12px;
+	padding: 6px 6px 6px 12px;
+	color: #000000;
+	font-weight: normal;
+}
+
+#tab_side {
+	border-right: 0px;
+}
+#tab_side_1 {
+	border-right: 0px;
+}
+#tab_side span{
+	margin:0px;
+	padding:0px;
+	display:block;
+	width:20%;
+	float :left;
+}
+fieldset {
+	border: 1px solid #CCCCFF;
+	border-bottom: 0px solid #CCCCFF;
+	font-size: 15px;
+	font-weight: bolder;
+	color: #000000;
+}
+
+fieldset legend {
+	color: #000000;
+}
+
+div {
+	width: 99%;
+	margin-left: 5px;
+}
+</style>
+		<script type="text/javascript">
+	
+	$(function(){
+	
+		//绑定保存事件 
+		$("#btn_ok").bind("click",function(){
+				save();
+		});
+		
+		//用户名唯一检验
+		$("#name").bind("blur",function(){
+			 ajaxUserName();
+		});
+		//init
+		init();
+	});
+	
+	function ajaxUserName(){
+	    var name =$("#name").val();
+	    var str ="name="+name;
+		$.ajax({
+				url:"ajaxUsername.page",
+				type:"POST",
+				dataType:"json",
+		  		data:str,
+				success:function(data){
+					 	 if(data.message==1){
+					 	 	alert("用户名存在，请重新输入..");
+					 	 	$("#name").val("");
+					 	 }
+					 }
+				 
+			   });
+	}
+	function save(){
+		if(!validform()){
+			return ;
+		}
+		var str = $("form").serialize();
+		//alert(str);
+				 $.ajax({
+					 url:"save.page",
+					 type:"POST",
+					 dataType:"json",
+					 data:str,
+					 success:function(data){
+					 	if(data.message=="0"){
+					 		alert("保存失败!");
+					 	}else{
+					 		alert("保存成功!");
+					 		if($("input[name=aid]").val()==""){
+					 			clear();
+					 		}
+					 		if(data.type=="modify"){
+					 		     window.location="query.page";
+					 		}
+					 	}
+					 }
+				 
+				 });
+		
+	}
+	function validform(){
+		    var name =$.trim($("input[name=name]").val());
+		    var maxchild =$.trim($("[name=maxchild]").val());
+			if(name==""){
+				alert("账户名不能为空");
+				return false ;
+			}
+			
+			if(maxchild==""){
+				alert("子账号个数不能为空");
+				return false;
+			}
+			
+			 
+			return true;
+		}
+		
+		function clear(){
+		  $("input[name=name]").val("");
+		  $("input[name=maxchild]").val("");
+		}
+		
+		function init(){
+			var dstr =$("input[name=dstr]").val();
+			$("input:checkbox").each(function(){
+		      	var value =$(this).val();
+		      	if($.trim(dstr).indexOf($.trim(value))>=0){
+		            $(this).removeAttr("checked");
+		      	}
+			})
+		}
+	</script>
+	</head>
+
+	<body>
+
+		<div>
+			<form action="" method="post" name="updateform">
+				<input type="hidden" name="aid" value="${account.aid}" />
+				<input type="hidden" name="parentname" value="${parentname}" />
+				<input type="hidden" name="type" value="${type}" />
+				<input type="hidden" name="dstr" value="${dstr}" />
+				<fieldset>
+					<legend>
+						<c:choose>
+							<c:when test="${ title != null }">${title}</c:when>
+							<c:otherwise>账户信息新增</c:otherwise>
+						</c:choose>
+					</legend>
+					<table border="0" cellspacing="0" cellpadding="0"
+						class="commandsend_tab">
+						<caption id="caption_top">
+							父账号：${parentname}
+						</caption>
+						<tr>
+							<td>
+								<label>
+									账号名：
+								</label>
+							</td>
+							<td>
+								<c:choose>
+									<c:when test="${ account.name !=null }">
+										<input type="text" size="30" readonly  name="name"
+											value="${account.name}" />
+									</c:when>
+									<c:otherwise>
+										<input type="text" size="30" name="name" id="name" value="" />
+									</c:otherwise>
+								</c:choose>
+							</td>
+							<td>
+								<label>
+									最多拥有子账号个数：
+								</label>
+							</td>
+							<td>
+								<c:choose>
+								<c:when test="${account.maxchild !=null }">
+								<input type="text" size="30" id="maxchild" name="maxchild" value="${account.maxchild}" />
+								</c:when>
+								<c:otherwise><input type="text" size="30" id="maxchild" name="maxchild" value="${account.maxchild}" />
+								</c:otherwise>
+								</c:choose>
+							</td>
+							<td id="tab_side_1">
+							<c:choose>
+							 <c:when test="${account.name =='root'}"> 
+							 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 	</c:when> 
+							 <c:otherwise>
+							 <a href="javascript:void(0)" onclick="" id="btn_ok"><span class="toolbar_btn"><span class="toolbar_btn_ico toolbar_btn_ok">保存</span></span></a>
+							 </c:otherwise>
+							</c:choose>
+						   </td>
+						</tr>
+					</table>
+				</fieldset>
+				<fieldset>
+					<legend>
+						权限设置
+					</legend>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption id="caption_top">
+							可选机械种类列表
+						</caption>
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="jxzl" items="${list_jxzl}">
+								<span>
+									<input type="checkbox" checked="checked"
+										value="${jxzl.d_code }" name="jxzl" />${jxzl.d_value }&nbsp;&nbsp;</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption id="caption_top">
+							车辆查看状态
+						</caption>
+
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="clzt" items="${list_clzt}">
+									<span><input type="checkbox" checked="checked"
+										value="${clzt.d_code }" name="clzt" />${clzt.d_value }&nbsp;&nbsp;</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							可选机械类型列表
+						</caption>
+
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="jxlx" items="${list_jxlx}">
+									<span><input type="checkbox" checked="checked"
+										value="${jxlx.d_code }" name="jxlx" />${jxlx.d_value }&nbsp;&nbsp;</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							下发命令设置
+						</caption>
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="xfml" items="${list_xfml}">
+									<span><input type="checkbox" checked="checked"
+										value="${xfml.d_code }" name="xfml" />${xfml.d_value }&nbsp;&nbsp;</span>
+									</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							锁车命令
+						</caption>
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="scml" items="${list_scml}">
+								<span>
+									<input type="checkbox" checked="checked"
+										value="${scml.d_code }" name="scml" />${scml.d_value }&nbsp;&nbsp;
+								</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							自锁车命令
+						</caption>
+
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="zscml" items="${list_zscml}">
+									<span><input type="checkbox" checked="checked"
+										value="${zscml.d_code }" name="zscml" />${zscml.d_value }&nbsp;&nbsp;</span>
+									</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							设备设置
+						</caption>
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="sbsz" items="${list_sbsz}">
+									<span><input type="checkbox" checked="checked"
+										value="${sbsz.d_code }" name="sbsz" />${sbsz.d_value }&nbsp;&nbsp;</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							其他设置
+						</caption>
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="qtsz" items="${list_qtsz}">
+									<span><input type="checkbox" checked="checked"
+										value="${qtsz.d_code }" name="qtsz" />${qtsz.d_value }&nbsp;&nbsp;</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+					<table border="0" cellspacing="0" cellpadding="0" class="commandsend_tab">
+						<caption>
+							回传消息显示列表
+						</caption>
+						<tr>
+							<td id="tab_side">
+								<c:forEach var="xslb" items="${list_xslb}">
+									<span><input type="checkbox" checked="checked"
+										value="${xslb.d_code }" name="xslb" />${xslb.d_value }&nbsp;&nbsp;</span>
+								</c:forEach>
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</form>
+		</div>
+
+	</body>
+</html>

@@ -1,0 +1,199 @@
+@charset "GBK";
+/*-----------------------------------------------------------------------------
+                                   login
+-----------------------------------------------------------------------------*/
+html, body {
+	height: 96%;
+}
+
+a {
+	text-decoration: none;
+}
+
+.login_pane {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+}
+
+.login_header {
+	height: 23%;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FEFBF3), to(#DEECF3));
+	background-image: -webkit-linear-gradient(top, #FEFBF3, #DEECF3);
+	background-image: -moz-linear-gradient(top, #FEFBF3, #DEECF3);
+	background-image: -ms-linear-gradient(top, #FEFBF3, #DEECF3);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FEFBF3 , endColorstr=#DEECF3);
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FEFBF3 , endColorstr=#DEECF3);
+}
+
+.login_header_wrapper, 
+.login_footer_wrapper {
+	position: relative;
+	height: 100%;
+	line-height: 100px;
+	background: url(../images/grid_bg.png);
+	_background: url(../images/ie_grid_bg.gif);
+}
+
+.login_header h1 {	
+	position: absolute;
+	top: 50%;
+	left: 38px;
+	background: url(../images/login_logo.png) no-repeat;
+	margin-top: -18px;
+	width: 606px;
+	height: 41px;
+}
+
+*html .login_header h1  {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/login_logo.png", sizingMethod="scale");
+}
+
+.login_body {
+	height: 45%;
+	min-height: 280px;
+	max-height: 500px;
+	background: url(../images/login_bg.gif) repeat-x left center;
+}
+
+.login {
+	position: relative;
+	margin: 0 auto;	
+	width: 738px;
+	height: 100%;
+	min-height: 280px;
+	background: url(../images/login_image.png) no-repeat left center;
+}
+
+*html .login {
+	background: none;
+	overflow: hidden;
+}
+
+*html .login_image {	
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -146px;
+	width: 438px;
+	height: 293px;
+	*zoom: 1;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/login_image.png", sizingMethod="crop");
+}
+
+.login form {
+	position: absolute;
+	font-size: 14px;
+	top: 50%;
+	right: 0;
+	_right: 5px;
+	width: 300px;
+	height: 226px;
+	margin-top: -125px;
+	padding: 10px 20px;
+	-webkit-border-radius: 18px;
+	-moz-border-radius: 18px;
+	border-radius: 18px;
+	background: url(../images/login_pane_bg.gif) repeat-x top;
+	box-shadow: 4px 4px 2px #247EB3;
+	behavior: url(css/PIE.htc);
+}
+
+.login_title {	
+	margin-bottom: 15px;
+	padding: 8px 0;
+	background: url(../images/login_linebg.gif) repeat-x bottom;
+}
+
+.login_title h2 {
+	background: url(../images/login_title.gif) no-repeat;
+	height: 24px;
+}
+
+.login input {
+	border: 1px solid #AAAFB3;
+	width: 100%;
+	width: 230px;	
+	height: 20px;	
+	margin-left: 5px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.login input.login_captcha {	
+	width: 80px;
+}
+
+.login label {
+	position: relative;
+	display: block;
+	padding: 6px 2px;
+	*padding: 4px 2px;
+	word-spacing: 8px;
+}
+
+.login label img {
+	position: absolute;
+	top: 7px;
+	left: 150px;
+	width: 62px;
+	height: 18px;
+}
+
+.login_button {
+	*margin: 0 auto;
+	*width: 71px;
+	margin-top: 16px;
+	text-align: center;
+}
+
+.login_button_sign {	
+	*display: block;
+	*float: left;
+	display: inline-block;
+	border: 1px solid #8D5813;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background: url(../images/login_button_bg.gif) repeat-x;
+	box-shadow: 1px 1px 2px #2990CC;
+
+}
+
+.login_button_sign:hover {	
+	background: url(../images/login_button_hover.gif) repeat-x;
+}
+
+.login_button_sign span {
+	color: white;	
+	font-weight: bold;
+	font-size: 14px;
+	text-decoration: none;
+	width: 71px;
+	display: inline-block;
+	cursor: pointer;
+	border: 1px solid #FCAC65;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	height: 16px;
+	padding: 5px 0;
+} 
+
+.login_footer {
+	height: 32%;
+	text-align: center;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FEF9EE), to(#E3EDF0));
+	background-image: -webkit-linear-gradient(top, #FEF9EE, #E3EDF0);
+	background-image: -moz-linear-gradient(top, #FEF9EE, #E3EDF0);
+	background-image: -ms-linear-gradient(top, #FEF9EE, #E3EDF0);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FEF9EE , endColorstr=#E3EDF0);
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#FEF9EE , endColorstr=#E3EDF0);
+}
+
+.login_footer span {	
+	color: black;
+	font-size: 12px;
+}

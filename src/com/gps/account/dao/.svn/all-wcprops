@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/gps/!svn/ver/741/gps/src/com/gps/account/dao
+END
+AccountDictionaryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/gps/!svn/ver/741/gps/src/com/gps/account/dao/AccountDictionaryDao.java
+END
+DictionaryDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/gps/!svn/ver/311/gps/src/com/gps/account/dao/DictionaryDao.java
+END
+AccountDictionaryDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/gps/!svn/ver/741/gps/src/com/gps/account/dao/AccountDictionaryDaoMapper.xml
+END
+DictionaryDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/gps/!svn/ver/603/gps/src/com/gps/account/dao/DictionaryDaoMapper.xml
+END

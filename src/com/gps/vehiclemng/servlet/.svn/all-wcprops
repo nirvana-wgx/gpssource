@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/gps/!svn/ver/785/gps/src/com/gps/vehiclemng/servlet
+END
+VehicleInfoServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/gps/!svn/ver/819/gps/src/com/gps/vehiclemng/servlet/VehicleInfoServlet.java
+END
+FastTipsServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/724/gps/src/com/gps/vehiclemng/servlet/FastTipsServlet.java
+END
+MapServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/818/gps/src/com/gps/vehiclemng/servlet/MapServlet.java
+END
+HistoryInfServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/745/gps/src/com/gps/vehiclemng/servlet/HistoryInfServlet.java
+END
+MaintenanceInfoServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/gps/!svn/ver/670/gps/src/com/gps/vehiclemng/servlet/MaintenanceInfoServlet.java
+END
+RefundServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/gps/!svn/ver/811/gps/src/com/gps/vehiclemng/servlet/RefundServlet.java
+END
+SalesInfServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/657/gps/src/com/gps/vehiclemng/servlet/SalesInfServlet.java
+END
+DictionaryServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/604/gps/src/com/gps/vehiclemng/servlet/DictionaryServlet.java
+END
+VehicleSearchServlet.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/gps/!svn/ver/715/gps/src/com/gps/vehiclemng/servlet/VehicleSearchServlet.java
+END

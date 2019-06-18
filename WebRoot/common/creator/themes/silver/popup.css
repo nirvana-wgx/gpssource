@@ -1,0 +1,164 @@
+@charset "UTF-8";
+/******************************************************************************                                    
+									readme
+Title: layout
+
+Themes: silver
+
+plugins: 
+
+Required by: 
+
+Written by: jian.hou
+
+Date:23th October 2012
+
+Update: 23th October 2012
+
+Copyright: 
+ 
+*******************************************************************************/
+/*-----------------------------------------------------------------------------
+                                   framework
+-----------------------------------------------------------------------------*/
+.popup_layout {
+	 width: 100%;
+	 height: 100%;
+	 position: relative;
+}
+
+.popup_wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -278px 0 0 -440px;
+	width: 980px;
+	height: 556px;
+	border: 1px solid #ADAFB3;
+	border-radius: 4px;	
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px; 
+	box-shadow: 2px 2px 5px #4A4B4D;
+	background-color: #F0F2F5;
+	/*background-color: #DFE1E5;*/
+}
+
+.popup {
+	margin: 10px;
+}
+
+.popup table {
+	width: 100%;
+}
+
+.popup_content, .popup_content_s1, .popup_content_s2  {
+	padding: 3px 0;
+	border: 1px solid #ADAFB3;
+	background: white url(images/toolbar_reverse_bg.gif) repeat-x top;
+	overflow: hidden;
+	position: relative;
+}
+
+.popup_content_s1 {
+	padding: 3px;
+	margin-top: 24px;
+	border-top: none;
+	background: #F0F2F5 url(images/toolbar_reverse_bg.gif) repeat-x top;
+}
+
+.popup_content_s2 {
+	padding: 3px;
+	background: #F0F2F5 url(images/toolbar_reverse_bg.gif) repeat-x top;
+}
+
+.position_right {
+	width: auto;
+	height: auto;
+	position: absolute;
+	top: 1px;
+	right: 3px;
+}
+
+/*插入工具栏的背景*/
+.popup_toolbar_bg {
+	background: url(images/toolbar_reverse_bg.gif) repeat-x top;
+}
+
+.bgcolor_lightgray {
+	background-color: #F0F2F5;
+}
+
+.tree_wrapper {
+	background-color: white;
+	border: 1px solid #BBB;
+	border-top: none;
+	padding: 3px;
+	vertical-align: top;
+}
+
+.tree_wrapper_tab {
+	background-color: white;
+	border: 1px solid #BBB;
+	padding: 3px 0;
+	vertical-align: top;
+}
+
+.popup_manipulate {
+	height: 30px;
+	line-height: 30px;
+}
+
+.popup_pagination {
+	width: 200px;
+	float: right;
+}
+
+.popup_button {
+	text-align: center;
+}
+
+.popup_button a {
+	display: inline-block;
+	width: 51px;
+	height: 19px;
+	margin: 6px 3px 0 0;
+}
+
+.popup_button_up {
+	background: url(images/pupop_button.gif) no-repeat;
+}
+
+.popup_button_up:hover {
+	background: url(images/pupop_button.gif) no-repeat -51px 0;
+}
+
+.popup_button_down {
+	background: url(images/pupop_button.gif) no-repeat left -19px;
+}
+
+.popup_button_down:hover  {
+	background: url(images/pupop_button.gif) no-repeat -51px -19px;
+}
+
+.popup_form {
+	padding: 0 3px;
+	height: 438px;
+}
+
+.popup_form table {}
+
+.popup_form td {
+	padding: 5px 0;
+	vertical-align: middle;
+}
+
+.popup_close {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background: url(images/tabs_close.gif) no-repeat 0 -36px;
+}
+
+.popup_close:hover {
+	background: url(images/tabs_close.gif) no-repeat 0 -48px;
+}

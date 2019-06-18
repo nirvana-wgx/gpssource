@@ -1,0 +1,263 @@
+@charset "UTF-8";
+/*                                    
+-------------------------------------------------------------------						
+Title: datagrid.css
+Themes: aliceblue
+plugins: 
+Required by: demo_datagrid_*.html, jquery.ui.datagrid.js
+Written by: jian.hou
+Date: 25th July 2012
+Update: 26th July 2012
+Copyright: 
+-------------------------------------------------------------------	
+* Change log
+* Date： 26th July 2012
+-------------------------------------------------------------------	
+*/
+
+/* ================================================================ 
+								datagrid
+   ================================================================ */
+/*datagrid窗格*/
+.datagrid_pane {
+	position: relative;
+	border: 1px solid #8DB2E3;
+	overflow: hidden;
+	_zoom: 1; /*修复滚动条滚动时触发的relative bug*/
+}
+
+/*datagrid表头单元格*/
+.datagrid_pane th {
+	font-size: 12px; 
+	font-weight: bold;
+	line-height: 20px;
+	height: 20px;
+	border-top: 1px dotted white;
+	border-right: 1px dotted #BBB;
+	border-bottom: 1px dotted #BBB;
+	cursor: default;
+	padding: 0px 3px;
+}
+
+/*datagrid 表格内容单元格*/
+.datagrid_pane td {
+	font-size: 12px;
+	height: 20px;
+	border-right: 1px dotted #BBB;  
+	border-bottom: 1px dotted #BBB;
+	cursor: default;
+	padding: 0px 3px;
+}
+
+/*清除input的空白和边距*/
+.datagrid_pane input {
+	padding: 0;
+	margin: 0;
+}
+
+/*datagrid表头单元格 hover*/
+.datagrid_pane th:hover {
+	background-color: #EEEEFF;
+}
+
+/*固定列头*/
+.datagrid_header {
+	position: absolute;
+}
+
+/*固定列头td单元格居中*/
+.datagrid_header td {
+	text-align: center;
+}
+
+
+/*固定列头的表头*/
+.datagrid_header_header {
+	background: #FAFAFA url(images/easylist_table_header_bg.gif) repeat-x bottom; /*表头背景*/	
+}
+
+/*固定列头的表体，对应的scroll偏移量*/
+.datagrid_header_body {
+	overflow: hidden;
+}
+
+/*固定列头的表体，scroll滚动层*/
+.datagrid_header_body_view {
+	/*预留*/
+}
+
+/*固定列头的表脚*/
+.datagrid_header_footer {
+	border-top: 1px solid #BBB;
+}
+
+/*表格内容*/
+.datagrid_content {
+	position: absolute;
+	overflow: hidden;
+}
+
+/*表格内容表头，对应的scroll偏移量*/
+.datagrid_content_header {
+	overflow: hidden;
+	background: #FAFAFA url(images/easylist_table_header_bg.gif) repeat-x bottom; /*表头背景*/ 
+}
+
+/*表格内容表头的容器，scroll滚动层*/
+.datagrid_content_header_view {
+	/*预留*/
+}
+
+/*表格内容主体，横向滚动条*/
+.datagrid_content_body {
+	_width: 100%; /*修复IE6下的overflow：auto滚动不出现的bug*/
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+/*表格内容的容器*/
+.datagrid_content_view {
+	/*预留*/
+}
+
+/*表格内容主数据表,纵向滚动条*/
+.datagrid_content_view_cell {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/*表格内容的合计或者统计*/
+.datagrid_content_view_total {
+	border-top: 1px solid #BBB;
+}
+
+/*表脚*/
+.datagrid_footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 12px;
+	background-color: #EFEFEF;
+	border-top: 1px solid #BBB;
+	line-height: 22px;
+}
+
+/* ================================================================ 
+							contextmenu
+   ================================================================ */
+/*contextmenu pane*/
+.contextmenu {
+	position: absolute;
+	padding: 2px;
+	border: 1px solid #CCC;
+	background: transparent url(images/menu.gif) repeat-y left;/*pane背景，包含中间分隔线*/
+	overflow: hidden;	
+	/*box-shadow: 3px 3px 3px rgba(0, 0, 0, .30);css3*/
+}
+
+/*contextmenu shadow*/
+.contextmenu_shadow {
+	background-color: #AAA;
+	position: absolute;
+}
+
+/*contextmenu 菜单项*/
+.contextmenu_item {
+	position: relative;
+	cursor: pointer;
+	border: 1px solid transparent;/*透明边线*/
+	_border-color: #EEE;/*设定滤镜值，修复IE6不支持透明边框*/
+	_filter:chroma(color=#EEE);/*IE滤镜，修复IE6不支持透明边框*/
+	font-size: 12px;
+	overflow: hidden;
+	line-height: 20px;
+	height: 20px;
+}
+
+/*contextmenu 菜单项 hover*/
+.contextmenu_item_hover {
+	border: 1px solid #7EABCD;
+	background-color: #FAFAFA;
+	-webkit-border-radius: 2px;/*css3*/
+	-moz-border-radius: 2px;/*css3*/
+	-ms-border-radius: 2px;/*css3*/
+}
+
+/*contextmenu 菜单项图标*/
+.contextmenu_item_ico {
+	position: absolute;
+	left: 2px;
+	width: 20px;
+	height: 16px;
+	top: 2px;
+}
+
+/*图标*/
+.ico_ok {
+	background: transparent url(icons/16/ok.png) no-repeat;
+}
+
+/*contextmenu 菜单项文本*/
+.contextmenu_item_text {
+	position: absolute;
+	left: 28px;
+	white-space: nowrap; /*不换行*/		  
+	word-break:keep-all; /*不换行*//*css3*/
+}
+/* ================================================================ 
+						javascript reference
+   ================================================================ */
+/*封装单元内容div，内容控制*/
+div.table_datagrid {
+	overflow: hidden;
+	text-overflow: ellipsis; /*css3*/
+	white-space: nowrap; /*不换行*/		  
+	word-break:keep-all; /*不换行*//*css3*/
+}
+
+/*行号*/
+.row_number {
+	background: #FAFAFA url(images/easylist_table_header_bg.gif) repeat-x center;
+}
+
+/*行背景色*/
+.row_bgcolor {
+	background-color: #EEEEFF;
+}
+
+/*hover 背景色*/
+.hover {
+	background-color: #EBF3FD;
+}
+
+/*行:hover*/
+.rows_hover {
+	background-color: #EBF3FD
+}
+
+/*选中行背景色*/
+.selector {
+	background-color: #FBEC88;
+}	
+
+/*排序图标，sort占位宽度class*/
+span.sort, span.asc, span.desc {
+	display: inline-block;
+	width: 15px;
+	height: 5px;		
+}
+
+/*IE7箭头位置*/
+*+html span.asc, *+html span.desc {
+	height: 12px;
+}
+
+/*顺序背景*/
+span.asc {
+	background: url(images/datagrid_sort_asc.gif) no-repeat center right;
+}
+
+/*倒序背景*/
+span.desc {	
+	background: url(images/datagrid_sort_desc.gif) no-repeat center right;	
+}

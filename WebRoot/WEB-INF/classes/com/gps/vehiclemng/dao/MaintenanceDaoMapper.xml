@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.MaintenanceDao">
+	<insert id="save" parameterType="Maintenance">
+	     <selectKey keyProperty="maid" resultType="String" order="BEFORE">
+				select seq_maintenance.nextval from dual
+		  </selectKey> 
+	      insert into maintenance(maid,vehicleid,fitting,expiretime,maintenancetime,action,creater,createtime,remark)
+	      values(#{maid},#{vehicleid},#{fitting},#{expiretime},#{maintenancetime},#{action},#{creater},#{createtime},#{remark})
+    </insert>
+   <select id="getMaintenanceList" parameterType="java.util.Map" resultType="Maintenance">
+       select t1.*
+         from (select t.*, rownum rn
+	              from ( select a.*
+		                    from maintenance a,relation b  
+		                   where a.vehicleid = b.vehicleid
+		                     and (b.deviceid = '${deviceid}' or '${deviceid}' is null)
+		                     and a.fitting like '%${fitting}%'
+		                     and (to_char(a.maintenancetime, 'yyyy-mm-dd') = '${maintenancedate}' or '${maintenancedate}' is null)
+		                     and (a.isovertime = '${isovertime}' or '${isovertime}' is null)
+		                     and (a.action = '${action}' or '${action}' is null)
+		                order by action desc) t) t1
+		  where t1.rn between #{start} and #{end}
+   </select>
+   <select id="getMaintenanceCount" parameterType="java.util.Map" resultType="int">
+        select count(*)
+          from maintenance a,relation b  
+         where a.vehicleid = b.vehicleid
+           and (b.deviceid = '${deviceid}' or '${deviceid}' is null)
+           and a.fitting like '%${fitting}%'
+           and (to_char(a.maintenancetime, 'yyyy-mm-dd') = '${maintenancedate}' or '${maintenancedate}' is null)
+           and (a.isovertime = '${isovertime}' or '${isovertime}' is null)
+           and (a.action = '${action}' or '${action}' is null)
+   </select>
+   <update id="updateAction" parameterType="java.util.Map">
+        update maintenance
+           set action = '完成保养',
+               finishtime = sysdate,
+               remark = '${remark}'
+         where maid = '${maid}'
+    </update>
+</mapper>

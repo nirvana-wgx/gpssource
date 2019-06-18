@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/gps/!svn/ver/666/gps/WebRoot/jsp/vehicledistr
+END
+elecfenc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/gps/!svn/ver/626/gps/WebRoot/jsp/vehicledistr/elecfenc.jsp
+END
+outalarm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/gps/!svn/ver/597/gps/WebRoot/jsp/vehicledistr/outalarm.jsp
+END
+backup_maps.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/gps/!svn/ver/626/gps/WebRoot/jsp/vehicledistr/backup_maps.jsp
+END
+allvehicles.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/gps/!svn/ver/823/gps/WebRoot/jsp/vehicledistr/allvehicles.jsp
+END
+elec_content.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gps/!svn/ver/449/gps/WebRoot/jsp/vehicledistr/elec_content.jsp
+END

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.RelationDao">
+    <insert id="save" parameterType="Car">
+	     <selectKey keyProperty="rid" resultType="String" order="BEFORE">
+				select seq_relation.nextval from dual
+		  </selectKey> 
+	      insert into relation(rid,deviceid,vehicleid,sim,account,type,typename,ownername,ownerphone,carstate,createtime,tablename,isnoice)
+	      values(#{rid},#{deviceid},#{vehicleid},#{sim},#{account},#{type},#{typename},#{ownername},#{ownerphone},#{carstate},#{createtime},#{tablename},#{isnoice})
+    </insert>
+    <update id="modify" parameterType="Car">
+     update relation
+	     <trim prefixOverrides=",">
+		     <set>
+		     <if test="deviceid!=null and deviceid!='' ">deviceid=#{deviceid},</if>
+		     <if test="vehicleid!=null and vehicleid!=''">vehicleid=#{vehicleid},</if>
+		     <if test="sim!=null and sim!=''">sim=#{sim},</if>
+		     <if test="account!=null and account!=''">account=#{account},</if>
+		     <if test="ownername!=null and ownername!=''">ownername=#{ownername},</if>
+		     <if test="ownerphone!=null and ownerphone!=''">ownerphone=#{ownerphone},</if>
+		     <if test="carstate!=null and carstate!=''">carstate=#{carstate},</if>
+		     <if test="createtime!=null and createtime!=''">createtime=#{createtime},</if>
+		     <if test="storageCreator!=null and storageCreator!=''">storageCreator=#{storageCreator},</if>
+		     <if test="storageTime!=null and storageTime!=''">storageTime=#{storageTime},</if>
+		     <if test="storageRemark!=null and storageRemark!=''">storageRemark=#{storageRemark},</if>
+		     <if test="buyname!=null and buyname!='' ">buyname=#{buyname},</if>
+		     <if test="buytime!=null and buytime!='' ">buytime=#{buytime},</if>
+		     <if test="payway!=null and payway!='' ">payway=#{payway},</if>
+		     <if test="prepay!=null and prepay!='' ">prepay=#{prepay},</if>
+		     <if test="paymonth!=null and paymonth!='' ">paymonth=#{paymonth},</if>
+		     <if test="payterm!=null and payterm!='' ">payterm=#{payterm},</if>
+		     <if test="paywarndate!=null and paywarndate!='' ">paywarndate=#{paywarndate},</if>
+		     <if test="isnoice!=null and isnoice!='' ">isnoice=#{isnoice},</if>
+		     </set>
+		     where rid =#{rid}
+	     </trim>
+    </update>
+    <delete id="remove" parameterType="Car">
+    	delete from relation where rid =#{rid}
+    </delete>
+    <select id="query" parameterType="Car" resultType="Car">
+	    	select t1.* from(select a.*, rownum rn from (
+	    	select distinct t.*,(select d.d_value from dictionary d where d.d_code=t.carstate) as  carstatename,vf.receivetime,vf.worktime,vf.gpslocate as locate,vf.carkey,vf.latitude,vf.longitude
+	    	from relation  t left join vehicleinfnew vf on t.deviceid=vf.deviceid and t.vehicleid=vf.vehicleid
+	    	where 1=1 
+	    	 <if test="cname!=null and cname!=''">
+	    		and t.account in(select ac.name from account ac  start with ac.name=#{cname} connect  by prior ac.name=ac.parentname)
+	    	 </if>
+    		 <if test="cname!=null and cname!='' and cname!='root'">
+      			and t.carstate in(select ad.d_code from account_dictionary ad where ad.d_type='clzt' and ad.account_name =#{cname})
+      		 </if>
+    		 <if test="type!=null and type!=''">and t.type=#{type}</if>
+    		 <if test="typename!=null and typename!=''">and t.typename=#{typename}</if>
+    		 <if test="deviceid!=null and deviceid!=''">and t.deviceid like '%'||#{deviceid}||'%'</if>
+		     <if test="vehicleid!=null and vehicleid!=''">and t.vehicleid like '%'||#{vehicleid}||'%'</if>
+		     <if test="sim!=null and sim!=''">and t.sim like '%'||#{sim}||'%'</if>
+		     <if test="account!=null and account!='' ">and t.account =#{account}</if>
+		     <if test="ownername!=null and ownername!=''">and t.ownername like '%'||#{ownername}||'%'</if>
+		     <if test="ownerphone!=null and ownerphone!=''">and t.ownerphone=#{ownerphone}</if>
+		     <if test="carstate!=null and carstate!=''">and t.carstate=#{carstate}</if>
+		     <if test="createtime!=null and createtime!=''">and t.createtime=#{createtime}</if>
+		     
+		     <if test="vehicleidlockstate!=null and vehicleidlockstate!=''">
+		     	and t.deviceid in (
+		    	select distinct t1.deviceid from vehicleinfnew t1 
+			 	where  
+ 				(t1.gpsrelay1,t1.gpsrelay2,t1.gpsrelay3,t1.gpsrelay4) not in(select '解锁','解锁','解锁','解锁' from dual) 
+ 				or ((t1.gpsautolocktwomonth,t1.gpsautolockshell,t1.gpsautolockantenna, t1.gpsautolockmain) not in(select '禁止','禁止','禁止','禁止' from dual)
+ 				and (t1.gpsautolocktwomonth,t1.gpsautolockshell,t1.gpsautolockantenna, t1.gpsautolockmain) not in(select '正常','正常','正常','正常' from dual))
+		     )
+		     </if>
+		     <if test="gpsstate!=null and gpsstate!=''"> 
+			     and t.deviceid in (
+			      select distinct t1.deviceid from vehicleinfnew t1 
+	 			  <![CDATA[ where t1.locatetime <= sysdate+numtodsinterval(-10,'day') ]]>
+			     )
+		     </if>
+		     <if test="nowork!=null and nowork!=''">
+			     and t.deviceid in (
+			     select distinct t1.deviceid from vehicleinfnew t1 
+			   	 <![CDATA[ where to_char(t1.receivetime,'yyyy-MM-dd HH:mm:ss') <= to_char(sysdate+numtodsinterval(-10,'day'),'yyyy-MM-dd HH:mm:ss')]]> 
+			     )
+		     </if>
+		     
+		     order by to_date(t.createtime,'yyyy-MM-dd') desc) a )  t1 
+      		<if test=" start!=null">
+      			where rn between #{start} and #{end}
+      		</if> 
+    </select>
+    <select id="queryAll" parameterType="Car" resultType="Car">
+		     select t.* 
+		     from relation  t 
+		     where 1=1  
+    	 	 <if test="deviceid!=null and deviceid!=''">and deviceid=#{deviceid}</if>
+    		 <if test="type!=null and type!=''">and type=#{type}</if>
+    		 <if test="typename!=null and typename!=''">and typename=#{typename}</if>
+		     <if test="vehicleid!=null and vehicleid!=''">and vehicleid=#{vehicleid}</if>
+		     <if test="sim!=null and sim!=''">and sim=#{sim}</if>
+		     <if test="account!=null and account!='' ">and account like '%'||#{account}||'%'</if>
+		     <if test="ownername!=null and ownername!=''">and ownername like '%'||#{ownername}||'%'</if>
+		     <if test="ownerphone!=null and ownerphone!=''">and ownerphone=#{ownerphone}</if>
+		     <if test="carstate!=null and carstate!=''">and carstate=#{carstate}</if>
+		     <if test="createtime!=null and createtime!=''">and createtime=#{createtime}</if>
+    </select>
+    <select id="findCarByAccount" resultType="Car">
+        select *
+        from RELATION e
+        where e.ACCOUNT in
+        <foreach collection="list" item="account" index="index"
+            open="(" close=")" separator=",">
+            #{account}
+        </foreach>
+    </select>
+    <select id="getCarByrid" parameterType="String" resultType="Car">
+    	select t.* from relation t where 1=1 and t.rid =#{rid}
+    </select>
+    <select id="queryAllVehicleInfNew"   resultType="VehicleInfNew1">
+    	select distinct t.* from vehicleinfnew t where 1=1  
+    </select>
+</mapper>

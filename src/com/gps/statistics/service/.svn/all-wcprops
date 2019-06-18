@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/gps/!svn/ver/540/gps/src/com/gps/statistics/service
+END
+RelationServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/gps/!svn/ver/387/gps/src/com/gps/statistics/service/RelationServiceImpl.java
+END
+MessagereportServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/540/gps/src/com/gps/statistics/service/MessagereportServiceImpl.java
+END
+DayofmilestaticsServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/gps/!svn/ver/307/gps/src/com/gps/statistics/service/DayofmilestaticsServiceImpl.java
+END
+IRelationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/gps/!svn/ver/387/gps/src/com/gps/statistics/service/IRelationService.java
+END
+IMessagereportService.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/gps/!svn/ver/307/gps/src/com/gps/statistics/service/IMessagereportService.java
+END
+IDayofmilestaticsService.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/gps/!svn/ver/307/gps/src/com/gps/statistics/service/IDayofmilestaticsService.java
+END

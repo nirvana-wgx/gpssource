@@ -1,0 +1,41 @@
+/* author Zhoujing */
+/* time 2010/11/18 */
+/* version 1.0.1 */
+@charset "utf-8";
+/* public */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,textarea,select,option,p,table,tbody,tr,th,td,a,img,strong,em{ padding:0; margin:0; }
+body{ font-family:Tahoma,sans-serif,"宋体"; font-size:12px; line-height:1.2em; color:#5a646e; background:#ffffff; }
+ul,ol,dl{ list-style:none; }
+h1,h2,h3,h4,h5,h6,strong,em{ font-size:12px; font-weight:normal; font-style:normal; }
+p{ text-indent:0;}
+a{ color:#2864b4; text-decoration:none; }
+a:hover{ color:#ff3264;text-decoration:none; }
+img{border:none;}
+input,button,textarea,select,option { font-family:Tahoma,sans-serif,"宋体"; font-size:12px; line-height:1.2em;}
+.clear{ clear:both; height:0; width:0; line-height:0; overflow:hidden; }
+.wrapper{ clear:both; width:100%px;border-bottom:1px solid #1d548f;border-top:1px solid #1d548f; overflow:hidden}
+/* layout */
+.m_left{float:left;width:260px;}
+.m_left h3{line-height:25px; height:25px; padding-left:10px;border-bottom:1px solid #1d548f;border-top:1px solid #eaeaea;font-size:14px; font-weight:bold;background:url(../../../images/tit_bg2.gif) repeat-x top;color:#333;}
+.m_left p{padding:0 15px; line-height:20px;}
+.m_left .p1{padding-top:5px;padding-bottom:5px;}
+.m_left .p2{background:#ebeef1;padding-top:5px;padding-bottom:7px;border-bottom:1px solid #1d548f;}
+.m_left .p2 p{ line-height:25px;}
+.m_left .p2 input{ vertical-align:middle;}
+.m_left .p2 p.btn{padding:2px 0;padding-left:70px; text-align:center; overflow:hidden;}
+.m_left .p2 p.btn .reset_e{float:left;}
+.m_left .p3{padding-top:0px;padding-bottom:15px;color:#ff3264;}
+
+.m_center{float:left;width:4px;min-height:600px;text-align:center;}
+.m_right{margin-left:264px;border-left:1px solid #1d548f;}
+
+a.reset_e{ display:block;width:80px;height:33px; margin:0 auto;font-size:12px; font-weight:bold;color:#ffffff; text-align:center;line-height:33px;background:url(../../../images/a_buttonon.gif) no-repeat 0 0;}
+a.reset_e:hover{background:url(../../../images/a_buttonon.gif) no-repeat 0 0;color:#ffff00;}
+
+table.time_list{width:230px;margin-left:10px;border:1px solid #c6d9fd; border-collapse:collapse;background:#f0f5ff;}
+table.time_list th{border:1px solid #c6d9fd; height:22px; line-height:22px;color:#333;}
+table.time_list td{ height:20px; line-height:20px;border:1px solid #c6d9fd;color:#333; text-align:center;}
+
+#div1{height:106px; overflow-y:scroll;}
+.m_t10{margin-top:10px;}
+

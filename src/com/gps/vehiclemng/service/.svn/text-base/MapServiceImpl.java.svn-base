@@ -1,0 +1,266 @@
+package com.gps.vehiclemng.service;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.session.ExecutorType;
+import org.apache.ibatis.session.SqlSession;
+
+import com.gps.common.util.DateUtil;
+import com.gps.common.util.GetPosition;
+import com.gps.common.util.MybatisUtil;
+import com.gps.service.BasicService;
+import com.gps.vehiclemng.dao.MapDao;
+import com.gps.vehiclemng.entity.Car;
+import com.gps.vehiclemng.entity.EFencAlarm;
+import com.gps.vehiclemng.entity.Messagebm;
+import com.gps.vehiclemng.entity.VehicleInfNew;
+
+public class MapServiceImpl extends BasicService implements MapService {
+	
+	/**
+	 * 根据设备号获取最新车辆信息
+	 */
+	public VehicleInfNew getVehicleInf(String deviceid) throws Exception {
+		SqlSession session = MybatisUtil.getSqlsessionfactory().openSession(ExecutorType.REUSE);
+		try {
+			MapDao dao = session.getMapper(MapDao.class);
+			VehicleInfNew mi = dao.getLastVehicleInf(deviceid);
+			//session.commit();
+			
+			String locate = "";
+			locate = GetPosition.getPositionByXY1(mi.getLongitude(), mi.getLatitude());
+			
+			String lat = getValue(mi.getLatitude());
+			mi.setLatitude(lat);
+			String lon = getValue(mi.getLongitude());
+			mi.setLongitude(lon);
+			
+			mi.setLocate(locate);
+			//System.out.println(DateUtil.parse(DateUtil.format(mi.getReceivetime(), "yyyy-MM-dd HH:mm:ss")));
+			return mi;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			session.close();
+		}
+		//VehicleInfNew mi = new VehicleInfNew("CM01","BM00000001","28.12345","112.59123","1935.45小时","正在工作","湖南省，长沙市，雨花区，广济桥社区","2013-06-17 14:23:34");
+	}
+	
+	/**
+	 * 根据设备号获取历史数据
+	 */
+	public List<Messagebm> getHisoryInf(String deviceid,String start,String end,String precision) throws Exception {
+		SqlSession session = MybatisUtil.getSqlsessionfactory().openSession(ExecutorType.REUSE);
+		
+		try{
+			MapDao dao = session.getMapper(MapDao.class);
+			//根据设备编号去车辆表中获取对应的数据表
+			Car car = dao.getModelInf(deviceid);
+			
+			Map<String,String> map = new HashMap<String, String>();
+			String tabname="";
+			tabname = car.getTablename();
+			map.put("tabname", tabname);
+			map.put("start", start);
+			map.put("end", end);
+			
+			//取得数据表中的数据
+			List<Messagebm> items = new ArrayList<Messagebm>();
+			List<Messagebm> itemsnew = new ArrayList<Messagebm>();
+			
+			
+			if (!precision.equals("2")) {
+				map.put("num", "100000");//最多一起加载10万个点出来计算
+				items = dao.getHisoryInf(map);
+				if(null==items||items.size()<=0) return items;
+				itemsnew = getHandleList(items,precision);
+			}else{//原始
+				map.put("num", "500");//限制为500个点
+				itemsnew = dao.getHisoryInf(map);
+			}
+			
+			String lat="";
+			String lon="";
+			for(Messagebm mb:itemsnew){
+				lat = getValue(mb.getLatitude());
+				mb.setLatitude(lat);
+				lon = getValue(mb.getLongitude());
+				mb.setLongitude(lon);
+			}
+			
+			return itemsnew;	
+		}catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			session.close();
+		}
+	}
+	
+	private static String getValue(String x){
+		int begin = x.indexOf("度");
+		String doX = x.substring(0, begin);
+		int end = x.indexOf("分");
+		String fenX = x.substring(begin + 1, end);
+		double doXdouble = Double.valueOf(doX);
+		double fenXdouble = Double.valueOf(fenX);
+		double value = doXdouble + fenXdouble / 60;
+		return value+"";
+	}
+	
+	/**
+	 * 绑定电子围栏
+	 */
+	public String addMapPoints(String deviceid,String fencontent) throws Exception {
+		String id="";
+		String type="1";//1-入界，2-出界
+		String fenname="";
+		String creattime=DateUtil.format(new Date(), "yyyy-MM-dd HH:mm:ss");
+		
+		SqlSession session = MybatisUtil.getSqlsessionfactory().openSession(ExecutorType.REUSE);
+		
+		try{
+			MapDao dao = session.getMapper(MapDao.class);
+			//根据设备编号去车辆表中获取对应的数据表
+			EFencAlarm pojo = new EFencAlarm(id,deviceid,fenname,creattime,fencontent,type);
+			int n = dao.addMapPoints(pojo);
+			session.commit();
+			return n+"";
+		}catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			session.close();
+		}
+	}
+	
+	/**
+	 * 获取电子围栏
+	 */
+	public List<EFencAlarm> getFenc(String deviceid) throws Exception {
+		SqlSession session = MybatisUtil.getSqlsessionfactory().openSession(ExecutorType.REUSE);
+		try{
+			MapDao dao = session.getMapper(MapDao.class);
+			List<EFencAlarm> list = new ArrayList<EFencAlarm>();
+			list = dao.getFenc(deviceid);
+			return list;
+		}catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			session.close();
+		}
+	}
+	
+	/**
+	 * 移除电子围栏
+	 */
+	public String removeFenc(String deviceid) throws Exception {
+		SqlSession session = MybatisUtil.getSqlsessionfactory().openSession(ExecutorType.REUSE);
+		int n;
+		try{
+			MapDao dao = session.getMapper(MapDao.class);
+			n = dao.removeFenc(deviceid);
+			session.commit();
+			return n+"";
+		}catch(Exception e){
+			e.printStackTrace();
+			throw e;
+		}finally{
+			session.close();
+		}
+	}
+	
+	/**
+	 * 
+	 * @Description 根据精细度处理list
+	 * @author wgx
+	 * @Data Oct 23, 2013
+	 * @param list
+	 * @param precision 精细度
+	 * @return
+	 * @throws
+	 */
+	private List<Messagebm> getHandleList(List<Messagebm> listAll,String precision){
+		List<Messagebm> listTrace = new ArrayList<Messagebm>();
+			int size = listAll.size();
+
+			double left = 180;
+			double top = -90;
+			double right = -180;
+			double bottom = 90;
+			
+			int i;
+			for (i = 0; i < size; i++) {
+				Messagebm message = listAll.get(i);
+				String latString = message.getLatitudeEx();
+				String lonString = message.getLongitudeEx();
+				double lat = Double.valueOf(latString);
+				double lon = Double.valueOf(lonString);
+				if (lon < left)
+					left = lon;
+				if (lon > right)
+					right = lon;
+				if (lat > top)
+					top = lat;
+				if (lat < bottom)
+					bottom = lat;
+			}
+			//double width = Math.abs(left - right);
+			//double height = Math.abs(top - bottom);
+
+			// 精细度，0为粗略，1为精细，2原始 容限值待定
+			double tolerance = 3000.0;
+			if (precision.equals("1")) {
+				tolerance = 1000.0;
+			}
+
+			Messagebm messagePre = null;
+
+			if (size > 0) {
+				messagePre = listAll.get(0);
+				listTrace.add(messagePre);
+			}
+
+			for (i = 0; i < size; i++) {
+				// 获取当前记录
+				Messagebm messageCur = listAll.get(i);
+
+				// 获取当前记录与前一记录的经纬度
+				String latcurrentString = messageCur.getLatitudeEx();
+				String latpreviousString = messagePre.getLatitudeEx();
+				String loncurrentString = messageCur.getLongitudeEx();
+				String lonpreviousString = messagePre.getLongitudeEx();
+				double latcur = Double.valueOf(latcurrentString);
+				double latpre = Double.valueOf(latpreviousString);
+				double loncur = Double.valueOf(loncurrentString);
+				double lonpre = Double.valueOf(lonpreviousString);
+
+				// 当前位置与前一位置距离超过容差则保留记录
+				if (CalDistance(latcur, loncur, latpre, lonpre) > tolerance) {
+					listTrace.add(messageCur);
+					messagePre = messageCur;
+				}
+			}
+		return listTrace;
+	}
+	
+	/*
+	 * 计算两点之间的距离
+	 */
+	private double CalDistance(double lat1, double lon1, double lat2,
+			double lon2) {
+		double dis = 0;
+		double radius = 6378137.0;
+		double pi = 3.1415926;
+		double degree = Math.sqrt((lat1 - lat2) * (lat1 - lat2) + (lon1 - lon2) * (lon1 - lon2));
+		dis = radius * degree * pi / 180.0;
+		return dis;
+	}
+}

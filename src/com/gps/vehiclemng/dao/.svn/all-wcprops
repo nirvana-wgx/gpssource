@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/gps/!svn/ver/789/gps/src/com/gps/vehiclemng/dao
+END
+MessageoriginDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/462/gps/src/com/gps/vehiclemng/dao/MessageoriginDao.java
+END
+MapDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/gps/!svn/ver/650/gps/src/com/gps/vehiclemng/dao/MapDao.java
+END
+RelationDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gps/!svn/ver/700/gps/src/com/gps/vehiclemng/dao/RelationDao.java
+END
+MessageoriginDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/686/gps/src/com/gps/vehiclemng/dao/MessageoriginDaoMapper.xml
+END
+MapDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/gps/!svn/ver/779/gps/src/com/gps/vehiclemng/dao/MapDaoMapper.xml
+END
+RelationDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/814/gps/src/com/gps/vehiclemng/dao/RelationDaoMapper.xml
+END
+MaintenanceDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/424/gps/src/com/gps/vehiclemng/dao/MaintenanceDao.java
+END
+MessagebmDAO.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/gps/!svn/ver/526/gps/src/com/gps/vehiclemng/dao/MessagebmDAO.java
+END
+RefundDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/gps/!svn/ver/487/gps/src/com/gps/vehiclemng/dao/RefundDao.java
+END
+CommandoriginDao.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/gps/!svn/ver/730/gps/src/com/gps/vehiclemng/dao/CommandoriginDao.java
+END
+MaintenanceDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/670/gps/src/com/gps/vehiclemng/dao/MaintenanceDaoMapper.xml
+END
+MessagebmDAOMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/gps/!svn/ver/711/gps/src/com/gps/vehiclemng/dao/MessagebmDAOMapper.xml
+END
+RefundDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/gps/!svn/ver/655/gps/src/com/gps/vehiclemng/dao/RefundDaoMapper.xml
+END
+CommandoriginDaoMapper.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/gps/!svn/ver/742/gps/src/com/gps/vehiclemng/dao/CommandoriginDaoMapper.xml
+END

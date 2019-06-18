@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/gps/!svn/ver/369/gps/src/com/gps/account/service
+END
+IDictionaryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/gps/!svn/ver/311/gps/src/com/gps/account/service/IDictionaryService.java
+END
+IAccountMangerService.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/gps/!svn/ver/288/gps/src/com/gps/account/service/IAccountMangerService.java
+END
+AccountDictionaryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/gps/!svn/ver/288/gps/src/com/gps/account/service/AccountDictionaryServiceImpl.java
+END
+DictionaryServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/gps/!svn/ver/369/gps/src/com/gps/account/service/DictionaryServiceImpl.java
+END
+AccountManagerServiceImpl.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/gps/!svn/ver/359/gps/src/com/gps/account/service/AccountManagerServiceImpl.java
+END
+IAccountDictionaryService.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/gps/!svn/ver/288/gps/src/com/gps/account/service/IAccountDictionaryService.java
+END

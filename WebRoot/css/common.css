@@ -1,0 +1,106 @@
+body {
+    /*font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+    color: #4f6b72;
+    background: #E6EAE9;*/
+} 
+
+table {
+    width: 100%;
+}
+
+table td {
+    border-right: 1px solid #CCCCFF;
+    border-bottom: 1px solid #CCCCFF;
+     
+    background: #fff;
+    font-size: 12px;
+    padding: 1px 1px 1px 1px;
+    color: #5C5C5C;
+    font-weight: normal;
+    /*text-align: center;*/
+}
+
+
+
+td.left {
+    text-align: right;
+}
+
+td.right {
+    text-align: left;
+}
+
+div {
+    width: 99%;
+    margin-left: 5px;
+    border-top:1px solid #CCCCFF;
+    border-left:1px solid #CCCCFF;
+}
+.jpaginate{
+    text-align: right;
+}
+.jpaginate input{
+    margin-right:20px;
+    margin-left:20px;
+    width:30px;
+}
+.jpaginate a{
+    text-decoration: none;
+    border :0px;
+}
+a img{
+    height:15px;
+    border :0px;
+    margin-left :5px;
+    margin-right :5px;
+}
+span{
+    margin-buttom:5px;
+    margin-right:20px;
+    font-size: 15px;
+}
+#div_list{
+    width :100%;
+    height:260px;
+    margin :0px;
+    padding:0px;
+    border:0px;
+}
+
+#tab_list {
+	width:100%;
+	border-collapse:collapse;
+	margin:1em 0;
+}
+
+#tab_list td{
+	font:100% Arial, Helvetica, sans-serif; 
+	text-align:center;
+	padding:.5em;
+	border:1px solid #fff;
+	background:#e5f1f4;
+	font-size: 12px;
+}
+#tab_list th {
+	text-align:center;
+	padding:.5em;
+	border:1px solid #fff;
+	background:#328aa4 url(../images/tr_back.gif) repeat-x;color:#fff;
+	font-size: 12px;
+}
+
+span{
+font-size: 12px;
+color: #5C5C5C;
+}
+
+fieldset{
+      border: 1px solid #CCCCFF;
+      border-bottom: 0px solid #CCCCFF;
+      font-size: 15px;
+      font-weight :bolder  ;
+      color: #000000;
+   }
+   fieldset legend{
+      color: #000000;
+   }

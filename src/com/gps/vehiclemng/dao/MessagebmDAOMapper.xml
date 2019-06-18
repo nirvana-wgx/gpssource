@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+   "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gps.vehiclemng.dao.MessagebmDAO">
+   <select id="getLastByReceivetime" parameterType="java.util.Map" resultType="Messagebm">
+         select t1.*
+           from ( select t.*, rownum rn
+	                 from ( select a.* 
+			                    from ${tablename} a
+			                   where a.deviceid = #{deviceid}
+			                   <choose>
+			                      <when test="serchdate != null and serchdate != ''">
+			                          and to_char(a.receivetime, 'YYYY-MM-DD HH24:MI:SS') &lt;= #{serchdate}
+                             order by a.receivetime desc) t) t1
+			                      </when>
+			                      <otherwise>
+			                          order by a.receivetime asc) t) t1  
+			                      </otherwise>
+			                   </choose>
+			 where rn between 1 and 1
+   </select>
+   <select id="getNewMessagebm" parameterType="java.util.Map" resultType="Messagebm">
+    select t1.*
+      from (select t.*, rownum rn
+              from (select a.*
+                      from vehicleinfnew a
+                     where a.deviceid = #{deviceid}
+                  order by receivetime desc) t) t1
+       where t1.rn between 1 and 1
+   </select>
+   <select id="getMessagebmList" parameterType="java.util.Map" resultType="Messagebm">
+          select t1.*
+           from ( select t.*, rownum rn
+                    from ( select a.* 
+                             from ${tablename} a, relation b
+                            where a.deviceid = b.deviceid
+                              and b.vehicleid = #{vehicleid}
+                              <if test="infotype != null and infotype != ''">and a.infotype = #{infotype}</if>
+                              <if test="gpslocate != null and gpslocate != ''">and a.gpslocate = #{gpslocate}</if>
+                              <if test="gpsshell != null and gpsshell != ''">and a.gpsshell = #{gpsshell}</if>
+                              <if test="gpsantenna != null and gpsantenna != ''">and a.gpsantenna = #{gpsantenna}</if>
+                              <if test="gpsrelay1 != null and gpsrelay1 != ''">and a.gpsrelay1 = #{gpsrelay1}</if>
+                              <if test="gpsrelay2 != null and gpsrelay2 != ''">and a.gpsrelay2 = #{gpsrelay2}</if>
+                              <if test="gpsrelay3 != null and gpsrelay3 != ''">and a.gpsrelay3 = #{gpsrelay3}</if>
+                              <if test="gpsrelay4 != null and gpsrelay4 != ''">and a.gpsrelay4 = #{gpsrelay4}</if>
+                              <if test="gpssleep != null and gpssleep != ''">and a.gpssleep = #{gpssleep}</if>
+                              <if test="gpsminitor != null and gpsminitor != ''">and a.gpsminitor = #{gpsminitor}</if>
+                              <if test="gpspattern != null and gpspattern != ''">and a.gpspattern = #{gpspattern}</if>
+                              <if test="carengine != null and carengine != ''">and a.carengine = #{carengine}</if>
+                              <if test="gpsautolocktwomonth != null and gpsautolocktwomonth != ''">and a.gpsautolocktwomonth = #{gpsautolocktwomonth}</if>
+                              <if test="gpsautolockshell != null and gpsautolockshell != ''">and a.gpsautolockshell = #{gpsautolockshell}</if>
+                              <if test="gpsautolockantenna != null and gpsautolockantenna != ''">and a.gpsautolockantenna = #{gpsautolockantenna}</if>
+                              <if test="gpsautolockmain != null and gpsautolockmain != ''">and a.gpsautolockmain = #{gpsautolockmain}</if>
+                              <if test="carkey != null and carkey != ''">and a.carkey = #{carkey}</if>
+                              <if test="voltagemin != null and voltagemin != ''">and a.voltage &gt;= #{voltagemin}</if>
+                              <if test="voltagemax != null and voltagemax != ''">and a.voltage &lt;= #{voltagemax}</if>
+                              <if test="receivetimemin != null and receivetimemin != ''">and to_char(a.receivetime,'YYYY-MM-DD') &gt;= #{receivetimemin}</if>
+                              <if test="receivetimemax != null and receivetimemax != ''">and to_char(a.receivetime,'YYYY-MM-DD') &lt;= #{receivetimemax}</if>
+                              <if test="worktimemin != null and worktimemin != ''">and a.worktime &gt;= #{worktimemin}</if>
+                              <if test="worktimemax != null and worktimemax != ''">and a.worktime &lt;= #{worktimemax}</if>
+                              <if test="watertemperaturemin != null and watertemperaturemin != ''">and a.watertemperature &gt;= #{watertemperaturemin}</if>
+                              <if test="watertemperaturemax != null and watertemperaturemax != ''">and a.watertemperature &lt;= #{watertemperaturemax}</if>
+                              <if test="oiltemperaturemin != null and oiltemperaturemin != ''">and a.oiltemperature &gt;= #{oiltemperaturemin}</if>
+                              <if test="oiltemperaturemax != null and oiltemperaturemax != ''">and a.oiltemperature &lt;= #{oiltemperaturemax}</if>
+                              <if test="oilpressuremin != null and oilpressuremin != ''">and a.oilpressure &gt;= #{oilpressuremin}</if>
+                              <if test="oilpressuremax != null and oilpressuremax != ''">and a.oilpressure &lt;= #{oilpressuremax}</if>
+                              <if test="oillevelmin != null and oillevelmin != ''">and a.oillevel &gt;= #{oillevelmin}</if>
+                              <if test="oillevelmax != null and oillevelmax != ''">and a.oillevel &lt;= #{oillevelmax}</if>
+                              <if test="rotaryspeedmin != null and rotaryspeedmin != ''">and a.rotaryspeed &gt;= #{rotaryspeedmin}</if>
+                              <if test="rotaryspeedmax != null and rotaryspeedmax != ''">and a.rotaryspeed &lt;= #{rotaryspeedmax}</if>
+                              <if test="collecttimemin != null and collecttimemin != ''">and to_char(a.collecttime,'YYYY-MM-DD') &gt;= #{collecttimemin}</if>
+                              <if test="collecttimemax != null and collecttimemax != ''">and to_char(a.collecttime,'YYYY-MM-DD') &lt;= #{collecttimemax}</if>
+                              <if test="backupmin != null and backupmin != ''">and a.backup &gt;= #{backupmin}</if>
+                              <if test="backupmax != null and backupmax != ''">and a.backup &lt;= #{backupmax}</if>
+                              <if test="envtemperaturemin != null and envtemperaturemin != ''">and a.envtemperature &gt;= #{envtemperaturemin}</if>
+                              <if test="envtemperaturemax != null and envtemperaturemax != ''">and a.envtemperature &lt;= #{envtemperaturemax}</if>
+                         order by a.receivetime desc) t) t1
+          where rn between #{start} and #{end}
+   </select>
+   <select id="getMessagebmListCount" parameterType="java.util.Map" resultType="int">
+      select count(1) 
+        from ${tablename} a, relation b
+       where a.deviceid = b.deviceid
+         and b.vehicleid = #{vehicleid}
+         <if test="infotype != null and infotype != ''">and a.infotype = #{infotype}</if>
+         <if test="gpslocate != null and gpslocate != ''">and a.gpslocate = #{gpslocate}</if>
+         <if test="gpsshell != null and gpsshell != ''">and a.gpsshell = #{gpsshell}</if>
+         <if test="gpsantenna != null and gpsantenna != ''">and a.gpsantenna = #{gpsantenna}</if>
+         <if test="gpsrelay1 != null and gpsrelay1 != ''">and a.gpsrelay1 = #{gpsrelay1}</if>
+         <if test="gpsrelay2 != null and gpsrelay2 != ''">and a.gpsrelay2 = #{gpsrelay2}</if>
+         <if test="gpsrelay3 != null and gpsrelay3 != ''">and a.gpsrelay3 = #{gpsrelay3}</if>
+         <if test="gpsrelay4 != null and gpsrelay4 != ''">and a.gpsrelay4 = #{gpsrelay4}</if>
+         <if test="gpssleep != null and gpssleep != ''">and a.gpssleep = #{gpssleep}</if>
+         <if test="gpsminitor != null and gpsminitor != ''">and a.gpsminitor = #{gpsminitor}</if>
+         <if test="gpspattern != null and gpspattern != ''">and a.gpspattern = #{gpspattern}</if>
+         <if test="carengine != null and carengine != ''">and a.carengine = #{carengine}</if>
+         <if test="gpsautolocktwomonth != null and gpsautolocktwomonth != ''">and a.gpsautolocktwomonth = #{gpsautolocktwomonth}</if>
+         <if test="gpsautolockshell != null and gpsautolockshell != ''">and a.gpsautolockshell = #{gpsautolockshell}</if>
+         <if test="gpsautolockantenna != null and gpsautolockantenna != ''">and a.gpsautolockantenna = #{gpsautolockantenna}</if>
+         <if test="gpsautolockmain != null and gpsautolockmain != ''">and a.gpsautolockmain = #{gpsautolockmain}</if>
+         <if test="carkey != null and carkey != ''">and a.carkey = #{carkey}</if>
+         <if test="voltagemin != null and voltagemin != ''">and a.voltage &gt;= #{voltagemin}</if>
+         <if test="voltagemax != null and voltagemax != ''">and a.voltage &lt;= #{voltagemax}</if>
+         <if test="receivetimemin != null and receivetimemin != ''">and to_char(a.receivetime,'YYYY-MM-DD') &gt;= #{receivetimemin}</if>
+         <if test="receivetimemax != null and receivetimemax != ''">and to_char(a.receivetime,'YYYY-MM-DD') &lt;= #{receivetimemax}</if>
+         <if test="worktimemin != null and worktimemin != ''">and a.worktime &gt;= #{worktimemin}</if>
+         <if test="worktimemax != null and worktimemax != ''">and a.worktime &lt;= #{worktimemax}</if>
+         <if test="watertemperaturemin != null and watertemperaturemin != ''">and a.watertemperature &gt;= #{watertemperaturemin}</if>
+         <if test="watertemperaturemax != null and watertemperaturemax != ''">and a.watertemperature &lt;= #{watertemperaturemax}</if>
+         <if test="oiltemperaturemin != null and oiltemperaturemin != ''">and a.oiltemperature &gt;= #{oiltemperaturemin}</if>
+         <if test="oiltemperaturemax != null and oiltemperaturemax != ''">and a.oiltemperature &lt;= #{oiltemperaturemax}</if>
+         <if test="oilpressuremin != null and oilpressuremin != ''">and a.oilpressure &gt;= #{oilpressuremin}</if>
+         <if test="oilpressuremax != null and oilpressuremax != ''">and a.oilpressure &lt;= #{oilpressuremax}</if>
+         <if test="oillevelmin != null and oillevelmin != ''">and a.oillevel &gt;= #{oillevelmin}</if>
+         <if test="oillevelmax != null and oillevelmax != ''">and a.oillevel &lt;= #{oillevelmax}</if>
+         <if test="rotaryspeedmin != null and rotaryspeedmin != ''">and a.rotaryspeed &gt;= #{rotaryspeedmin}</if>
+         <if test="rotaryspeedmax != null and rotaryspeedmax != ''">and a.rotaryspeed &lt;= #{rotaryspeedmax}</if>
+         <if test="collecttimemin != null and collecttimemin != ''">and to_char(a.collecttime,'YYYY-MM-DD') &gt;= #{collecttimemin}</if>
+         <if test="collecttimemax != null and collecttimemax != ''">and to_char(a.collecttime,'YYYY-MM-DD') &lt;= #{collecttimemax}</if>
+         <if test="backupmin != null and backupmin != ''">and a.backup &gt;= #{backupmin}</if>
+         <if test="backupmax != null and backupmax != ''">and a.backup &lt;= #{backupmax}</if>
+         <if test="envtemperaturemin != null and envtemperaturemin != ''">and a.envtemperature &gt;= #{envtemperaturemin}</if>
+         <if test="envtemperaturemax != null and envtemperaturemax != ''">and a.envtemperature &lt;= #{envtemperaturemax}</if>
+   </select>
+</mapper>

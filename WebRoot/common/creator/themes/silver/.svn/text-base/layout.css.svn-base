@@ -1,0 +1,921 @@
+﻿@charset "UTF-8";
+/******************************************************************************                                    
+									readme
+Title: layout
+
+Themes: silver
+
+plugins: 
+
+Required by: 
+
+Written by: jian.hou
+
+Date: 8th August 2012
+
+Update: 12th December 2012
+
+Copyright: 
+ 
+*******************************************************************************/
+/*-----------------------------------------------------------------------------
+                                   framework
+-----------------------------------------------------------------------------*/
+html, body {
+	height: 100%;
+}
+
+/*herder部iframe*//*body部iframe*/
+.iframe_header, 
+.iframe_body, 
+.iframe_footer {
+	width: 100%;
+	height: 100%;
+}
+/*-----------------------------------------------------------------------------
+                                   layout invocation
+-----------------------------------------------------------------------------*/
+/*layout west布局的边框定义*/
+.layout_content_west {
+	border: 1px solid #ADAFB3;
+	background-color: white;
+	overflow: auto;
+}
+
+.header_toggle, 
+.footer_toggle {
+	background-color: #6B82B3;
+}
+
+.sidebar_toggle {
+	background-color: #C3CAD9;
+}
+
+.datagrid_toggle {
+	background-color: #EDF0F5;
+}
+
+.master_detail_toggle {
+	/*background-color: #EDF0F5;*/
+	background-color: white;
+}
+
+.column_toggle {
+	/*background-color: #EDF0F5;*/
+	background-color: tranparent;
+}
+
+.column_toggle-closed {
+	/*background-color: #EDF0F5;*/
+}
+
+/*
+.master_detail_toggle-closed {
+	background-color: #EDF0F5;
+}
+*/
+
+/*定义layout插件使用的toggle class*/
+.collspse_top, 
+.collspse_bottom {
+	width: 51px;
+	height: 5px;
+}
+
+.collspse_top:hover, 
+.collspse_bottom:hover, 
+.collspse_left:hover, 
+.collspse_right:hover {
+	filter:alpha(opacity=60);
+	opacity: 0.6;
+}
+
+/*定义layout插件使用的toggle class衍生出来的两个classname，分别表示打开的"*-open"和表示关闭"*-closed"*/
+.collspse_top-open, 
+.collspse_bottom-closed {
+	background: url(images/collapse_sprite.gif);
+}
+
+.collspse_top-closed, 
+.collspse_bottom-open {
+	background: url(images/collapse_sprite.gif) left -6px;
+}
+
+.collspse_left, 
+.collspse_right,
+.collspse_center {
+	width: 5px;
+	height: 51px;
+}
+
+.collspse_left-open, 
+.collspse_right-closed {
+	background: url(images/collapse_sprite.gif) -51px 0;
+}
+
+.collspse_right-open, 
+.collspse_left-closed {
+	background: url(images/collapse_sprite.gif) -57px 0;
+}
+
+.collspse_middle {
+	width: 51px;
+	height: 5px;
+}
+
+/*layout开关按钮定义*/
+.collspse_middle-center-open, 
+.collspse_middle-south-closed {
+	background: url(images/collapse_sprite.gif) left -11px;
+}
+
+.collspse_middle-center-open:hover, 
+.collspse_middle-south-closed:hover {
+	background: url(images/collapse_sprite.gif) left -16px;
+}
+
+.collspse_middle-center-closed, 
+.collspse_middle-south-open {
+	background: url(images/collapse_sprite.gif) left -22px;
+}
+
+.collspse_middle-center-closed:hover, 
+.collspse_middle-south-open:hover {
+	background: url(images/collapse_sprite.gif) left -27px;
+}
+
+/*layout collspse_middle_shadow开关按钮定义*/
+.collspse_middle_shadow {
+	width: 51px;
+	height: 7px;
+}
+
+.collspse_middle_shadow-center-open, 
+.collspse_middle_shadow-south-closed {
+	background: url(images/collapse_sprite.gif) left -33px;
+}
+
+.collspse_middle_shadow-center-open:hover, 
+.collspse_middle_shadow-south-closed:hover {
+	background: url(images/collapse_sprite.gif) left -41px;
+}
+
+.collspse_middle_shadow-center-closed, 
+.collspse_middle_shadow-south-open {
+	background: url(images/collapse_sprite.gif) left -49px;
+}
+
+.collspse_middle_shadow-center-closed:hover, 
+.collspse_middle_shadow-south-open:hover {
+	background: url(images/collapse_sprite.gif) left -57px;
+}
+
+/*配置layout中间开关*/
+.collspse_center-open {
+	background: url(images/collapse_sprite.gif) left -22px;
+}
+
+.collspse_center-open:hover {
+	background: url(images/collapse_sprite.gif) left -27px;
+}
+
+/*配置layout中间开关关闭*/
+.collspse_center-closed  {
+	width: 7px;
+	background: url(images/collapse_sprite.gif) left -33px;
+}
+
+.collspse_center-closed:hover  {
+	background: url(images/collapse_sprite.gif) left -41px;
+}
+/*
+.collspse_center-east-closed,
+.collspse_center-west-open {
+	background: url(images/collapse_sprite.gif) -67px 0;
+}
+
+.collspse_center-east-closed:hover,
+.collspse_center-west-open:hover {
+	background: url(images/collapse_sprite.gif) -62px 0;
+}
+
+.collspse_center-east-open,
+.collspse_center-west-closed {
+	background: url(images/collapse_sprite.gif) -78px 0;
+}
+
+.collspse_center-west-closed {
+	width: 7px;
+	background: url(images/collapse_sprite.gif) -8px -65px;
+}
+.collspse_center-east-open:hover,
+.collspse_center-west-closed:hover {
+	background: url(images/collapse_sprite.gif) -73px 0;
+}
+
+.collspse_center-west-closed:hover {
+	width: 7px;
+	background: url(images/collapse_sprite.gif) 0 -65px;
+}
+*/
+
+/*配置layout left right开关*/
+.collspse_column {
+	width: 5px;
+	height: 51px;
+}
+
+.collspse_column-west-open {
+	background: url(images/collapse_sprite.gif) -67px 0;
+}
+
+.collspse_column-west-open:hover {
+	background: url(images/collapse_sprite.gif) -62px 0;
+}
+
+.collspse_column-west-closed {	
+	width: 7px;
+	background: url(images/collapse_sprite.gif) -8px -65px;
+}
+
+.collspse_column-west-closed:hover {
+	width: 7px;
+	background: url(images/collapse_sprite.gif) 0 -65px;
+}
+/*-----------------------------------------------------------------------------
+                                   header
+-----------------------------------------------------------------------------*/
+/*头部容器*/
+#header_wrapper {
+	height: 61px;
+	background-color: #6B82B3;
+}
+
+/*头部区*/
+.header {
+	position: relative;
+	height: 35px;
+	background-color: #1999DA;
+}
+
+/*头部标题logo*/
+.header h1 {
+	text-indent: -99999px;
+	background: url(images/h1_bg.png) no-repeat 15px center;/*头部标题logo背景*/
+	height: 34px;
+	border-bottom: 1px solid #2A498C;
+}
+
+/*头部导航条*/
+.navigation {  
+	position: relative;
+	overflow: hidden;
+	background-color: #3C5A9A;/*导航条背景*/
+	height: 25px;
+}
+
+/*导航滚动按钮区域*/
+.navigation_left_region, .navigation_right_region {	
+	position: absolute;
+	z-index: 999;	
+	border-bottom: 1px solid #2D4780;
+}
+
+.navigation_left_region {
+	left: 0;
+}
+
+.navigation_right_region {
+	right: 0;
+}
+
+.nav_prev_arrow, .nav_next_arrow {	
+	display: inline-block;
+	width: 25px;
+	height: 24px;
+	line-height: 24px;
+	cursor: pointer;
+	display: none;
+}
+
+.nav_prev_arrow {
+	background: url(images/collapse_left_bg.png) no-repeat 12px 7px;
+} 
+
+.nav_prev_arrow:hover {
+} 
+
+.nav_next_arrow {
+}
+
+.nav_next_arrow:hover {
+} 
+
+
+/*导航菜单项容器*/
+.navigation_center_region {
+	position: absolute;
+	top: 2px;
+	left: 0px;
+	overflow: hidden;
+	height: 23px;
+	line-height: 23px;
+	width: 100%; /*IE6 overflow的宽度问题*/
+}
+
+/*导航菜单列表*/
+.navigation_lists {
+	width: 1000%;
+	position: absolute;
+	z-index: 0;
+	height: 22px;
+	border-bottom: 1px solid #2D4780;
+}
+
+/*导航菜单项*/
+.navigation_lists li {
+	position: relative;
+	float: left;
+}
+
+/*航菜单项链接*/
+.navigation_lists a {
+	color: white;
+	font-size: 14px;
+	text-shadow: 0 1px #2D4780;
+	text-decoration: none;
+	padding: 0 15px;
+}
+
+/*航菜单项链接:hover*/
+.navigation_lists a:hover {
+	color: #C8E1FA;
+}
+
+
+/*导航菜单项*/
+.navigation_lists li.navlist_items {
+}
+
+/*选中的导航菜单项*/
+.navigation_lists li.nav_selected {
+	background-color: #6B82B3;
+	border: 1px solid #2D4780;
+	border-bottom: none;
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	border-radius: 4px 4px 0 0;
+	padding: 0 15px;	
+	behavior: url(../themes/silver/PIE.htc);
+}
+
+.navigation_lists li.nav_selected a  {
+}
+
+
+/*顶部子导航*/
+.topsubnav {
+	position: absolute;
+	top: 4px;
+	right: 10px;
+}
+
+/*顶部子导航项*/
+.topsubnav li {
+	position: relative;
+	color: white;
+	font-size: 12px;
+	float: left;
+	padding: 0 5px 0 20px;
+	line-height: 24px;
+	height: 24px;
+}
+
+span.topsubnav_divide {
+	position: absolute;
+	top: 4px;
+	left: 0;
+	display: inline-block;	
+	border-left: 1px solid #EDF6FA;
+	height: 16px;
+}
+
+.identity {
+	background: transparent url(images/identity.png) no-repeat left 2px; /*退出系统图标*/
+}
+
+.exit {
+	cursor: pointer;	
+	background: transparent url(images/exit.png) no-repeat right 3px; /*退出系统图标*/
+	_background: transparent url(images/exit.gif) no-repeat left 3px; /*IE6退出系统图标*/
+}
+
+.exit:hover {
+	filter:alpha(opacity=60);
+	opacity: 0.6;
+}
+/*退出系统链接*/
+.exit a {
+	width: 10px;
+	display: inline-block;
+	color: white;
+	font-size: 12px;
+	text-decoration: none;
+	height: 20px;
+}
+
+/*退出系统链接:hover*/
+.exit a:hover {
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	color: white;
+	border-bottom: 1px solid white;
+}
+/*-----------------------------------------------------------------------------
+                                   maincontent
+-----------------------------------------------------------------------------*/
+/*中间主内容区*/
+#maincontent {
+	height: 100%;	
+	position: relative;
+	overflow: hidden;
+}
+/*-----------------------------------------------------------------------------
+                                   sidebar
+-----------------------------------------------------------------------------*/
+/*左边侧栏封装*/ /*中间内容封装*/
+.sidebar_wrapper, .content_wrapper { 
+	height: 100%;
+	background-color: transparent;
+}
+
+/*左边侧栏*/
+.sidebar { 
+	height: 100%;
+	overflow: auto;  
+	background-color: white;
+	border-right: 1px solid #8F9AB3; 
+	border-left: none;
+}
+
+/*栏目的标题定义*/
+.sidebar_title {
+	background-color: #EBEDF2;
+	line-height: 26px;
+	height: 26px;
+	border-bottom: 2px solid #C3CAD9;
+}
+
+/*sidebar和dock栏目的标题定义*/
+.sidebar h3 {
+	color: #1B2B4D;
+	font-size: 14px;
+	font-weight: normal;
+	text-indent: 15px;
+}
+
+/*向左箭头和向右箭头的按钮*/
+.collapse_left, .expand_right {  
+	display: none;
+}
+
+/*-----------------------------------------------------------------------------
+                                   content
+-----------------------------------------------------------------------------*/
+/*中间内容*/
+.content {
+	height: 100%;
+	/*
+	background-color: #EDF0F5;
+	*/
+	border-left: 1px solid #8F9AB3;
+}
+
+.content_center {
+	/*background-color: #ECEFF5;
+	border-bottom: 1px solid #C3CAD9;*/
+	background: white url(images/toolbar_bg.gif) repeat-x top;
+	
+}
+
+/*layout布局中间的容器*/
+.content_center_container {
+	padding: 5px;
+}
+
+/*content_center内部布局west*/
+.content_center_west {	
+	border: 1px solid #ADAFB3;
+	background-color: white;
+}
+
+/*content_center内部布局center*/
+.content_center_center {
+}
+/*-----------------------------------------------------------------------------
+                                   tabs
+-----------------------------------------------------------------------------*/
+/*标签容器*/
+.tabs_wrapper {
+	position: relative;
+	z-index: 1;
+	background-color: #DFE1E5;
+	padding-top: 3px;
+}
+
+/*标签组的滑动箭头容器*/
+.tabs_leftarrow, .tabs_rightarrow {
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+}
+
+.tabs_rightarrow {
+	right: 0;
+}
+
+.tabs_leftarrow a, .tabs_rightarrow a {	
+	display: inline-block;
+	width: 14px;
+	height: 27px;	
+	background: url(images/tabs_arrow.gif);
+	border-bottom: 1px solid #8F9AB3;
+} 
+
+.tabs_leftarrow  a.freeze {
+	background: url(images/tabs_arrow.gif) 0 -54px;
+	cursor: default;
+}
+
+.tabs_rightarrow a {
+	background: url(images/tabs_arrow.gif) -14px 0;
+}
+
+.tabs_leftarrow a:hover {
+	background: url(images/tabs_arrow.gif) 0 -27px;
+}
+
+.tabs_leftarrow  a.freeze:hover {
+	background: url(images/tabs_arrow.gif) 0 -54px;
+}
+
+.tabs_rightarrow  a.freeze {
+	background: url(images/tabs_arrow.gif) -14px -54px;
+	cursor: default;
+}
+
+.tabs_rightarrow a:hover {
+	background: url(images/tabs_arrow.gif) -14px -27px;
+}
+
+.tabs_rightarrow  a.freeze:hover {
+	background: url(images/tabs_arrow.gif) -14px -54px;
+}
+
+.tabs_group_container {	
+	position: relative; /*解决IE6中tabs标签会随鼠标滚动而滚动或消失*/
+	overflow: hidden; 
+	width: 100%; /*设定标签的显示范围*/
+	height: 25px;
+}
+
+/*标签组UL*/
+.tabs_group {
+	position: absolute;
+	left: 0;
+	width: 500%;
+	border-bottom: 1px solid #8F9AB3;
+	height: 24px;
+	padding: 0 5px;
+}
+
+/*标签项*/
+.tabs_group li {
+	position: relative;
+	z-index: 0;
+	float: left;
+	border: 1px solid #8F9AB3;
+	border-bottom: none;
+	-webkit-border-radius: 5px 5px 0 0; /*CSS3*/
+	-moz-border-radius: 5px 5px 0 0; /*CSS3*/
+	border-radius: 5px 5px 0 0; /*CSS3*/
+	height: 22px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	margin-right: 1px;	
+	behavior: url(../themes/silver/PIE.htc);
+}
+
+.tabs_group li a {
+	color: #1B2B4D;
+	display: inline-block;  
+	-webkit-border-radius: 5px 5px 0 0; /*CSS3*/
+	-moz-border-radius: 5px 5px 0 0; /*CSS3*/
+	border-radius: 5px 5px 0 0; /*CSS3*/
+	background: url(images/tabs_group_li_bg.gif) repeat-x top;
+	height: 22px;
+	line-height: 22px;
+	font-size: 12px;
+	text-decoration: none;
+	white-space: nowrap;  
+	padding: 0 10px 0 20px;	
+	behavior: url(../themes/silver/PIE.htc);
+}
+
+
+.tabs_group li a:hover {	
+	/*opacity: 0.6;
+	filter: alpha(opacity=60);*/
+	background: url(images/tabs_group_li_hover_bg.gif) repeat-x top;	
+	text-shadow: 0 1px white; /*CSS3*/
+}
+
+
+/*选中标签项*/
+.tabs_group li.tabs_actived {
+	height: 24px;
+	margin-top: 1px;
+}
+
+/*选中标签项链接*/
+.tabs_group li.tabs_actived a {	
+	height: 24px;
+	-webkit-border-radius: 5px 5px 0 0; /*CSS3*/
+	-moz-border-radius: 5px 5px 0 0; /*CSS3*/
+	border-radius: 5px 5px 0 0; /*CSS3*/
+	background: url(images/tabs_actived_bg.gif) repeat-x top;
+	/*background: -webkit-linear-gradient(top, #CFD6E5, white);CSS3*/	
+	padding: 0 15px 0 25px;
+	behavior: url(../themes/silver/PIE.htc);
+}
+
+/*使用id工作区固定选择状态*/
+.tabs_group li#tdefaults a {
+	padding: 0 20px;
+}
+
+span.tabs_icons:hover {
+	/*
+	color: #1861F2;
+	*/
+}
+
+/*选中标签项关闭图标*/
+span.tabs_close {
+	display: inline-block;
+	margin-left: 10px;
+	background: url(images/tabs_close.gif) no-repeat -2px 1px;
+	width: 12px;
+	height: 12px; 
+}
+
+.tabs_actived .tabs_close {
+	
+}
+
+/*选中标签项关闭图标:hover*/
+.tabs_close:hover {
+	cursor: pointer; /*修改IE7下的:hover的光标*/
+	background: url(images/tabs_close.gif) no-repeat -2px -11px;
+}
+/*-----------------------------------------------------------------------------
+                                   toolbar
+-----------------------------------------------------------------------------*/
+.toolbar_wrapper {
+	/*
+	padding: 3px 5px 0px 5px;		
+	background-color: #EDF0F5;	
+	overflow: hidden;
+	*/
+	position: relative;
+	z-index: 9;
+}
+
+.toolbar {	
+	position: relative;
+	height: 28px;
+	line-height: 28px;
+	/*background: url(images/toolbar_bg.gif) repeat-x bottom;*/
+}
+
+.toolbar_bg {
+	background: url(images/toolbar_bg.gif) repeat-x top;
+}
+
+.toolbar_popup_bg {
+	background: url(images/toolbar_bg.gif) repeat-x -5px;
+}
+
+.toolbar a {
+	position: relative;
+	float: left;
+	background: transparent;
+	font-size: 12px;
+	color: #444;
+	text-decoration: none;
+	cursor: pointer; /*修复IE6、IE7下错误的光标*/
+}
+
+.toolbar a {
+	position: relative;
+	float: left;
+	background: transparent;
+	font-size: 12px;
+	color: #444;
+	text-decoration: none;
+	cursor: pointer; /*修复IE6、IE7下错误的光标*/
+}
+
+
+.toolbar_separator {
+	float: left;
+	width: 2px;
+	height: 17px;
+	background: url(images/toolbar_separator.gif);
+	margin: 6px 0 0 0;
+}
+
+.toolbar_search {
+	/*
+	position: relative;
+	float: right;
+	padding-right: 48px;
+	*/
+	position: absolute;
+	top: 1px;
+	right: 2px;
+	width: 176px;
+	*width: 179px;
+	line-height: 22px;
+}
+
+.toolbar_searchbox {
+	margin-top: 1px;
+	*margin-top: 0;
+	padding-right: 48px;
+}
+
+.toolbar_search_ico, .toolbar_search_arrow {
+	position: absolute;
+	top: 1px;
+	right: 22px;
+	width: 24px;
+	height: 22px;
+	background: url(images/toolbar_search_ico.png) no-repeat;
+	cursor: pointer
+}
+
+.toolbar_search_arrow {	
+	right: 0;
+	width: 22px;
+	background: url(images/toolbar_search_ico.png) no-repeat -24px 0;
+}
+
+.toolbar_search_ico:hover {
+	background: url(images/toolbar_search_ico.png) no-repeat 0 -22px;
+}
+.toolbar_search_arrow:hover {
+	background: url(images/toolbar_search_ico.png) no-repeat -24px -22px;
+}
+
+
+/*--------------- 查询控件下拉菜单样式 ---------------*/
+
+.dropdownlist_normal {
+	width: 160px;
+	border: 1px solid #A0A0A0;
+	background-color: #F0F0F0;
+	padding: 2px;
+	z-index: 100;
+}
+
+.dropdownlist_normal ul {
+	height: 100%;	
+	background: transparent url(images/menu_separator.gif) repeat-y 26px;
+}
+
+/*
+.menuItem_normal {
+	background-color: #FFF;
+	height: 18px;
+	font-weight: normal;
+}
+
+.menuItem_normal:hover {
+	background-color: #EBF3FD;
+}
+
+.menuItem_icon {
+	width: 16px;
+	height: 16px;
+	float: left;
+	margin-top: 1px;
+}
+
+.menu_label_normal {
+	display: inline-block;
+	font-size: 12px;
+	float: left;
+	margin-left: 6px;
+	margin-top: 3px;
+	background: transparent;
+}
+*/
+
+.menuItem_selected {
+	font-weight: bold;
+}
+
+.menuItem_icon_selected {
+	background: transparent url(images/selector.gif) no-repeat center;
+}
+
+.menu_label_init {
+	color: #DDD;
+}
+/*-----------------------------------------------------------------------------
+                                   菜单样式
+-----------------------------------------------------------------------------*/
+.menu {
+	position:absolute;
+	padding: 2px;
+	border: 1px solid #A0A0A0;
+	background-color: #F0F0F0;
+	z-index:100;
+}
+
+.menu_shadow {
+	position: absolute;
+	box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.50);  
+	background-color: #999\9;  
+	filter:progid:DXImageTransform.Microsoft.Blur(pixelradius=2);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Blur(pixelradius=2)";
+}
+
+.menu ul {
+	background: transparent url(images/menu_separator.gif) repeat-y 25px;
+}
+
+.menu_li, 
+.menuItem_normal {
+	border: 1px solid transparent;/*透明边线*/
+	_border-color: #EEE;/*设定滤镜值，修复IE6不支持透明边框*/
+	_filter:chroma(color=#EEE);/*IE滤镜，修复IE6不支持透明边框*/
+	font-size: 12px;
+	line-height: 22px;
+	height: 22px;
+	*height: auto;
+	cursor: default;
+}
+
+.menu_li:hover, 
+.menuItem_normal:hover  {
+	border: 1px solid #AECFF7;
+	background: transparent url(images/menu_itembg.png) repeat-x top;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	height: 22px;
+}
+
+.menu_li_icon {
+	float: left;
+	margin: 4px 0 0 4px;
+	width: 16px;
+	height: 16px;
+}
+
+.menuItem_icon {
+	float: left;
+	width: 22px;
+	height: 22px;
+}
+
+.menu_li_label,
+.menu_label_normal {
+	display: block;
+	margin-left: 30px;
+}
+
+.menu_li_label {
+	padding-right: 18px;
+}
+
+
+/*-----------------------------------------------------------------------------
+                                   footer
+-----------------------------------------------------------------------------*/
+.footer {	
+}
+
+.footer_content {
+	border-top: 1px solid #2D4780;
+	color: #C5CEE1;
+	background-color: #3C5A9A;
+	font-size: 12px;
+	height: 24px;
+	line-height: 24px;
+	text-align: right;
+	padding-right: 10px;
+}

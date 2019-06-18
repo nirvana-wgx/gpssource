@@ -1,0 +1,503 @@
+@charset "GBK"; 
+/* ================================================================ 
+								 framework
+   ================================================================ */
+html,
+body {
+	height: 100%;
+}
+/* ================================================================ 
+								header
+   ================================================================ */
+/*头部容器*/
+#header_wrapper {
+	border-bottom: 5px solid #DCDFE4;
+}
+
+/*头部区*/
+.header {
+	position: relative;
+	height: 69px;
+	background: url(../images/repeat_sprite.gif) repeat-x;
+}
+
+/*头部标题logo*/
+.header h1 {
+	position: absolute;
+	top: 16px;
+	left: 10px;
+	text-indent: -99999px;
+	background: url(../images/header_title.png) no-repeat;
+	width: 350px;
+	height: 26px;
+}
+
+*html .header h1 {
+	background: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="images/header_title.png", sizingMethod="crop");	
+}
+
+.navigation_header {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	_bottom: -1px;
+	width: 390px;	
+	height: 30px;
+	background: url(../images/navigation_header.gif) no-repeat right;
+}
+
+.navigation_body {
+	position: relative;  
+	_bottom: -1px;
+	margin-left: 390px;
+	height: 100%;
+}
+
+/*头部导航条*/
+.navigation {  
+	position: absolute;	
+	bottom: 0;
+	width: 100%;
+	height: 30px;
+	overflow: hidden;
+}
+
+/*导航滚动按钮区域*/
+.navigation_left_region, 
+.navigation_right_region {	
+	position: absolute;
+	z-index: 999;	
+	bottom: 0;
+	height: 30px;
+}
+
+.navigation_left_region {
+	left: 0;
+}
+
+.navigation_right_region {
+	right: 0;
+}
+
+.nav_prev_arrow, 
+.nav_next_arrow {	
+	display: inline-block;
+	width: 10px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.nav_prev_arrow {
+	background: url(../images/nav_arrow.gif) no-repeat;
+} 
+
+.nav_prev_arrow:hover {
+	background: url(../images/nav_arrow.gif) no-repeat 0 -31px;
+} 
+
+.nav_next_arrow {
+	background: url(../images/nav_arrow.gif) no-repeat -11px top;
+}
+
+.nav_next_arrow:hover {
+	background: url(../images/nav_arrow.gif) no-repeat -11px -31px;
+} 
+
+.navigation_left_region .freeze {
+	background: url(../images/nav_arrow.gif) no-repeat 0 -62px;
+}
+
+.navigation_right_region .freeze {
+	background: url(../images/nav_arrow.gif) no-repeat -11px -62px;
+} 
+
+/*导航菜单项容器*/
+.navigation_center_region {
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+	 /*width: 100%;IE6 overflow的宽度问题*/
+	background: url(../images/repeat_sprite.gif) repeat-x left -64px;
+}
+
+/*导航菜单列表*/
+.navigation_lists {
+	width: 1000%;
+	position: absolute;
+	z-index: 0;
+	height: 22px;
+}
+
+/*导航菜单项*/
+.navigation_lists li {
+	position: relative;
+	float: left;
+}
+
+/*航菜单项链接*/
+.navigation_lists a {
+	color: white;
+	font-size: 14px;
+	font-weight: bold;
+	text-shadow: 0 1px #2D4780;
+	text-decoration: none;
+	padding: 0 10px;
+}
+
+/*航菜单项链接:hover*/
+.navigation_lists a:hover {
+	color: #CBEBFD;
+}
+
+/*导航菜单项*/
+.navigation_lists li.navlist_items {
+	background: url(../images/nav_separator.gif) no-repeat right center;
+}
+
+/*选中的导航菜单项*/
+.navigation_lists li.nav_selected {
+	position: relative;
+	margin-left: -2px; /*遮盖分隔线*/
+	border-left: 2px solid #439FCE; /*补回移动的负值*/
+	background-color: #439FCE;
+}
+
+.navigation_lists li.nav_selected a  {
+}
+
+/*顶部子导航*/
+.topsubnav {
+	position: absolute;
+	top: 4px;
+	right: 10px;
+}
+
+/*顶部子导航项*/
+.topsubnav li {
+	position: relative;
+	color: #08598C;
+	font-size: 12px;
+	float: left;
+	padding: 0 5px 0 20px;
+	line-height: 24px;
+	height: 24px;
+}
+
+span.topsubnav_divide {
+	position: absolute;
+	top: -2px;
+	left: 0;
+	display: inline-block;	
+	background: url(../images/subnav_separator.png) no-repeat;
+	width: 2px;
+	height: 30px;
+}
+
+.identity {
+	background: transparent url(../images/figure.png) no-repeat left 3px; /*人物*/
+	_background: transparent url(../images/figure.gif) no-repeat left 3px; /*人物*/
+}
+
+.exit {
+	cursor: pointer;	
+	background: transparent url(../images/cross.png) no-repeat 5px 5px; /*退出系统图标*/
+	_background: transparent url(../images/cross.gif) no-repeat 5px 5px; /*退出系统图标*/
+}
+
+/*退出系统链接*/
+.exit a {
+	display: inline-block;
+	color: #08598C;
+	font-size: 12px;
+	text-decoration: none;
+	height: 20px;
+	margin-left: 5px;
+}
+
+/*退出系统链接:hover*/
+.exit a:hover {
+	opacity: 0.8;
+	filter:alpha(opacity=80);
+	color: white;
+}
+
+/* ================================================================ 
+								frame
+   ================================================================ */
+.frame_collapse {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin-left: 30%;
+	width: 10px;
+	height: auto;
+	background: #DCDFE4 url(../images/frame_collapse.gif) no-repeat center;
+}
+
+/* ================================================================ 
+								sidebar
+   ================================================================ */
+/*左边侧栏封装*/ /*中间内容封装*/
+.sidebar_wrapper { 
+	height: 100%;
+	padding: 1px;
+}
+
+.sidebar_wrapper {
+	padding: 1px 1px 1px 0;
+	background-color: #BCC4CF;
+}
+
+/*左边侧栏*/
+.sidebar { 
+	overflow: auto;  
+	height: 100%;
+	background-color: #EBEEF2;
+}
+
+/*栏目的标题定义*/
+.sidebar_title {
+	background: url(../images/accordion_selected_bg.gif) repeat-x;
+	line-height: 39px;
+	height: 39px;
+	border-bottom: 1px solid #B9C7D2;
+	margin-bottom: 5px;
+}
+
+/*sidebar和dock栏目的标题定义*/
+.sidebar h3 {
+	color: #38383A;
+	font-size: 16px;
+	font-weight: bold;
+	text-indent: 15px;
+	text-shadow: 0 1px white;	
+}
+
+.sidebar_setting {	
+	background: url(../images/setting.png) no-repeat 90% 50%;
+	_background: url(../images/setting.gif) no-repeat 90% 50%;
+}
+
+.sidebar_menu li {
+	border-bottom: 1px dotted #D1D5DE;
+}
+
+.sidebar_menu a {
+	font-size: 12px;
+	color: #5C5C5C;
+	text-decoration: none;
+	display: block;
+	margin: 0 10px 0 5px;
+	height: 24px;
+	line-height: 24px;
+	background: url(../images/arrow_ico.gif) no-repeat left center;	
+	_background: url(../images/arrow_ico.gif) no-repeat left 8px;
+	text-indent: 10px;
+}
+
+.sidebar_menu a:hover {
+	color: white;
+	background: #4196DB url(../images/arrow_white_ico.gif) no-repeat left center;
+	_background: #4196DB url(../images/arrow_white_ico.gif) no-repeat left 8px;
+}
+
+.sidebar_menu_selected  {
+	background: #DFE2E5;
+}
+
+.sidebar_menu_selected a {
+	color: #38383A;
+	font-weight: bold;
+}
+/* ================================================================ 
+								tabs
+   ================================================================ */
+/*标签容器*/
+.tabs_wrapper {
+	position: relative;
+	z-index: 1;
+	background-color: #EBF4FC;
+	height: 42px;
+}
+
+/*标签组的滑动箭头容器*/
+.tabs_leftarrow, 
+.tabs_rightarrow {
+	display: inline-block;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+}
+
+.tabs_rightarrow {
+	right: 0;
+}
+
+.tabs_leftarrow a, 
+.tabs_rightarrow a {	
+	display: inline-block;
+	width: 20px;
+	height: 40px;	
+	background: url(../images/tabs_arrow.gif);
+	border-bottom: 1px solid #8F9AB3;
+} 
+
+.tabs_leftarrow  a.freeze {
+	background: url(../images/tabs_arrow.gif) 0 -82px;
+	cursor: default;
+}
+
+.tabs_rightarrow a {
+	background: url(../images/tabs_arrow.gif) -21px 0;
+}
+
+.tabs_leftarrow a:hover {
+	background: url(../images/tabs_arrow.gif) 0 -41px;
+}
+
+.tabs_leftarrow  a.freeze:hover {
+	background: url(../images/tabs_arrow.gif) 0 -82px;
+}
+
+.tabs_rightarrow  a.freeze {
+	background: url(../images/tabs_arrow.gif) -21px -82px;
+	cursor: default;
+}
+
+.tabs_rightarrow a:hover {
+	background: url(../images/tabs_arrow.gif) -21px -41px;
+}
+
+.tabs_rightarrow  a.freeze:hover {
+	background: url(../images/tabs_arrow.gif) -21px -82px;
+}
+
+.tabs_group_container {	
+	position: absolute; /*解决IE6中tabs标签会随鼠标滚动而滚动或消失*/
+	overflow: hidden; 
+	width: 100%; /*设定标签的显示范围*/
+	height: 32px;
+	top: 10px;
+}
+
+/*标签组UL*/
+.tabs_group {
+	position: absolute;
+	left: 0;
+	width: 1000%;
+	height: 32px;
+	padding: 0 5px;
+	background: url(../images/datagrid_footer_bg.gif) repeat-x bottom;
+}
+
+/*标签项*/
+.tabs_group li {
+	position: relative;
+	z-index: 0;
+	float: left;
+	border: 1px solid #8F9AB3;
+	border-bottom: none;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0; 
+	border-radius: 5px 5px 0 0; 
+	margin: 1px 4px 0 0;
+}
+
+.tabs_group li a {
+	color: black;
+	display: inline-block;  
+	-webkit-border-radius: 5px 5px 0 0; 
+	-moz-border-radius: 5px 5px 0 0; 	
+	border-radius: 5px 5px 0 0;
+	background: url(../images/tabs_narmal_bg.gif) repeat-x top;
+	height: 28px;
+	line-height: 28px;
+	font-size: 12px;
+	text-decoration: none;
+	white-space: nowrap;  
+	padding: 0 24px 0 22px;	
+	text-shadow: 0 1px white;
+}
+
+.tabs_group li a:hover {	
+	/*opacity: 0.6;
+	filter: alpha(opacity=60);*/
+	background: url(../images/tabs_hover_bg.gif) repeat-x top;	
+}
+
+/*选中标签项*/
+.tabs_group li.tabs_actived {
+	height: 30px;
+	margin-top: 0;
+}
+
+/*选中标签项链接*/
+.tabs_group li.tabs_actived a {	
+	height: 31px;	
+	padding: 0 28px 0 26px;
+	background: url(../images/tabs_selector_bg.gif) repeat-x bottom;
+	/*background: -webkit-linear-gradient(top, #CFD6E5, white);*/
+}
+
+.tabs_group li.tabs_actived a:hover {	
+	background: url(../images/tabs_selector_bg.gif) repeat-x bottom;
+}
+
+/*使用id工作区固定选择状态*/
+.tabs_group li#tdefaults a {
+	padding: 0 20px;
+}
+
+span.tabs_icons:hover {
+	/*
+	color: #1861F2;
+	*/
+}
+
+/*选中标签项关闭图标*/
+span.tabs_close {
+	position: absolute;
+	top: 2px;
+	right: 2px;
+	background: url(../images/tabs_close.gif) no-repeat -2px 1px;
+	width: 12px;
+	height: 12px; 
+	
+}
+
+.tabs_actived span.tabs_close {}
+
+/*选中标签项关闭图标:hover*/
+.tabs_close:hover {
+	cursor: pointer; /*修改IE7下的:hover的光标*/
+	background: url(../images/tabs_close.gif) no-repeat -2px -11px;
+}
+
+/*-----------------------------------------------------------------------------
+                                   footer
+-----------------------------------------------------------------------------*/
+.footer {
+	border-top: 5px solid #DCDFE4;
+}
+
+.footer_content {	
+	color: #E0EAF7;
+	font-size: 12px;
+	line-height: 24px;
+	height: 26px;
+	background: url(../images/repeat_sprite.gif) repeat-x bottom;
+}
+
+.footer_infomation {
+	float: left;
+}
+
+.footer_infomation em {
+	margin-left: 10px;
+}
+
+.footer_copyright {
+	float: right;
+	padding-right: 10px;
+}

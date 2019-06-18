@@ -1,0 +1,610 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%
+	String path = request.getContextPath();
+%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		 
+		<link href="<%=path%>/css/toolbars.css" rel="stylesheet"
+			type="text/css" />
+		<!--<link href="<%=path%>/css/common.css" rel="stylesheet" type="text/css" />
+		-->
+	 <script type="text/javascript" src="<%=path %>/scripts/jquery-1.7.1.min.js" ></script>
+	 <link href="<%=path%>/css/common.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+body {
+		/*font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+		color: #4f6b72;
+		background: #E6EAE9;*/
+	} 
+	
+	table {
+		width: 100%;
+		cellpadding:0;
+		cellspacing:0;
+	}
+	
+	table td {
+		border-right: 1px solid #CCCCFF;
+		border-bottom: 1px solid #CCCCFF;
+		 
+		background: #fff;
+		font-size: 12px;
+		padding: 1px 1px 1px 1px;
+		color: #5C5C5C;
+		font-weight: normal;
+		text-align: center;
+	}
+	select,input{
+		width:120px;
+	}
+	 
+	
+	td.left {
+		text-align: right;
+	}
+	
+	td.right {
+		text-align: left;
+	}
+	
+	div {
+		width: 99%;
+		margin-left: 5px;
+		border-top:1px solid #CCCCFF;
+		border-left:1px solid #CCCCFF;
+	}
+	.jpaginate{
+		text-align: right;
+	}
+	.jpaginate input{
+		margin-right:20px;
+		margin-left:20px;
+	    width:30px;
+	}
+	.jpaginate a{
+		text-decoration: none;
+		border :0px;
+	}
+	a img{
+		height:15px;
+		border :0px;
+		margin-left :5px;
+		margin-right :5px;
+	}
+	span{
+		margin-buttom:5px;
+		margin-right:20px;
+		font-size: 15px;
+	}
+	#div_list{
+		width :100%;
+		height:500px;
+		margin :0px;
+		padding:0px;
+		border:0px;
+		overflow:auto;
+	}
+	
+	span{
+		font-size: 12px;
+		color: #5C5C5C;
+	}
+	 
+</style>
+<script type="text/javascript">
+$(function(){
+	    	  
+	    	//绑定重置
+	    	$("#btn_clear").bind("click",function(){
+	    		clear();
+	    	});
+	    	//保存
+	    	$("#btn_search").bind("click",function(){
+	    		query();
+	    	});
+	    	$("#refresh").bind("click",function(){
+	    		query();
+	    	});
+	    	$("#sprevious").bind("click",function(){
+	    		query("sprevious");
+	    	});
+	    	$("#previous").bind("click",function(){
+	    		query("previous");
+	    	});
+	    	$("#snext").bind("click",function(){
+	    		query("snext");
+	    	});
+	    	$("#next").bind("click",function(){
+	    		query("next");
+	    	});
+	    	$("input[name=currentPage]").bind("change",function(){
+	    		var totalPage=new Number($("input[name=totalPage]").val());
+	    		 
+	    		if($(this).val()>totalPage){
+	    			$(this).val(1);
+	    		}
+	    		 
+	    	});
+	    	$("input[name=pageSize]").bind("change",function(){
+	    			$("input[name=currentPage]").val(1);
+	    	});
+	    	$("input:checkbox").bind("click",function(){
+		    	var aid =$(this).val();
+		    	selectOne(aid);
+	    	});
+	    	init();
+}) ;
+ 
+
+function init(){
+	$("select[name=type]").val("${car.type}");
+	$("select[name=typename]").val("${car.typename}");
+	$("select[name=carstate]").val("${car.carstate}");
+	$("select[name=account]").val("${car.account}");
+	if("${car.vehicleidlockstate}"=="1"){
+		$("input[name=vehicleidlockstate]").attr("checked","true");
+	}
+	if("${car.gpsstate}"=="1"){
+		$("input[name=gpsstate]").attr("checked","true");
+	}
+	if("${car.nowork}"=="1"){
+		$("input[name=nowork]").attr("checked","true");
+	}
+	
+	
+}
+function selectOne(aid){
+	$("form input:checkbox").each(function(){
+			if($(this).val() !=aid){
+				$(this).removeAttr("checked");
+			}
+	});
+}
+function selectAll(){
+	var iSelect =$("input[name=selectAll]").attr("checked");
+	$("form input:checkbox").each(function(){
+		if(iSelect){
+			$(this).attr("checked",iSelect);
+		}else{
+			$(this).removeAttr("checked");
+		}
+	});
+}
+function clear(){
+		  $("input[name=sim]").val("");
+		  $("input[name=deviceid]").val("");
+		  $("input[name=vehicleid]").val("");
+		  $("input[name=ownername]").val("");
+		  $("input[name=vehicleidlockstate]").removeAttr("checked");
+		  $("input[name=gpsstate]").removeAttr("checked");
+		  $("input[name=nowork]").removeAttr("checked");
+}
+function query(type){
+					var currentPage=new Number($("input[name=currentPage]").val());
+					var totalPage =new Number($("input[name=totalPage]").val());
+ 					if(!type){
+						$("#queryform").submit();
+						return ;
+					}else if(type=="sprevious"){//首页
+					  if(currentPage>1){
+					    $("input[name=currentPage]").val(1);
+						$("#queryform").submit();
+						return ;
+					  }
+					}else if(type=="previous"){//上一页
+					   if(currentPage>1){
+					    currentPage=currentPage-1;
+					 	$("input[name=currentPage]").val(currentPage);
+						$("#queryform").submit();
+						return ;
+					   }
+					 	
+					}else if(type=="next"){//下一页
+						if(currentPage<totalPage){
+							currentPage=currentPage+1;
+							$("input[name=currentPage]").val(currentPage);
+							$("#queryform").submit();
+							return ;
+						}
+					}else if(type=="snext"){//末页
+						$("input[name=currentPage]").val(totalPage);
+						$("#queryform").submit();
+						return ;
+					}else if(type=="refresh"){//刷新
+						$("#queryform").submit();
+						return ;
+					}else{
+					
+					}
+					
+					
+}
+</script>
+	</head>
+	<body>
+		<div>
+			<form method="post" id="queryform" action="list.page">
+				<table cellspacing="0">
+					
+					<tr>
+						<td >
+							机械种类
+						</td>
+						<td class="right">
+							<select name="type" id="type">
+								<option value="">--请选择--</option>
+								<c:forEach var="dictionary" items="${list_jxzl}">
+								<option value="${dictionary.d_code }">${dictionary.d_value }</option>
+								</c:forEach>
+							</select>
+						</td>
+						<td >
+							机械类型
+						</td>
+						<td class="right">
+							<select name="typename" id="typename" >
+								<option value="">--请选择--</option>
+								<c:forEach var="dictionary" items="${list_jxlx}">
+								<option value="${dictionary.d_code }">${dictionary.d_value }</option>
+								</c:forEach>
+							</select>
+						</td>
+						<td >
+							车辆状态
+						</td>
+						<td class="right">
+							<select name="carstate" id="carstate">
+								<option value="">--请选择--</option>
+								<c:forEach var="dictionary" items="${list_clzt}">
+								<option value="${dictionary.d_code }">${dictionary.d_value }</option>
+								</c:forEach>
+							</select>
+						</td>
+						<td >
+							所属账号
+						</td>
+						<td class="right">
+							<select name="account" id="account">
+								<option value="">--请选择--</option>
+								<c:forEach var="account" items="${list_account}">
+								<option value="${account.name }">${account.name }</option>
+								</c:forEach>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td >
+							最终用户
+						</td>
+						<td class="right">
+							<input type="text" name="ownername" id="ownername" value="${car.ownername}"/>
+						</td>
+						<td >
+							车辆编号
+						</td>
+						<td class="right">
+							<input type="text" name="vehicleid" id="vehicleid" value="${car.vehicleid}"/>
+						</td>
+						<td >
+							设备编号
+						</td>
+						<td class="right">
+							<input type="text" name="deviceid" id="deviceid" value="${car.deviceid}"/>
+						</td>
+						<td >
+							SIM卡号
+						</td>
+						<td class="right">
+							<input type="text" name="sim" id="sim" value="${car.sim}"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="99" class="right">
+						    <span><input name="vehicleidlockstate" id="vehicleidlockstate" type="checkbox" value="1" />被锁定</span>
+							<span><input name="nowork" id="nowork" type="checkbox" value="1" />长时间不工作(10天未接收)</span>
+							<span><input name="gpsstate" id="gpsstate" type="checkbox" value="1" />定位异常(10天未定位)</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="99" class="left">
+							<a href="javascript:void(0)" onclick="" id="btn_search"><span class="toolbar_btn"><span class="toolbar_btn_ico toolbar_btn_search">查询</span></span></a>
+							<a href="javascript:void(0)" onclick="" id="btn_clear"><span class="toolbar_btn"><span class="toolbar_btn_ico toolbar_btn_clear">重置</span></span></a>
+						</td>
+					</tr>
+				</table>
+
+				<table  cellpadding="0">
+					<tr>
+						<td colspan="99">
+							<div id="div_list">
+								<table id="tab_list" cellspacing="0">
+									<tr>
+										<!--<th>
+										&nbsp;
+										</th>
+										--><th>
+											车辆编号
+										</th>
+										<th>
+											设备编号
+										</th>
+										<th>
+											SIM卡号
+										</th>
+										<th>
+											设备类型
+										</th>
+										<th>
+											接收时间
+										</th>
+										<th>
+											工作小时
+										</th>
+										<th>
+											位置
+										</th>
+										<th>
+											工作状态
+										</th>
+										<th>
+											 车辆状态
+										</th>
+										<th>
+											操作
+										</th>
+										<th title="机械报警">
+											M
+										</th>
+										<th title="终端报警">
+											G
+										</th>
+										<th title="被锁定">
+											L
+										</th>
+										<th title="定位异常">
+											P
+										</th>
+									</tr>
+									<c:forEach var="car" items="${list}" varStatus="xh">
+										<tr>
+											<!--<td>
+												${xh.count}
+											</td>
+											--><td>
+												<a href="<%=path%>/jsp/vechiclemanager/singlevehicle/SingleVehicle.page?deviceid=${car.deviceid }" target="_blank">${car.vehicleid }</a>
+											</td>
+											<td>
+											    ${car.deviceid }
+											</td>
+											<td>
+											    ${car.sim }
+											</td>
+											<td>
+											    ${car.typename }
+											</td>
+											<td>
+											    ${car.receivetime}
+											</td>
+											<td>
+												${car.worktime }
+											</td>
+											<td>
+												 ${car.locate }
+											</td>
+											<td>
+											<c:choose>
+											<c:when test="${car.carkey==null }"><img  src="<%=path%>/images/unknown.gif" /></c:when>
+											<c:when test="${car.carkey=='关闭'}"><img  src="<%=path%>/images/close.gif" /></c:when>
+											<c:otherwise><img  src="<%=path%>/images/ok.gif" /></c:otherwise>
+											</c:choose>
+											</td>
+											<td>
+												${car.carstatename }
+											</td>
+											<td>
+												 <c:if test="${car.carstate =='clzt01' }">
+												 	<a href="javascript:void(0)" onclick="upVehicle('${car.rid}','clzt02')">入库</a>
+												 </c:if>
+												<c:if test="${car.carstate =='clzt02' }">
+												 	<a href="javascript:void(0)" onclick="upVehicle('${car.rid}','clzt03')">销售</a>
+												 </c:if>
+												<a href="javascript:void(0)" onclick="goHistory('${car.deviceid}')">查询</a>
+												<c:if test="${car.carstate =='clzt03' }">
+												 	<a href="javascript:void(0)" onclick="openRefund('${car.rid}')">还款</a>
+													<a href="javascript:void(0)" onclick="openMaintain('${car.vehicleid}')">保养</a>
+												 </c:if>
+												 <a href="javascript:void(0)" onclick="dicateSend('${car.vehicleid}','${car.deviceid}','${car.sim}')">命令</a>
+												 <a href="javascript:void(0)" onclick="modify('${car.rid}')">修改</a>
+												 <a href="javascript:void(0)" onclick="removeVehicle('${car.rid}')">删除</a>
+											</td>
+											<td title="机械报警">
+											<c:choose>
+											<c:when test="${car.vehicleidstate=='1'}"><img src="<%=path%>/images/icon_warning.gif" alt="机械报警"/></c:when>
+											<c:otherwise>&nbsp;</c:otherwise>
+											</c:choose>
+												
+											</td>
+											<td title="终端报警">
+											<c:choose>
+											<c:when test="${car.deviceidstate=='1'}"><img src="<%=path%>/images/icon_warning.gif" alt="机械报警"/></c:when>
+											<c:otherwise>&nbsp;</c:otherwise>
+											</c:choose>
+												
+											</td>
+											<td title="被锁定">
+											<c:choose>
+											<c:when test="${car.vehicleidlockstate=='1'}"><img src="<%=path%>/images/icon_warning.gif" alt="机械报警"/></c:when>
+											<c:otherwise>&nbsp;</c:otherwise>
+											</c:choose>
+												
+											</td>
+											<td title="定位异常">
+											<c:choose>
+											<c:when test="${car.gpsstate=='1'}"><img src="<%=path%>/images/icon_warning.gif" alt="机械报警"/></c:when>
+											<c:otherwise>&nbsp;</c:otherwise>
+											</c:choose>
+											</td>
+										</tr>
+									</c:forEach>
+
+								</table>
+							</div>
+						</td>
+					</tr>
+					<tr>
+					 <td colspan="99" class="jpaginate">
+					    <input type="hidden"  name="totalPage" value="${totalPage}"/>
+						<a href="javascript:void(0)" id="sprevious"><img src="<%=path%>/images/sprevious.png" /></a>
+						<a href="javascript:void(0)" id="previous"><img src="<%=path%>/images/previous.png" /></a>
+						<span>第<input type="text"    name="currentPage" value="${currentPage}"/>页/${totalPage}页</span>
+						<a href="javascript:void(0)" id="next"><img src="<%=path%>/images/next.png" /></a>
+						<a href="javascript:void(0)" id="snext"><img src="<%=path%>/images/snext.png" /></a> 
+						<span>每页<input type="text"    name="pageSize" value="${pageSize}"/>条，共${total}条</span>
+						<a href="javascript:void(0)" id="refresh"><img src="<%=path%>/images/Refresh.gif"/></a> </td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+	<script type="text/javascript">
+	//入库与销售
+	function upVehicle(rid,carstate){
+			digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
+			var url ="<%=path%>/jsp/vechiclemanager/vehicle_storage_edit.jsp";
+			if($.trim(carstate)=='clzt02'){//入库
+				url ="<%=path%>/jsp/vechiclemanager/vehicle_storage_edit.jsp";
+			}else if($.trim(carstate)=='clzt03'){//销售
+				url ="<%=path%>/jsp/vechiclemanager/vehicle_sale_edit.jsp";
+			}
+			var params = window.showModalDialog(url,"",digStr)
+			//alert(ReturnValue);
+			if(params){
+				params = decodeURIComponent(params,true);
+				params = encodeURI(encodeURI(params));
+				//alert("upVehicle.page?rid="+rid+"&carstate="+carstate+"&"+params);
+				$("#queryform").attr("action","upVehicle.page?rid="+rid+"&carstate="+carstate+"&"+params);
+		    	$("#queryform").submit();
+			}
+	}
+	//删除功能
+	function removeVehicle(rid){
+	   if(confirm("是否确定删除")){
+	   	$("#queryform").attr("action","removeVehicle.page?rid="+rid);
+	    $("#queryform").submit();
+	   }
+		
+	}
+	//修改功能
+	function modify(rid){
+	   
+	   	$("#queryform").attr("action","modify.page?rid="+rid);
+	    $("#queryform").submit();
+	   
+		
+	}
+    //入库弹出框
+    function openTest(){
+	  digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
+	  var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_test_add.jsp","",digStr)
+	  alert(ReturnValue);
+	 }
+	 //销售弹出框
+    function openSale(){
+      digStr="dialogHeight:400px;dialogWidth:600px;center:yes"
+      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/saleinf_add.jsp","",digStr)
+     }
+     //还款弹出框
+    function openRefund(rid){
+      		digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
+      		var str = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_refunder_edit.jsp","",digStr)
+      		if(str){
+      			str="frid="+rid+"&"+str;
+	      		 $.ajax({
+						 url:"refunderVehicle.page",
+						 type:"POST",
+						 dataType:"json",
+						 data:str,
+						 success:function(data){
+						 	if(data.message=="0"){
+						 		alert("保存失败!");
+						 	}else{
+						 		alert("保存成功!");
+						 		window.location="list.page";
+						 	}
+						 }
+					 });
+			}
+     }
+     //保养弹出框
+    function openMaintain(vehicleid){
+      		digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
+      		var str = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_maintain_edit.jsp","",digStr)
+      		 
+			if(str){
+      			str="vehicleid="+vehicleid+"&"+str;
+      			str = decodeURIComponent(str,true);
+				str = encodeURI(encodeURI(str));
+	      		 $.ajax({
+						 url:"maintainVehicle.page",
+						 type:"POST",
+						 dataType:"json",
+						 data:str,
+						 success:function(data){
+						 	if(data.message=="0"){
+						 		alert("保存失败!");
+						 	}else{
+						 		alert("保存成功!");
+						 		window.location="list.page";
+						 	}
+						 }
+					 });
+			}
+     }
+     //指令下发弹出框
+    function dicateSend(vehicleid,deviceid,sim){
+    		digStr="dialogHeight:700px;dialogWidth:800px;center:yes";
+    		var urlstr="updicateSend.page?&vehicleid="+vehicleid+"&deviceid="+deviceid+"&sim="+sim;
+    		urlstr = decodeURIComponent(urlstr,true);
+			urlstr = encodeURI(encodeURI(urlstr));
+      		var str = window.showModalDialog(urlstr,"",digStr);
+      		if(str){
+	      		 $.ajax({
+						 url:"dicateSend.page",
+						 type:"POST",
+						 dataType:"json",
+						 data:str,
+						 success:function(data){
+						 	if(data.message=="0"){
+						 		alert("保存失败!");
+						 	}else{
+						 		alert("保存成功!");
+						 		window.location="list.page";
+						 	}
+						 }
+					 });
+			}
+      //digStr="dialogHeight:600px;dialogWidth:700px;center:yes"
+      //window.open("<%=path%>/jsp/vechiclemanager/dictate_send_edit.jsp");
+      //var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/cmd_down.jsp","",digStr)
+     }
+     //历史信息
+    function goHistory(deviceid){
+//       digStr="dialogHeight:600px;dialogWidth:700px;center:yes"
+      window.open("<%=path%>/jsp/vechiclemanager/VehicleSearchJsp.page?deviceid=" + deviceid);
+//       var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/singlevehicle/history_info.jsp","",digStr)
+     }
+	 //修改弹出框
+    function updVehicle(){
+      digStr="dialogHeight:300px;dialogWidth:600px;center:yes"
+      var ReturnValue = window.showModalDialog("<%=path%>/jsp/vechiclemanager/vehicle_edit.jsp","",digStr)
+     }
+</script>
+</body>
+</html>
+

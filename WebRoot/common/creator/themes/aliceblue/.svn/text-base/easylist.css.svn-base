@@ -1,0 +1,210 @@
+@charset "UTF-8";
+/******************************************************************************                                    
+									readme
+
+title: easylist
+
+Themes: aliceblue
+
+plugins: easylist
+
+Required by: maintemplate.jsp,listtemplate.jsp
+
+written by: jian.hou
+
+Date: 2012.3.21
+
+Update: 2012.6.7
+
+Copyright: 
+
+*******************************************************************************/
+
+/*-----------------------------------------------------------------------------
+                                  maintemplate 
+-----------------------------------------------------------------------------*/
+/*easylist的主容器*/
+.easylist_contanier {
+	margin: 10px;
+	padding: 10px;
+}
+
+/*easylist的封装保留*/
+.easylist_wrapper { 
+}
+
+/*easylist内容*/
+.easylist {
+	padding: 10px;
+	background-color: white;
+	border: 1px solid #99BBE8;  
+}
+
+/*easylist表单内容*/
+.easylist_form {
+	overflow: hidden;
+	*zoom: 1;
+}
+
+/*easylist查询条件UL*/
+.easylist_input_search {
+}
+
+/*easylist查询条件LABEL标签*/
+.easylist_input_label {
+  display: inline-block;
+  font-size: 12px;
+}
+
+/*easylist查询条件LI标签*/
+.easylist_input_list {
+  display: inline-block;
+  line-height: 26px;  
+  font-size: 12px;
+  margin-right: 10px;
+}
+
+.easylist_input_list {
+  *display: inline; /*修复IE6、IE7下的haslayout触发问题*/
+}
+
+/*easylist查询条件button UL*/
+.easylist_button_group {
+	float: right;	
+	clear: both;
+}
+
+/*easylist查询条件button LI*/
+.easylist_button {
+  display: inline-block;
+  text-align: center;
+  line-height: 26px;
+  padding-top: 10px;
+}
+
+/*easylist查询条件button LI*/
+.easylist_button {
+  *display: inline; /*修复IE6、IE7下的haslayout触发问题*/
+}
+
+/*easylist插入层*/
+.easylist_inset_layer {
+  padding: 4px 2px;
+}
+
+/*-----------------------------------------------------------------------------
+                                  listtemplate 
+-----------------------------------------------------------------------------*/
+
+/*查询结果表格封装*/
+.easylist_table_wrapper {
+  position: relative;
+	border: 1px solid #8DB2E3;
+	overflow: hidden;
+}
+
+/*查询结果表标题*/
+.easylist_table_title {
+  background: transparent url(images/datagrid_title_bg.png) repeat-x top;
+  line-height: 25px;
+  border-bottom: 1px solid #99BBE8;
+}
+
+.easylist_table_title h3 {
+  color: #15428B;
+  font-size: 14px;
+  font-weight: bold;
+  text-indent: 8px;
+}
+
+/*查询结果表单*/
+.easylist_form {
+}
+
+/*easylist表头和表body整体滚动容器*/
+.easylist_table_view {
+}
+
+/*查询结果*/
+.easylist_result {
+
+}
+
+/*表格内容表头*/
+.easylist_table_header {
+	position: relative;
+	height: 32px;
+	overflow: hidden;
+	background: none; /*表头背景*/
+}
+
+.easylist_table_header table {
+	position: absolute;
+	background: #EBF3FD; /*表头背景*/
+}
+
+.easylist_table_header th {
+	font-size: 12px;  
+	line-height: 22px;
+	height: 22px;
+	border-right: 1px dotted #AAA;
+	border-bottom: 1px solid #B6C5D9;
+	border-top: 1px solid white;
+	padding: 3px;		  
+	cursor: default; 
+}
+
+/*序号样式*/
+.easylist_table_body td.td_header, .easylist_table_header th.th_header {
+	background-color: #EBF3FD;
+	border-right: 1px solid #B6C5D9; 
+	border-left: 1px solid white;
+	text-align: center;
+}
+
+/*表头单元格hover*/
+.easylist_table_header th:hover {
+	background-color: #EBF3FD;
+}
+
+/*表头单元格active*/
+.easylist_table_header th:active {
+	background-color: #DDEAFA; 
+}
+
+/*表格内容表内容*/
+.easylist_table_body {
+  width: 100%; /*修改IE6 overflow:auto bug*/
+  overflow: auto;
+  height:290px;
+}
+
+/*固定列宽*/
+.easylist_table_body table {
+	table-layout: fixed;
+}
+
+.easylist_table_body td {
+	font-size: 12px;
+	border-right: 1px dotted #AAA; 
+	line-height: 20px;
+	height: 20px;
+	border-bottom: 1px dotted #AAA;
+	padding: 3px;	
+	overflow: hidden;
+	white-space: nowrap;
+	*white-space: pre;
+	word-break: keep-all;	
+}
+
+.easylist_table_footer {
+	font-size: 12px;
+	background-color: #EFEFEF;
+	border-top: 1px solid #BBB;
+	line-height: 25px;
+	padding: 0 8px;
+}
+
+/*-----------------------------------------------------------------------------
+                                  childtemplate 
+-----------------------------------------------------------------------------*/

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/gps/!svn/ver/794/gps/WebRoot/jsp/alarm
+END
+gps_alarm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/gps/!svn/ver/800/gps/WebRoot/jsp/alarm/gps_alarm.jsp
+END
+sell_alarm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/gps/!svn/ver/808/gps/WebRoot/jsp/alarm/sell_alarm.jsp
+END
+service_alarm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gps/!svn/ver/794/gps/WebRoot/jsp/alarm/service_alarm.jsp
+END
+machine_alarm.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/gps/!svn/ver/800/gps/WebRoot/jsp/alarm/machine_alarm.jsp
+END

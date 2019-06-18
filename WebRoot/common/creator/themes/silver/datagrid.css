@@ -1,0 +1,389 @@
+@charset "UTF-8";
+/*                                    
+-------------------------------------------------------------------						
+Title: datagrid.css
+Themes: aliceblue
+plugins: 
+Required by: demo_datagrid_*.html, jquery.ui.datagrid.js
+Written by: jian.hou
+Date: 25th July 2012
+Update: 25th October 2012
+Copyright: 
+-------------------------------------------------------------------	
+*/
+
+/* ================================================================ 
+								datagrid
+   ================================================================ */
+/*datagrid窗格*/
+.datagrid_pane {
+	position: relative;
+	border: 1px solid #ADAFB3;
+	overflow: hidden;
+	background-color: white;
+	_zoom: 1; /*修复滚动条滚动时触发的relative bug*/
+	color: #333;
+}
+
+/*datagrid表头单元格*/
+.datagrid_pane th {
+	padding: 0 3px;		  
+	font-size: 12px; 
+	line-height: 22px;
+	height: 24px;
+	text-align: center;
+	border-right: 1px dotted #888;
+	border-bottom: 1px dotted #888;
+	cursor: default;
+}
+
+/*datagrid 表格内容单元格*/
+.datagrid_pane td {
+	font-size: 12px;
+	line-height: 22px;
+	height: 24px;
+	border-right: 1px dotted #888;  
+	border-bottom: 1px dotted #888;
+	padding: 0 3px;
+	cursor: default;
+}
+
+.datagrid_content td:last-child , .datagrid_content th:last-child  {
+	border-right: none;
+}
+
+/*清除input的空白和边距*/
+.datagrid_pane input {
+	padding: 0;
+	margin: 0;
+}
+
+/*固定列头*/
+.datagrid_header {
+	position: absolute;
+}
+
+/*固定列头td单元格居中*/
+.datagrid_header td {
+	text-align: center;
+}
+
+/*固定列头的表头*/
+.datagrid_header_header {
+	background-color: #E4E9F2; /*表头背景*/	
+	border-top: 1px solid white;
+	/*background: -webkit-linear-gradient(top, #E3E4E5, #DFE1E5); CSS3*/
+	/*background: -moz-linear-gradient(top, #E3E4E5, #DFE1E5); CSS3*/
+}
+
+/*固定列头的表体，对应的scroll偏移量*/
+.datagrid_header_body {
+	overflow: hidden;
+}
+
+/*固定列头的表体，scroll滚动层*/
+.datagrid_header_body_view {
+	/*预留*/
+}
+
+/*固定列头的表脚*/
+.datagrid_header_footer {
+	border-top: 1px solid #BBB;
+}
+
+/*表格内容*/
+.datagrid_content {
+	position: absolute;
+	overflow: hidden;
+}
+
+/*表格内容表头，对应的scroll偏移量*/
+.datagrid_content_header {
+	overflow: hidden;
+	background-color: #E4E9F2; /*表头背景*/ 
+	border-top: 1px solid white;
+	/*background: -webkit-linear-gradient(top, #E3E4E5, #DFE1E5); CSS3*/
+	/*background: -moz-linear-gradient(top, #E3E4E5, #DFE1E5); CSS3*/
+}
+
+/*表格内容表头的容器，scroll滚动层*/
+.datagrid_content_header_view {
+	/*预留*/
+}
+
+/*表格内容主体，横向滚动条*/
+.datagrid_content_body {
+	_width: 100%; /*修复IE6下的overflow：auto滚动不出现的bug*/
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+/*表格内容的容器*/
+.datagrid_content_view {
+	/*预留*/
+}
+
+/*表格内容主数据表,纵向滚动条*/
+.datagrid_content_view_cell {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+/*表格内容的合计或者统计*/
+.datagrid_content_view_total {
+	border-top: 1px solid #BBB;
+}
+
+/*表脚*/
+.datagrid_footer {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 12px;
+	background-color: #F0F2F5;
+	border-top: 1px solid #BBB;
+	line-height: 25px;
+	height: 25px;;
+}
+
+/*移除页签的表格边线*/
+.datagrid_footer td {
+	border: none;
+	line-height: 25px;
+	height: 25px;
+	padding: 0 1px;
+	margin: 0;
+}
+
+/* ================================================================ 
+							pagination
+   ================================================================ */
+
+/*页码所有链接*/
+.pagination a {
+  display: inline-block;
+  width: 25px;
+  height: 21px;
+  border: 1px solid #F0F2F5;
+}
+
+/*页码所有链接hover*/
+.pagination a:hover {
+  border: 1px solid #7EABCD;
+}
+
+.pagination_text a {	
+	line-height: 21px;
+	width: auto;
+	border: none;
+	color: #333;
+	text-decoration: none;
+}
+
+.pagination_text a:hover {
+	border: none;
+	color: #3193F5;
+}
+
+/*页码返回第一页内容*/
+.pagination_first, .pagination_prev, .pagination_next, .pagination_last {
+  width: 25px;
+}
+
+.pagination_first a {
+  background: transparent url(images/pagination_first.gif) no-repeat center;/*返回第一页按钮背景*/
+}
+
+/*页码上一页内容*/
+.pagination_ico_prev {
+	text-align: left;
+}
+
+/*页码下一页内容*/
+.pagination_ico_next {
+	text-align: right;
+}
+
+
+.pagination_prev a {
+	background: transparent url(images/pagination_prev.gif) no-repeat center;/*返回上一页按钮背景*/
+}
+
+.pagination_ico_prev a, .pagination_ico_next a {
+	line-height: 21px;
+	width: auto;
+	border: none;
+	color: #333;
+	text-decoration: none;
+}
+
+.pagination_ico_prev a {
+	padding-left: 16px;
+	background: transparent url(images/pagination_prev.gif) no-repeat left;/*返回上一页按钮背景*/
+}
+
+.pagination_ico_prev a:hover, .pagination_ico_next a:hover {
+	border: none;
+	opacity: .6;
+	filter: alpha(opacity=60);
+	color: #3193F5;
+}
+
+.pagination_ico_next a {
+	background: transparent url(images/pagination_next.gif) no-repeat right;/*返回下一页按钮背景*/
+	padding-right: 16px;
+}
+
+.pagination_next a {
+  background: transparent url(images/pagination_next.gif) no-repeat center;/*返回下一页按钮背景*/
+}
+
+/*页码最后一页内容*/
+ {
+}
+.pagination_last a {
+  background: transparent url(images/pagination_last.gif) no-repeat center;/*返回最后一页按钮背景*/
+}
+
+/*页码刷新内容*/
+.pagination_load {
+}
+
+.pagination_load a {
+  background: transparent url(images/pagination_load.png) no-repeat center;/*刷新按钮背景*/
+}
+
+/*页码数据信息内容*/
+.pagination_num {
+  text-align: right;
+}
+
+/*页面分隔符号*/
+.pagination_separator {
+  border-left: 1px solid #BBB;
+  border-right: 1px solid white;
+  float: left;
+  height: 21px;
+}
+ 
+/*页码信息*/
+.pagination-info {
+  float: right;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* ================================================================ 
+						javascript reference
+   ================================================================ */
+/*封装单元内容div，内容控制*/
+div.table_datagrid {
+	overflow: hidden;
+	/*position: relative;确定表格操作按钮时使用*/
+	text-overflow: ellipsis; /*css3*/
+	white-space: nowrap; /*不换行*/		  
+	word-break:keep-all; /*不换行*//*css3*/	
+	
+}
+
+/*datagrid表头单元格 hover*/
+.datagrid_th_hover {
+	background-color: #DAE2F2;
+}
+
+/*
+.datagrid_th_hover {
+	filter:progid:DXImageTransform.Microsoft.Gradient(startColorStr=#E6ECF8,endColorStr=#D2DAEB);
+	background:-webkit-linear-gradient(top, #E6ECF8, #D2DAEB);
+	background:-moz-linear-gradient(top, #E6ECF8, #D2DAEB);
+	background: url(images/daatagrid_th.gif) repeat-x top;
+}
+*/
+.datagrid_manipulate {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 15px;
+	height: 24px;
+	border: none;
+	background: none;
+	z-index: 1;
+}
+
+.datagrid_th_hover span.sort {
+	background: url(images/datagrid_sort.gif) no-repeat;
+}
+
+
+.datagrid_th_hover .datagrid_manipulate {
+	background: url(images/datagrid_manipulate.gif) no-repeat -15px top;		
+}
+
+.datagrid_manipulate:hover {	
+	background: url(images/datagrid_manipulate.gif) no-repeat;	
+}
+
+/*行背景色*/
+.row_bgcolor {
+	background-color: #EDF2FA;	
+}
+
+/*hover 背景色*/
+.hover {
+	background-color: #D0D2D6;
+}  
+
+/*行:hover*/
+.rows_hover {
+	background-color: #E6F3FA;
+}
+/*行焦距*/
+.row_focus {
+	background-color: #E6F3FA;
+}
+
+/*选中行背景色*/
+.row_selected {
+	background-color: #FAFAE1;
+}	
+
+/*行号*/
+.row_number {
+	/*border-left: 1px solid white;*/
+	background-color: #E4E9F2;
+	/*background: -webkit-linear-gradient(top, #E3E4E5, #DFE1E5); CSS3*/
+	/*background: -moz-linear-gradient(top, #E3E4E5, #DFE1E5); CSS3*/
+}
+/*排序图标，sort占位宽度class*/
+span.sort, span.asc, span.desc {
+	display: inline-block;   
+	width: 13px;
+	height: 10px;		
+	background: url(images/datagrid_sort.gif) no-repeat -13px top\9;
+}
+
+span.sort, span.asc, span.desc {
+	*display: inline;
+/*	display: inline\9;*/
+}
+
+/*IE7箭头位置
+*+html span.asc, *+html span.desc {
+	height: 14px;
+}*/
+
+/*顺序背景*/
+.datagrid_pane span.asc {
+	background: url(images/datagrid_sort_asc.gif) no-repeat center right;
+}
+
+/*倒序背景*/
+.datagrid_pane span.desc {	
+	background: url(images/datagrid_sort_desc.gif) no-repeat center right;	
+}
+
+/*分组属性定义*/
+td[datagrid-group] {
+	background-color: #EDF2FA;
+	border-right: none;
+}
